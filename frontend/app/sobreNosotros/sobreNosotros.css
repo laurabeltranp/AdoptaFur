@@ -1,0 +1,11 @@
+.seccion1 {
+    margin-top: 80px; 
+  }
+
+  .elementor-icon-list-icon {
+    cursor: pointer;
+  }
+  
+  .elementor-icon-list-icon:hover {
+    color: green; /* Cambia el color al pasar el ratón por encima */
+  }

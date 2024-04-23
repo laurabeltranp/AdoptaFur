@@ -1,0 +1,29 @@
+/* Seccion 1*/
+.img-circular {
+    border-radius: 50%;
+    overflow: hidden;
+    max-width: 200px; /* Ancho máximo para las imágenes */
+    height: auto; /* Altura automática para mantener la proporción */
+  }
+  .seccion5 {
+    margin-top: 80px; 
+  }
+  /* Estilo para la barra lateral */
+  .barra {
+   
+    height: 100px; /* Altura de la barra */
+    width: 10px; /* Ancho de la barra */
+  }
+.accordion-button:hover {
+    background-color: #f8f9fa;
+}
+.accordion-button{
+    background-color: #86d48bff;
+}
+
+.accordion-body {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 20px; /* Aumenta el padding vertical para hacerlo más largo */
+    margin-bottom: 20px; /* Añade margen inferior para separar los acordeones */
+}
