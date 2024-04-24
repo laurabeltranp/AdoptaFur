@@ -1,3 +1,4 @@
+
 /* seccion1*/
 .seccion1 {
   margin-top: 80px !important;
@@ -60,41 +61,11 @@
   height: auto;
   vertical-align: middle;
 }
-
 /* Seccion 3*/
-.carousel-control-prev,
-.carousel-control-next {
-  display: none;
+.seccion3 {
+  background-color: #58d55c54;
 }
 
-.card {
-  max-width: 300px;
-  margin: auto;
-  margin-bottom: 20px;
-}
-
-.card-img-top {
-  max-width: 100%;
-  height: auto;
-}
-
-.carousel-indicators {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.indicator {
-  width: 20px;
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: inline-block;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.indicator.active {
-  background-color: #000;
-}
 
 /* Seccion 4*/
 .card-box {

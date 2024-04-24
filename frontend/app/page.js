@@ -1,9 +1,10 @@
+'use client'
+import CustomCarrusel from "@/components/carousel/carousel";
 import "./page.module.css";
 import Image from "next/image";
 
-
-
 export default function Home() {
+
   return (
     <main>
       <section className="seccion1 ">
@@ -146,6 +147,7 @@ export default function Home() {
               <stop offset="100%" style={{ 'topColor': 'rgb(177,215,182)', 'stopOpacity': '1' }} />
             </linearGradient>
           </defs>
+          <path className="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" fill="url(#grad1)"></path>
           <path className="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" fill="url(#grad2)"></path>
         </svg>
         <div className="container">
@@ -195,83 +197,21 @@ export default function Home() {
           <path className="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" fill="url(#grad1)"></path>
           <path className="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" fill="url(#grad2)"></path>
         </svg>
-        <div className="container mb-5">
+        <div className="container pb-5">
           <div className="row">
             <div className="col-md-12 text-center">
               <h2 className="centered-text">Animales adoptados</h2>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <div className="row">
-                      <div className="col">
-                        <div className="card">
-                          <Image
-                            src="/perrodestacado1.jpeg"
-                            width={300}
-                            height={242}
-                            alt="Compañero disponible"
-                            className="card-img-top img-fluid"
-                          />
-                          <div className="card-body2">
-                            <h5 className="card-title">Farruko</h5>
-                            <p className="card-text">Descripción de Farruko.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <div className="row">
-                      <div className="col">
-                        <div className="card">
-                          <Image
-                            src="/perrodestacado1.jpeg"
-                            width={300}
-                            height={242}
-                            alt="Compañero disponible"
-                            className="card-img-top img-fluid"
-                          />
-                          <div className="card-body2">
-                            <h5 className="card-title">Cuquita</h5>
-                            <p className="card-text">Descripción de Cuquita.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <div className="row">
-                      <div className="col">
-                        <div className="card">
-                          <Image
-                            src="/perrodestacado1.jpeg"
-                            width={300}
-                            height={242}
-                            alt="Compañero disponible"
-                            className="card-img-top img-fluid"
-                          />
-                          <div className="card-body2">
-                            <h5 className="card-title">Juanan</h5>
-                            <p className="card-text">Descripción de Juanan.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <CustomCarrusel className="col-md-1 text-center"></CustomCarrusel>
           </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-          <path className="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" fill="url(#grad1)"></path>
-        </svg>
       </section>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+          <path className="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" fill="url(#grad1)"></path>
+          <path className="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" fill="url(#grad2)"></path>
+        </svg>
       <section className="seccion4 mt-5 mb-5">
+
         <div className="container">
           <div className="row">
             <div className="col-md-6">

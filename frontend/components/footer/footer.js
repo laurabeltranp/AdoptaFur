@@ -7,9 +7,8 @@ export const Footer = () => {
         <footer className="bg-dark text-light py-4">
             <div className="container">
                 <div className="row align-items-center">
-
                     <div className="col-md-3">
-                        <Image src="/logoAdoptaFondoBlanco.png" className="logo logo-small" alt="Logo" />
+                        <Image src="/logoAdoptaFondoBlanco.png" width={100} height={78} className="logo-small" alt="Logo" />
                         <p className="text-light">Adopta a tu compañero de vida</p>
                     </div>
                     <div className="col-md-3">

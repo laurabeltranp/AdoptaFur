@@ -7,7 +7,7 @@ export const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
       <a className="navbar-brand" href="/">
-        <Image src="/logoAdoptaFondoBlanco.png" className="logo-small" alt="Logo" />
+        <Image src="/logoAdoptaFondoBlanco.png" width={100} height={78} className="logo-small" alt="Logo" />
       </a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
