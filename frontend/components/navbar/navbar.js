@@ -1,7 +1,11 @@
+'use client'
 import React from 'react'
 import './navbar.css'
 import Link from 'next/link';
 import Image from "next/image";
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 export const NavBar = () => {
   return (
@@ -9,6 +13,7 @@ export const NavBar = () => {
       <a className="navbar-brand" href="/">
         <Image src="/logoAdoptaFondoBlanco.png" width={100} height={78} className="logo-small" alt="Logo" />
       </a>
+
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -17,16 +22,13 @@ export const NavBar = () => {
           <li className="nav-item active">
             <Link className="nav-link" href="/">Inicio</Link>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownAnimales" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Adoptar
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownAnimales">
-              <Link className="nav-link" href="/comoAdoptar">¿Cómo adoptar?</Link>
-              <Link className="nav-link" href="/disponibles">Compañeros disponibles</Link>
-              <Link className="nav-link" href="/adoptados">Historias felices</Link>
-            </div>
-          </li>
+          <NavDropdown title="Adoptar" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/comoAdoptar">¿Como adoptar?</NavDropdown.Item>
+            <NavDropdown.Item href="/mascotas">
+              Compañeros disponibles
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/historiasFelices">Historias felices</NavDropdown.Item>
+          </NavDropdown>
           <li className="nav-item">
             <Link className="nav-link" href="/sobreNosotros">Sobre Nosotros</Link>
           </li>
