@@ -15,7 +15,6 @@ export const cardlist = () => {
                 <Card></Card>
                 <Card></Card>
                 <Card></Card>
-
             </div>
         </div>
     )

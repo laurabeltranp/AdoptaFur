@@ -138,12 +138,12 @@ export default function Home() {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ 'stop-color': 'rgb(88,213,92)', 'stop-opacity': '0' }} />
-              <stop offset="100%" style={{ 'stop-color': 'rgb(88,213,92)', 'stop-opacity': '1' }} />
+              <stop offset="0%" style={{ 'stopColor': 'rgb(88,213,92)', 'stopOpacity': '0' }} />
+              <stop offset="100%" style={{ 'stopColor': 'rgb(88,213,92)', 'stopOpacity': '1' }} />
             </linearGradient>
             <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ 'stop-color': ' rgb(255,255,255)', 'stop-opacity': '0' }} />
-              <stop offset="100%" style={{ 'top-color': 'rgb(177,215,182)', 'stop-opacity': '1' }} />
+              <stop offset="0%" style={{ 'stopColor': ' rgb(255,255,255)', 'stopOpacity': '0' }} />
+              <stop offset="100%" style={{ 'topColor': 'rgb(177,215,182)', 'stopOpacity': '1' }} />
             </linearGradient>
           </defs>
           <path className="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" fill="url(#grad2)"></path>
@@ -184,18 +184,18 @@ export default function Home() {
           </div>
           <div className="row mt-5">
             <div className="col-md-12 text-center">
-              <a href="/comoAdoptar" class="btn btn-primary btn-lg" tabindex="-1" role="button">Más información</a>
+              <a href="/comoAdoptar" className="btn btn-primary btn-lg" tabIndex="-1" role="button">Más información</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="seccion3 mt-5 mb-4">
+      <section className="seccion3 mt-5">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
           <path className="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" fill="url(#grad1)"></path>
           <path className="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" fill="url(#grad2)"></path>
         </svg>
-        <div className="container">
+        <div className="container mb-5">
           <div className="row">
             <div className="col-md-12 text-center">
               <h2 className="centered-text">Animales adoptados</h2>
@@ -264,15 +264,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="row mt-5">
-            <div className="col-md-12">
-              <ol className="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" className="indicator active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1" className="indicator"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2" className="indicator"></li>
-              </ol>
             </div>
           </div>
         </div>
