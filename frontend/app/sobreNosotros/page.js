@@ -66,7 +66,8 @@ export default function SobreNosotros() {
             </li>
           </ul>
         </div>
-      </section><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      </section>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
         <defs>
           <linearGradient id="grad1" x1="100%" y1="0%" x2="0%" y2="0%">
             <stop offset="0%" style={{ 'stopColor': 'rgb(88,213,92)', 'stopOpacity': '0' }} />

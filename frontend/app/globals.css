@@ -1,0 +1,119 @@
+/* seccion1*/
+.seccion1 {
+  margin-top: 80px !important;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.nombre-animal {
+  color: #fff;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.nombre-animal:hover,
+.nombre-animal:focus {
+  text-decoration: none;
+}
+
+.tarjeta-background {
+  background-color: #A9D3AF !important;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.card-body:hover {
+  background-color: #556357;
+}
+
+/* Seccion 2*/
+
+.btn-primary {
+  background-color: #F99D20;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+}
+
+.btn-primary:hover {
+  background-color: #A9D3AF;
+}
+
+.icono-paso svg {
+  width: 50px;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Seccion 3*/
+.carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}
+
+.card {
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+}
+
+.carousel-indicators {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.indicator {
+  width: 20px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #000;
+}
+
+/* Seccion 4*/
+.card-box {
+  background-color: #f0f0f0;
+  /* Color de fondo */
+  border-radius: 15px;
+  /* Esquinas redondeadas */
+  padding: 20px;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.form-box {
+  background-color: #e9ecef;
+  /* Color de fondo */
+  border-radius: 15px;
+  /* Esquinas redondeadas */
+  padding: 20px;
+}

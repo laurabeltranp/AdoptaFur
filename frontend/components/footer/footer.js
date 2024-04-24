@@ -3,7 +3,7 @@ import './footer.css'
 
 export const Footer = () => {
     return (
-        <footer className="bg-dark text-light py-4 mt-5">
+        <footer className="bg-dark text-light py-4">
             <div className="container">
                 <div className="row align-items-center">
 
