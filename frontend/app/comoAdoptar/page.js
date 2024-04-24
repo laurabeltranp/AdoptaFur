@@ -1,5 +1,6 @@
 import React from 'react';
 import "./comoAdoptar.css"
+import Image from "next/image";
 
 export default function comoAdoptar() {
   return (
@@ -23,21 +24,21 @@ export default function comoAdoptar() {
 
           <div className="row mt-4">
             <div className="col-md-6">
-              <img src="/IMG/comoAdoptar/perro6.jpg" alt="Perro" className="img-fluid img-circular" />
+              <Image src="/IMG/comoAdoptar/perro6.jpg" alt="Perro" className="img-fluid img-circular" />
               <p className="texto">Piensa en que un perro puede vivir entre 12 y 17 años aprox.</p>
             </div>
             <div className="col-md-6">
-              <img src="/IMG/comoAdoptar/perroygato.jpg" alt="Animal" className="img-fluid img-circular" />
+            <Image src="/IMG/comoAdoptar/perroygato.jpg" alt="Animal" className="img-fluid img-circular" />
               <p className="texto">Un animal es un ser vivo con unas necesidades fisiológicas y emocionales, no es un juguete para un niño, los niños no tienen la suficiente responsabilidad para hacerse cargo de los cuidados que requiere un animal, así que no te plantees adoptar un animal como regalo para un niño, porque estarás sentando las bases de un fracaso.</p>
             </div>
           </div>
           <div className="row mt-4">
             <div className="col-md-6">
-              <img src="/IMG/comoAdoptar/cachorros.jpg" alt="Cachorro" className="img-fluid img-circular" />
+            <Image src="/IMG/comoAdoptar/cachorros.jpg" alt="Cachorro" className="img-fluid img-circular" />
               <p className="texto">Si lo que quieres adoptar es un cachorro o un animal joven, piensa que durante su proceso de crecimiento probablemente surgirán situaciones difíciles, romperá cosas, ensuciará, llorará si está sólo o por las noches etc., y que esto es un proceso natural que irá remitiendo en base a la maduración del animal y a la educación que seas capaz de proporcionarle, y que en ocasiones es posible que debas acudir a la ayuda y consejo de profesionales cualificados para resolver.</p>
             </div>
             <div className="col-md-6">
-              <img src="/IMG/comoAdoptar/perrocasa.jpg" alt="Vivienda" className="img-fluid img-circular" />
+            <Image src="/IMG/comoAdoptar/perrocasa.jpg" alt="Vivienda" className="img-fluid img-circular" />
               <p className="texto">¿Te has asegurado de que tu vivienda te permite alojar animales? Si vives en alquiler consulta previamente con el propietario y obtén una autorización por escrito si es necesario. Si vives en propiedad ten en cuenta que todo animal en ciertos casos puede causar molestias a los vecinos. El mantenimiento de un animal supone unos gastos que pueden ser muy variables en función de la especie.</p>
             </div>
           </div>

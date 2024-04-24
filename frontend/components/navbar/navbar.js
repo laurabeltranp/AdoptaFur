@@ -1,12 +1,13 @@
 import React from 'react'
 import './navbar.css'
 import Link from 'next/link';
+import Image from "next/image";
 
 export const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
       <a className="navbar-brand" href="/">
-        <img src="/logoAdoptaFondoBlanco.png" className="logo-small" alt="Logo" />
+        <Image src="/logoAdoptaFondoBlanco.png" className="logo-small" alt="Logo" />
       </a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

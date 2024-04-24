@@ -288,15 +288,15 @@ export default function Home() {
                 <h2 className="centered-text mb-4">¿Quieres contactar con nosotros?</h2>
                 <form>
                   <div className="form-group">
-                    <label for="nombre">Nombre:</label>
+                    <label htmlFor="nombre">Nombre:</label>
                     <input type="text" className="form-control" id="nombre" />
                   </div>
                   <div className="form-group">
-                    <label for="email">Correo electrónico:</label>
+                    <label htmlFor="email">Correo electrónico:</label>
                     <input type="email" className="form-control" id="email" />
                   </div>
                   <div className="form-group">
-                    <label for="mensaje">Mensaje:</label>
+                    <label htmlFor="mensaje">Mensaje:</label>
                     <textarea className="form-control" id="mensaje" rows="5"></textarea>
                   </div>
                   <div className="centered-text">

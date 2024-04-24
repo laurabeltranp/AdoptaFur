@@ -1,5 +1,7 @@
 import React from 'react';
 import "./sobreNosotros.css";
+import Image from "next/image";
+
 
 
 export default function SobreNosotros() {
@@ -23,7 +25,7 @@ export default function SobreNosotros() {
               <p>Nuestra causa es la misma que la de todas las protectoras: rescatar animales y ofrecerles un futuro mejor.</p>
             </div>
             <div className="col-md-4">
-              <img src="team.jpg" alt="Equipo" className="img-fluid rounded" />
+              <Image src="team.jpg" alt="Equipo" className="img-fluid rounded" />
             </div>
           </div>
         </div>

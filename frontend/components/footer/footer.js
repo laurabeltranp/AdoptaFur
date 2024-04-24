@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer.css'
+import Image from "next/image";
 
 export const Footer = () => {
     return (
@@ -8,7 +9,7 @@ export const Footer = () => {
                 <div className="row align-items-center">
 
                     <div className="col-md-3">
-                        <img src="/logoAdoptaFondoBlanco.png" className="logo logo-small" alt="Logo" />
+                        <Image src="/logoAdoptaFondoBlanco.png" className="logo logo-small" alt="Logo" />
                         <p className="text-light">Adopta a tu compañero de vida</p>
                     </div>
                     <div className="col-md-3">
