@@ -1,21 +1,17 @@
 import React from 'react'
 import { Card } from '../card/card'
 
-export const cardlist = () => {
+export const Cardlist = ({mascotas}) => {
+
     return (
         <div className="container tarjetas-containerseccion1">
-            <div className="row mt-5">
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-            </div>
-            <div className="row mt-5">
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-            </div>
+            {mascotas.map((mascota) => {
+                return(
+                    <div className="row mt-5">
+                    <Card key={mascota.idMascota} mascota={mascota} />
+                    </div>)
+            })}
         </div>
-    )
+    );
 }
+export default Cardlist;
