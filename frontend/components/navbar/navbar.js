@@ -34,7 +34,9 @@ export const NavBar = () => {
           </Nav>
           <Nav className="mx-5">
             <Form>
-              <Button type="submit" variant="success">Acceso</Button>
+            <Button href="/acceso" variant="success">Acceso</Button>
+            <Button href="/registro" variant="primary">Register</Button>
+
             </Form>
           </Nav>
         </Navbar.Collapse>
