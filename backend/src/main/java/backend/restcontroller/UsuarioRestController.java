@@ -13,10 +13,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -98,9 +100,9 @@ public class UsuarioRestController {
         String jwt = jwtUtils.generateJwtToken(authentication);
 
         UsuarioDetailsImpl usuarioDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
-        Rol rol = (Rol) usuarioDetails.getAuthorities();
+        Rol rol =  usuarioDetails.getRol();
 
-        return ResponseEntity.ok(new JwtRespuestaDto(jwt, usuarioDetails.getEmail(), usuarioDetails.getNombre(), RolDto.from(rol)));
+        return ResponseEntity.ok(new JwtRespuestaDto(jwt, usuarioDetails.getUsername(), usuarioDetails.getNombre(), RolDto.from(rol)));
     }
 
 }

@@ -1,8 +1,11 @@
 package backend.service;
 
+import backend.entity.Rol;
 import backend.entity.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,39 +13,36 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-
-
-@Data
+@EqualsAndHashCode
 public class UsuarioDetailsImpl implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
-	private String type = "Bearer";
     private String email;
-    @JsonIgnore
     private String password;
+    @Getter
     private String nombre;
-    private Collection<? extends GrantedAuthority> authorities;
+    @Getter
+    private Rol rol;
 
     public UsuarioDetailsImpl(String email, String password, String nombre,
-                              Collection<? extends GrantedAuthority> authorities) {
+                              Rol rol) {
         this.nombre = nombre;
         this.email = email;
         this.password = password;
-        this.authorities = authorities;
+        this.rol = rol;
     }
 
     public static UsuarioDetailsImpl build(Usuario usuario) {
-        List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(usuario.getRol().getNombre()));
         return new UsuarioDetailsImpl(
                 usuario.getEmail(),
-                usuario.getNombre(),
                 usuario.getPassword(),
-                authorities);
+                usuario.getNombre(),
+                usuario.getRol());
     }
 
-@Override
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return (Collection<? extends GrantedAuthority>) authorities;
+    return List.of(new SimpleGrantedAuthority(rol.getNombre()));
     }
 
     @Override
@@ -52,7 +52,7 @@ public class UsuarioDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return "";
+        return email;
     }
 
     @Override
