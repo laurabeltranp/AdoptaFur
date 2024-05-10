@@ -9,4 +9,5 @@ public class JwtRespuestaDto {
     private String email;
     private String nombre;
     private RolDto rolDto;
+    private Long tokenExpiration;
 }

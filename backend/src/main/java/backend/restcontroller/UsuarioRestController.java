@@ -18,7 +18,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Optional;
 
 @RestController
@@ -90,6 +93,7 @@ public class UsuarioRestController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> autenticandoLogin(@RequestBody PeticionDeLoginDto peticionDeLoginDto) {
 
@@ -100,9 +104,14 @@ public class UsuarioRestController {
         String jwt = jwtUtils.generateJwtToken(authentication);
 
         UsuarioDetailsImpl usuarioDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
-        Rol rol =  usuarioDetails.getRol();
+        Rol rol = usuarioDetails.getRol();
 
-        return ResponseEntity.ok(new JwtRespuestaDto(jwt, usuarioDetails.getUsername(), usuarioDetails.getNombre(), RolDto.from(rol)));
+        // Obtener la fecha de vencimiento del token
+        Date expirationDate = jwtUtils.getExpirationDateFromJwtToken(jwt);
+        long expirationSeconds = expirationDate.getTime() / 1000;
+
+        JwtRespuestaDto jwtRespuestaDto = new JwtRespuestaDto(jwt, usuarioDetails.getUsername(), usuarioDetails.getNombre(), RolDto.from(rol), expirationSeconds);
+        return ResponseEntity.ok(jwtRespuestaDto);
     }
 
 }

@@ -31,10 +31,12 @@ const Acceso = () => {
             body: JSON.stringify({ email, password })
         });
         if (response.ok) {
-            const { accessToken, email, perfil } = await response.json();
+            const { accessToken, email, nombre, rolDto, tokenExpiration } = await response.json();
             localStorage.setItem('token', accessToken);
             localStorage.setItem('email', email);
-            localStorage.setItem('perfil', perfil)
+            localStorage.setItem('nombre', nombre);
+            localStorage.setItem('perfil', rolDto.nombre);
+            localStorage.setItem('tokenExpiration', tokenExpiration);
             window.location.href = '/';
         }
     };
