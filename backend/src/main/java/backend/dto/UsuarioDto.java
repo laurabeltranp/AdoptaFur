@@ -1,6 +1,7 @@
 package backend.dto;
 
 import backend.entity.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Value;
 
 import java.time.LocalDate;

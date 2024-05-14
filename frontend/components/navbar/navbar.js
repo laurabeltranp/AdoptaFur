@@ -9,6 +9,9 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Guard from "@/components/guard/guard";
+import LogOutButton from "@/components/logoutbtn/logoutbtn.js";
+
+
 
 export const NavBar = () => {
     const [nombre, setNombre] = useState('');
@@ -41,7 +44,7 @@ export const NavBar = () => {
                             <Nav.Link className="nav-link" href="/misMascotas">Mis mascotas</Nav.Link>
                         </Guard>
                         <Guard requiredRoles={["Protectora", "Usuario"]}>
-                            <Nav.Link className="nav-link" href="/contacto">Perfil</Nav.Link>
+                            <Nav.Link className="nav-link" href="/perfil">Perfil</Nav.Link>
                         </Guard>
                     </Nav>
                     <Nav className="mx-5">
@@ -58,7 +61,7 @@ export const NavBar = () => {
                                 <Button href="/registro" variant="primary">Register</Button>
                             </Guard>
                             <Guard requiredRoles={["Protectora", "Usuario"]}>
-                                <Button href="/logout" variant="primary">Salir</Button>
+                                <LogOutButton></LogOutButton>
                             </Guard>
                         </Form>
                     </Nav>

@@ -39,6 +39,7 @@ public class UsuarioRestController {
     @Autowired
     JwtUtils jwtUtils;
 
+
     @PostMapping("/alta")
     public ResponseEntity<?> registerUser(@RequestBody UsuarioDto usuarioDto) {
 
@@ -65,28 +66,29 @@ public class UsuarioRestController {
         return ResponseEntity.ok(new MensajeDto("User registered successfully!"));
     }
 
-    @GetMapping("/")
+    @GetMapping("/perfil")
     public ResponseEntity<?> mostrarUn(Authentication authentication){
-        Optional<Usuario> usuario = usuarioService.buscarUno((String)authentication.getPrincipal());
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+        Optional<Usuario> usuario = usuarioService.buscarUno(userDetails.getUsername());
         if(usuario.isPresent()){
-            return ResponseEntity.ok(UsuarioDto.from(usuario.get()));
+            return ResponseEntity.ok(PerfilDto.from(usuario.get()));
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @PutMapping("/modificar")
-    public ResponseEntity<?> modificar(Authentication authentication, @RequestBody UsuarioDto usuarioDto) {
-        Optional<Usuario> usuarioOptional = usuarioService.buscarUno((String) authentication.getPrincipal());
+    public ResponseEntity<?> modificar(Authentication authentication, @RequestBody PerfilDto perfilDto) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+        Optional<Usuario> usuarioOptional = usuarioService.buscarUno(userDetails.getUsername());
         if (usuarioOptional.isPresent()){
             Usuario usuario = usuarioOptional.get();
-            usuario.setPassword(encoder.encode(usuarioDto.getPassword()));
-            usuario.setNombre(usuarioDto.getNombre());
-            usuario.setApellidos(usuarioDto.getApellidos());
-            usuario.setTelefono(usuarioDto.getTelefono());
-            usuario.setCumpleanio(usuarioDto.getCumpleanio());
-            usuario.setProvincia(usuarioDto.getProvincia());
-            usuario.setDescription(usuarioDto.getDescripcion());
+            usuario.setNombre(perfilDto.getNombre());
+            usuario.setApellidos(perfilDto.getApellidos());
+            usuario.setTelefono(perfilDto.getTelefono());
+            usuario.setCumpleanio(perfilDto.getCumpleanio());
+            usuario.setProvincia(perfilDto.getProvincia());
+            usuario.setDescription(perfilDto.getDescripcion());
             usuarioService.modificar(usuario);
             return ResponseEntity.status(HttpStatus.OK).body("Usuario modificado");
         } else {
