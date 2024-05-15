@@ -16,10 +16,27 @@ const AltaMascota = () => {
     const [foto, setFoto] = useState(null);
 
 
-    const creandoMascota = (event) => {
+    const creandoMascota = async (event) => {
         event.preventDefault();
-        // Aquí puedes manejar el envío del formulario
-        console.log({nombre, cumpleanio, peso, provincia, description, especie, idRaza, foto});
+
+        const reader = new FileReader();
+        reader.onload = async () => {
+            const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/alta', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
+                body: JSON.stringify({nombre, cumpleanio, peso, provincia, description, idRaza, "foto": reader.result})
+            });
+            console.log(JSON.stringify({nombre, cumpleanio, peso, provincia, description, idRaza, "foto": reader.result}));
+            if (response.ok) {
+                window.location.href = '/misMascotas';
+            } else {
+                console.error('Error al registrar la mascota');
+            }
+        }
+        reader.readAsDataURL(foto);
     };
 
     const handleFotoChange = (event) => {
@@ -118,7 +135,7 @@ const AltaMascota = () => {
                             </Form.Group>
                             <Form.Group controlId="formIdRaza" className="mb-3">
                                 <Form.Label>Raza</Form.Label>
-                                <RazaSelect especie={especie} onChange={(e) => setIdRaza(e.target.value)} />
+                                <RazaSelect especie={especie} onChange={(e) => setIdRaza(e.target.value)}/>
                             </Form.Group>
 
 

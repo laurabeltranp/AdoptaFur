@@ -69,7 +69,7 @@ public class MascotaService {
 		mascota.setPeso(altaMascotaDto.getPeso());
 		mascota.setProvincia(altaMascotaDto.getProvincia());
 		mascota.setDescription(altaMascotaDto.getDescription());
-		mascota.setFoto(altaMascotaDto.getFoto());
+		mascota.setFoto(altaMascotaDto.getFoto().getBytes());
 		mascota.setEstado(EstadoMascota.DISPONIBLE);
 		mascota.setRaza(razaRepository.findById(altaMascotaDto.getIdRaza()).orElseThrow());
 		mascota.setProtectora(usuario);

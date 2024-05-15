@@ -3,6 +3,7 @@ package backend.restcontroller;
 import java.util.Optional;
 
 import backend.entity.Usuario;
+import backend.service.UsuarioDetailsImpl;
 import backend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,9 +34,10 @@ public class MascotaRestController {
 				.from(mascotaService.mostrarDisponibles(especie, provincia, peso != null ? peso.toPair() : null)));
 	}
 
-	@PostMapping("/")
+	@PostMapping("/alta")
 	public ResponseEntity<?> alta(@RequestBody AltaMascotaDto altaMascotaDto, Authentication authentication) {
-		Optional<Usuario> usuario = usuarioService.buscarUno((String)authentication.getPrincipal());
+		UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+		Optional<Usuario> usuario = usuarioService.buscarUno(userDetails.getUsername());
 		if (mascotaService.alta(altaMascotaDto, usuario.get())) {
 			return ResponseEntity.ok().build();
 		} else {

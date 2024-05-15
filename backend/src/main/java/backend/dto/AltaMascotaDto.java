@@ -12,5 +12,5 @@ public class AltaMascotaDto {
 	private String provincia;
 	private String description;
 	private Integer idRaza;
-	private byte[] foto;
+	private String foto;
 }
