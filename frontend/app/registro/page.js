@@ -23,7 +23,7 @@ export const Registro = () => {
             body: JSON.stringify({ email, password, nombre, apellidos, telefono, cumpleanio, provincia, descripcion, idRol })
         });
         if (response.ok) {
-            window.location.href = '/login';
+            window.location.href = '/acceso';
         }
     }
 

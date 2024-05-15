@@ -5,10 +5,13 @@ export default function Mascotas() {
     return (
         <main className='container'>
             <div>
-               Filtros para buscar mascotas
+               <Button href="/misMascotas/altaMascota" variant="primary">Alta Mascota</Button>
             </div>
             <div>
                 aqui la protectora y los usuarios ven sus mascotas disponibles
+            </div>
+            <div>
+                aqui la protectora  ven las solicitudes de cada mascota
             </div>
         </main>
     )

@@ -23,6 +23,7 @@ const Profile = ({authToken}) => {
                     },
                 });
                 if (response.ok) {
+
                     const data = await response.json();
                     setEmail(data.email || '');
                     setNombre(data.nombre || '');
@@ -49,9 +50,6 @@ const Profile = ({authToken}) => {
                 },
                 body: JSON.stringify({email, nombre, apellidos, telefono, cumpleanio, provincia, descripcion})
             });
-            if (response.ok) {
-                // Manejar éxito
-            }
         } catch (error) {
             // Manejar errores de red
         }

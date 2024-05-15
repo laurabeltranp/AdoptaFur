@@ -58,7 +58,7 @@ export const NavBar = () => {
                                 <Button href="/acceso" variant="success">Acceso</Button>
                             </Guard>
                             <Guard requiredRoles={["Anonymous"]}>
-                                <Button href="/registro" variant="primary">Register</Button>
+                                <Button href="/registro" variant="primary">Regístrate</Button>
                             </Guard>
                             <Guard requiredRoles={["Protectora", "Usuario"]}>
                                 <LogOutButton></LogOutButton>

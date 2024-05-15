@@ -15,7 +15,7 @@ public class RazaService {
     @Autowired
     RazaRepository razaRepository;
 
-    public List<Raza> mostrarRazasPorEspecie(Enum<Especie> especie) {
+    public List<Raza> mostrarRazasPorEspecie(Especie especie) {
         return razaRepository.findAllByEspecie(especie);
     }
 

@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface RazaRepository extends JpaRepository<Raza, Integer> {
 
-    public List<Raza> findAllByEspecie(Enum<Especie> especie);
+    public List<Raza> findAllByEspecie(Especie especie);
 }

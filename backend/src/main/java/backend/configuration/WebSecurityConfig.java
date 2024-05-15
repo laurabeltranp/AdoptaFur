@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/mascotas/buscar/**").permitAll()
                         .requestMatchers("/mascotas/alta").hasAnyAuthority("Protectora")
                         .requestMatchers("/mascotas/verDetalle/**").permitAll()
-                        .requestMatchers("/vacantes/modificandoVacante").hasAnyAuthority("Protectora")
+                        .requestMatchers("/raza/**").hasAnyAuthority("Protectora")
                         .requestMatchers("/solicitud/alta").hasAnyAuthority("Usuario")
                         .requestMatchers("/solicitud/verTodas").hasAnyAuthority("Usuario")
                         .requestMatchers("/solicitud/porMascota/**").hasAnyAuthority("Protectora")

@@ -19,7 +19,7 @@ public class RazaRestController {
     RazaService razaService;
 
     @GetMapping("/{especie}")
-    public ResponseEntity<?> mostrarRazasPorEspecie(@PathVariable Enum<Especie> especie){
+    public ResponseEntity<?> mostrarRazasPorEspecie(@PathVariable Especie especie){
 
         return ResponseEntity.ok(RazaDto.from(razaService.mostrarRazasPorEspecie(especie)));
     }
