@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles`
 (
     `idrol`  int NOT NULL AUTO_INCREMENT,
-    `nombre` varchar(255) DEFAULT NULL,
+    `nombre` varchar(255) NOT NULL,
     PRIMARY KEY (`idrol`)
 );
 
@@ -15,15 +15,15 @@ DROP TABLE IF EXISTS `mascotas`;
 CREATE TABLE `mascotas`
 (
     `idmascota`   int NOT NULL AUTO_INCREMENT,
-    `estado`      bool         DEFAULT NULL,
-    `cumpleanio`  date         DEFAULT NULL,
-    `description` varchar(255) DEFAULT NULL,
+    `estado`      enum('DISPONIBLE','ADOPTADA') NOT NULL,
+    `cumpleanio`  date         NOT NULL,
+    `description` varchar(255) NOT NULL,
     `foto`        mediumblob,
-    `nombre`      varchar(255) DEFAULT NULL,
-    `peso`        float        DEFAULT NULL,
-    `provincia`   varchar(255) DEFAULT NULL,
-    `idraza`      int          DEFAULT NULL,
-    `protectora`  varchar(255) DEFAULT NULL,
+    `nombre`      varchar(255) NOT NULL,
+    `peso`        float        NOT NULL,
+    `provincia`   varchar(255) NOT NULL,
+    `idraza`      int          NOT NULL,
+    `protectora`  varchar(255) NOT NULL,
     PRIMARY KEY (`idmascota`),
     KEY           `idraza_fk_index` (`idraza`),
     KEY           `protectora_fk_index` (`protectora`),
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS `razas`;
 CREATE TABLE `razas`
 (
     `idraza`  int NOT NULL AUTO_INCREMENT,
-    `nombre`  varchar(255) DEFAULT NULL,
+    `nombre`  varchar(255) NOT NULL,
     `especie` enum('PERRO','GATO','PAJARO') NOT NULL,
     PRIMARY KEY (`idraza`)
 );
@@ -44,13 +44,13 @@ DROP TABLE IF EXISTS `solicitud`;
 CREATE TABLE `solicitud`
 (
     `idsolicitud` int NOT NULL AUTO_INCREMENT,
-    `alergias`    varchar(255) DEFAULT NULL,
-    `estado`      tinyint      DEFAULT NULL,
+    `alergias`    varchar(255) NOT NULL,
+    `estado`      enum('PENDIENTE','ACEPTADA','RECHAZADA', 'CANCELADA') NOT NULL,
     `familia`     varchar(255) DEFAULT NULL,
-    `fecha`       datetime(6) DEFAULT NULL,
-    `tipoHogar`   varchar(255) DEFAULT NULL,
-    `idmascota`   int          DEFAULT NULL,
-    `email`       varchar(255) DEFAULT NULL,
+    `fecha`       datetime(6) NOT NULL,
+    `tipoHogar`   varchar(255) NOT NULL,
+    `idmascota`   int          NOT NULL,
+    `email`       varchar(255) NOT NULL,
     PRIMARY KEY (`idsolicitud`),
     KEY           `idmascota_fk_index` (`idmascota`),
     KEY           `email_fk_index` (`email`),
@@ -62,15 +62,15 @@ DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios`
 (
     `email`       varchar(255) NOT NULL,
-    `apellidos`   varchar(255) DEFAULT NULL,
-    `cumpleanio`  date         DEFAULT NULL,
+    `apellidos`   varchar(255) NOT NULL,
+    `cumpleanio`  date         NOT NULL,
     `description` varchar(255) DEFAULT NULL,
-    `enabled`     boolean      DEFAULT NULL,
-    `nombre`      varchar(255) DEFAULT NULL,
-    `password`    varchar(255) DEFAULT NULL,
-    `provincia`   varchar(255) DEFAULT NULL,
+    `enabled`     boolean      DEFAULT true,
+    `nombre`      varchar(255) NOT NULL,
+    `password`    varchar(255) NOT NULL,
+    `provincia`   varchar(255) NOT NULL,
     `telefono`    varchar(255) DEFAULT NULL,
-    `idrol`       int          DEFAULT NULL,
+    `idrol`       int          NOT NULL,
     PRIMARY KEY (`email`),
     KEY           `idrol_fk_index` (`idrol`),
     CONSTRAINT `idrol_fk` FOREIGN KEY (`idrol`) REFERENCES `roles` (`idrol`)
