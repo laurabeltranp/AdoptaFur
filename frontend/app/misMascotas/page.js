@@ -1,18 +1,51 @@
-import React from 'react'
-import Button from "react-bootstrap/esm/Button";
+"use client"
+import React, {useEffect, useState} from 'react'
+import {Table, Button, Container, Image } from 'react-bootstrap';
+import MascotaTable from "@/components/mascotaTable/mascotaTable";
 
-export default function Mascotas() {
+export default function MisMascotas() {
+
+    const [mascotas, setMascotas] = useState([]);
+
+    useEffect(() => {
+        const footer = document.querySelector('.footer');
+        const contentHeight = document.body.scrollHeight;
+        const windowHeight = window.innerHeight;
+
+        if (contentHeight < windowHeight) {
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
+            footer.style.left = '0';
+            footer.style.width = '100%';
+        }
+
+        const obteniendoMisMascotas = async () => {
+            try {
+                const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/misMascotas', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    },
+                });
+                if (response.ok) {
+
+                    const data = await response.json();
+                    setMascotas(data);
+                }
+            } catch (error) {
+            }
+        };
+        obteniendoMisMascotas();
+    }, []);
+
     return (
-        <main className='container'>
-            <div>
-               <Button href="/misMascotas/altaMascota" variant="primary">Alta Mascota</Button>
+        <Container>
+            <h1 className="my-4 text-center">Mis Mascotas.</h1>
+            <div className="my-4 ">
+                <Button href="/misMascotas/altaMascota" variant="primary">Alta Mascota</Button>
             </div>
-            <div>
-                aqui la protectora y los usuarios ven sus mascotas disponibles
-            </div>
-            <div>
-                aqui la protectora  ven las solicitudes de cada mascota
-            </div>
-        </main>
+            <MascotaTable mascotas = {mascotas}></MascotaTable>
+        </Container>
     )
 }

@@ -31,4 +31,6 @@ public interface MascotaRepository extends JpaRepository<Mascota, Integer> {
 	public List<Mascota> findAllByRazaEspecieAndEstadoAndProvinciaContainingAndPesoBetween(Especie especie,
 			EstadoMascota disponible, String provincia, Integer pesoMin, Integer pesoMax);
 
+	public List<Mascota> findAllByProtectoraEmail(String email);
+
 }

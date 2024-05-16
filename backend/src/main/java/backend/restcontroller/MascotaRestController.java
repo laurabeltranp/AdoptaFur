@@ -1,5 +1,6 @@
 package backend.restcontroller;
 
+import java.util.List;
 import java.util.Optional;
 
 import backend.entity.Usuario;
@@ -55,4 +56,16 @@ public class MascotaRestController {
 		}
 	}
 
+	@GetMapping("/misMascotas")
+	public ResponseEntity<?> mostrarMisMascotas (Authentication authentication) {
+		UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+		Optional<Usuario> usuario = usuarioService.buscarUno(userDetails.getUsername());
+		if (usuario.isPresent()){
+			List<Mascota> misMascotas = mascotaService.mostrarMisMascotas(usuario.get().getEmail());
+			List <MascotaDto> misMascotasDto = MascotaDto.from(misMascotas);
+			return ResponseEntity.ok().body(misMascotasDto);
+		} else {
+			return ResponseEntity.badRequest().build();
+		}
+	}
 }

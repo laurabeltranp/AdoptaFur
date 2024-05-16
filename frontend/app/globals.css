@@ -63,7 +63,19 @@
 
 }
 
-.btn-primary:hover, .btn-success:hover  {
+.btn-secondary {
+
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-secondary:hover  {
   background-color: #A9D3AF;
   color: #214e22;
 }

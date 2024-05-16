@@ -20,6 +20,7 @@ public class Solicitud {
     @JoinColumn(name = "idmascota")
     private Mascota mascota;
     private LocalDateTime fecha;
+    @Enumerated(EnumType.STRING)
     private Estado estado;
     private String tipoHogar; // TODO enum?
     private String alergias;

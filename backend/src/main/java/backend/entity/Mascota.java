@@ -2,16 +2,9 @@ package backend.entity;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.Formula;
 
 @Data
 @Entity
@@ -22,6 +15,7 @@ public class Mascota {
 	@Column(name = "idmascota")
 	private Integer id;
 	private String nombre;
+	@Enumerated(EnumType.STRING)
 	private EstadoMascota estado;
 	private LocalDate cumpleanio;
 	private Float peso;
@@ -36,4 +30,6 @@ public class Mascota {
 	@ManyToOne
 	@JoinColumn(name = "protectora")
 	private Usuario protectora;
+	@Formula(value = "(SELECT COUNT(*) FROM solicitud s WHERE s.idmascota=idmascota)")
+	Integer solicitudes;
 }

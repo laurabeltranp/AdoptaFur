@@ -18,12 +18,13 @@ public class MascotaDto {
 	private String description;
 	private RazaDto razaDto;
 	private String protectora;
-	private byte[] foto;
+	private String foto;
+	private Integer solicitudes;
 
 	public static MascotaDto from(Mascota mascota) {
 		return new MascotaDto(mascota.getId(), mascota.getNombre(), mascota.getEstado(), mascota.getCumpleanio(),
 				mascota.getPeso(), mascota.getProvincia(), mascota.getDescription(), RazaDto.from(mascota.getRaza()),
-				mascota.getProtectora().getNombre(), mascota.getFoto());
+				mascota.getProtectora().getNombre(), new String(mascota.getFoto()), mascota.getSolicitudes());
 	}
 
 	public static List<MascotaDto> from(List<Mascota> mascotas) {
