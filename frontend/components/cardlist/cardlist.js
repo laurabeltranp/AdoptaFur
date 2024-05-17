@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from '../card/card'
+import { HeroCard } from '@/components/heroCard/heroCard'
 
 export const Cardlist = ({mascotas}) => {
 
@@ -8,7 +8,7 @@ export const Cardlist = ({mascotas}) => {
             {mascotas.map((mascota) => {
                 return(
                     <div className="row mt-5">
-                    <Card key={mascota.idMascota} mascota={mascota} />
+                    <HeroCard key={mascota.idMascota} mascota={mascota} />
                     </div>)
             })}
         </div>

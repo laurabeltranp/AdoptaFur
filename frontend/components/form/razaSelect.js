@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Card } from '../card/card'
+import { HeroCard } from '@/components/heroCard/heroCard'
 import {Form} from "react-bootstrap";
 
 export const RazaSelect = ({especie, onChange}) => {

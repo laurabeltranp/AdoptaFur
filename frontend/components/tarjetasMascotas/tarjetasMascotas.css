@@ -1,0 +1,33 @@
+.centered-text {
+    text-align: center;
+}
+
+.nombre-animal {
+    color: #fff;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.nombre-animal:hover,
+.nombre-animal:focus {
+    text-decoration: none;
+}
+
+.tarjeta-background {
+    background-color: #A9D3AF !important;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title a {
+    color: white;
+    text-decoration: none;
+}
+
+.card-body:hover {
+    background-color: #556357;
+}

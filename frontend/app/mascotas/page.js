@@ -1,14 +1,15 @@
 import React from 'react'
 import Button from "react-bootstrap/esm/Button";
+import TarjetaMascota from "@/components/tarjetasMascotas/tarjetasMascotas";
 
 export default function Mascotas() {
     return (
         <main className='container'>
             <div>
-               Filtros para buscar mascotas
+               AQUI MUESTRO TAS LAS MASCOTAS Y VAN LOS FILTROS PARA BUSCAR  LAS MASCOTAS POR HACER
             </div>
             <div>
-                aqui la protectora y los usuarios ven sus mascotas disponibles
+                <TarjetaMascota></TarjetaMascota>
             </div>
         </main>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export const Card = ({mascota}) => {
+export const HeroCard = ({mascota}) => {
     return (
         <div className="col-md-3">
             <div className="card h-100 tarjeta-background">
@@ -20,4 +20,4 @@ export const Card = ({mascota}) => {
     )
 }
 
-export default Card;
+export default HeroCard;
