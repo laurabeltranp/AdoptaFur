@@ -149,8 +149,11 @@ const AltaMascota = () => {
                             </Form.Group>
 
                             <div className="text-center">
-                                <Button variant="primary" type="submit">
+                                <Button className="m-2" variant="primary" type="submit">
                                     Registrar Mascota
+                                </Button>
+                                <Button className="m-2" variant="secondary" href={"/misMascotas"}>
+                                    Volver a Mascotas
                                 </Button>
                             </div>
                         </Form>

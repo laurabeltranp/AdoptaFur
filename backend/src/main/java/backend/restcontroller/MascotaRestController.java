@@ -68,4 +68,14 @@ public class MascotaRestController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
+
+	@PostMapping("/modificar")
+	public ResponseEntity<?> modificandoMascota(@RequestBody MascotaDto mascotaDto) {
+
+		if (mascotaService.modificar(mascotaDto)) {
+			return ResponseEntity.ok().build();
+		} else {
+			return ResponseEntity.badRequest().build();
+		}
+	}
 }

@@ -54,16 +54,9 @@ public class WebSecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/mascotas").permitAll()
-                        .requestMatchers("/mascotas/buscar/**").permitAll()
-                        .requestMatchers("/mascotas/alta").hasAnyAuthority("Protectora")
-                        .requestMatchers("/mascotas/verDetalle/**").permitAll()
+                        .requestMatchers("/mascotas/").permitAll()
+                        .requestMatchers("/mascotas/alta","/mascotas/verUna/**", "/mascotas/misMascotas", "/mascotas/modificar").hasAnyAuthority("Protectora")
                         .requestMatchers("/raza/**").hasAnyAuthority("Protectora")
-                        .requestMatchers("/solicitud/alta").hasAnyAuthority("Usuario")
-                        .requestMatchers("/solicitud/verTodas").hasAnyAuthority("Usuario")
-                        .requestMatchers("/solicitud/porMascota/**").hasAnyAuthority("Protectora")
-                        .requestMatchers("/solicitud/adjudicar/**").hasAnyAuthority("Protectora")
-                        .requestMatchers("/solicitud/cancelar/**").hasAnyAuthority("Protectora", "Usuario")
                         .requestMatchers("/usuario/perfil", "/usuario/modificar" ).hasAnyAuthority("Protectora", "Usuario")
                         .requestMatchers("/usuario/login", "/usuario/alta").permitAll()
                         .anyRequest().authenticated());

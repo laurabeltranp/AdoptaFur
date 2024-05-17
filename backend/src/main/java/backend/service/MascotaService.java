@@ -3,16 +3,14 @@ package backend.service;
 import java.util.List;
 import java.util.Optional;
 
+import backend.dto.MascotaDto;
+import backend.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import backend.dto.AltaMascotaDto;
-import backend.entity.Especie;
-import backend.entity.EstadoMascota;
-import backend.entity.Mascota;
-import backend.entity.Usuario;
 import backend.repository.MascotaRepository;
 import backend.repository.RazaRepository;
 
@@ -21,9 +19,12 @@ public class MascotaService {
 
     @Autowired
     MascotaRepository mascotaRepository;
-
     @Autowired
     RazaRepository razaRepository;
+    @Autowired
+    private UsuarioService usuarioService;
+    @Autowired
+    private RazaService razaService;
 
     public List<Mascota> mostrarDisponibles(Especie especie, String provincia, Pair<Integer, Integer> peso) {
         if (especie != null) {
@@ -84,4 +85,17 @@ public class MascotaService {
     public List<Mascota> mostrarMisMascotas(String emailProtectora) {
         return mascotaRepository.findAllByProtectoraEmail(emailProtectora);
     }
+
+    public boolean modificar(MascotaDto mascotaDto) {
+        Mascota mascota = mascotaRepository.findById(mascotaDto.getIdMascota()).get();
+        mascota.setNombre(mascotaDto.getNombre());
+        mascota.setCumpleanio(mascotaDto.getCumpleanio());
+        mascota.setPeso(mascotaDto.getPeso());
+        mascota.setProvincia(mascotaDto.getProvincia());
+        mascota.setDescription(mascotaDto.getDescription());
+        mascota.setFoto(mascotaDto.getFoto().getBytes());
+        mascota.setEstado(mascotaDto.getEstado());
+        return mascotaRepository.save(mascota) != null;
+    }
+
 }

@@ -58,8 +58,8 @@ const Profile = ({authToken}) => {
     return (
 
         <main className='container'>
-            <div className='bg-light p-5 m-5 rounded'>
-                <h2>Editar Perfil de {nombre}</h2>
+            <div className='bg-light p-5 m-3 rounded'>
+                <h2 className='text-center'>Editar Perfil de {nombre}</h2>
                 <Form onSubmit={modificandoPerfil}>
                     <Form.Group className="mb-3">
                         <Form.Label>Email:</Form.Label>
@@ -94,10 +94,15 @@ const Profile = ({authToken}) => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Descripción:</Form.Label>
-                        <Form.Control type="text" required placeholder="Teletrabajo desde casa, por lo que paso mucho tiempo en casa" value={descripcion}
+                        <Form.Control type="text" required
+                                      placeholder="Teletrabajo desde casa, por lo que paso mucho tiempo en casa"
+                                      value={descripcion}
                                       onChange={(e) => setDescripcion(e.target.value)}/>
                     </Form.Group>
-                    <Button type="submit">Guardar</Button>
+                    <Form.Group className="mb-3 text-center">
+                        <Button className="m-2" type="submit">Guardar</Button>
+                        <Button className="m-2" variant={"secondary"} href={"/"}>Home</Button>
+                    </Form.Group>
                 </Form>
             </div>
         </main>

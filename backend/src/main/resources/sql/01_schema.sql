@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS `mascotas`;
 CREATE TABLE `mascotas`
 (
     `idmascota`   int NOT NULL AUTO_INCREMENT,
-    `estado`      enum('DISPONIBLE','ADOPTADA') NOT NULL,
+    `estado`      enum('DISPONIBLE','BLOQUEADA', 'ADOPTADA') NOT NULL,
     `cumpleanio`  date         NOT NULL,
     `description` varchar(255) NOT NULL,
     `foto`        mediumblob,
