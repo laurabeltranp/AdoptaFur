@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <section className="seccion1 ">
         <div className="col-md-12">
-          <h2 className="centered-text seccion1">Compañeros para adoptar.</h2>
+          <h2 className="centered-text seccion1">Compañeros para adoptar</h2>
         </div>
         <div className="container tarjetas-containerseccion1">
           <div className="row mt-5">

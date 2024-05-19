@@ -8,22 +8,35 @@
   .seccion5 {
     margin-top: 80px; 
   }
-  /* Estilo para la barra lateral */
-  .barra {
-   
-    height: 100px; /* Altura de la barra */
-    width: 10px; /* Ancho de la barra */
-  }
-.accordion-button:hover {
-    background-color: #f8f9fa;
+/* Estilo para la barra lateral */
+.barra {
+  height: 100px; /* Altura de la barra */
+  width: 10px; /* Ancho de la barra */
 }
-.accordion-button{
-    background-color: #86d48bff;
+
+.accordion-button:hover {
+  background-color: #f8f9fa;
+}
+
+.accordion-button {
+  background-color: #86d48bff;
 }
 
 .accordion-body {
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px 20px; /* Aumenta el padding vertical para hacerlo más largo */
-    margin-bottom: 20px; /* Añade margen inferior para separar los acordeones */
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px 20px; /* Aumenta el padding vertical para hacerlo más largo */
+  margin-bottom: 20px; /* Añade margen inferior para separar los acordeones */
+}
+
+/* Estilos adicionales para el texto de información */
+.accordion-body p {
+  color: #a9d3af; /* Color del texto de la información */
+}
+
+.accordion-body a:hover {
+  color: #ffb533; /* Color de hover del texto del enlace */
+}
+.accordion-button:not(.collapsed) {
+  background-color: #ffb533; /* Cambia el color de la barra cuando el acordeón está abierto */
 }
