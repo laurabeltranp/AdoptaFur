@@ -12,7 +12,7 @@ coverage
 #intelliJ
 .idea
 *.iml
-
+bin
 # next.js
 .next/
 out/
