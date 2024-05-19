@@ -1,5 +1,7 @@
 package backend.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,6 +76,7 @@ public class MascotaService {
         mascota.setEstado(EstadoMascota.DISPONIBLE);
         mascota.setRaza(razaRepository.findById(altaMascotaDto.getIdRaza()).orElseThrow());
         mascota.setProtectora(usuario);
+        mascota.setFechaAlta(LocalDateTime.now());
 
         return mascotaRepository.save(mascota) != null;
     }
@@ -96,6 +99,14 @@ public class MascotaService {
         mascota.setFoto(mascotaDto.getFoto().getBytes());
         mascota.setEstado(mascotaDto.getEstado());
         return mascotaRepository.save(mascota) != null;
+    }
+
+    public List<Mascota> mostrarUltimasMascotas() {
+        return mascotaRepository.findTop8ByEstadoOrderByFechaAltaDesc(EstadoMascota.DISPONIBLE);
+    }
+
+    public List<Mascota> mostrarAdoptadas() {
+        return mascotaRepository.findAllByEstado(EstadoMascota.ADOPTADA);
     }
 
 }

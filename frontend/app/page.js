@@ -2,133 +2,45 @@
 import CustomCarrusel from "@/components/carousel/carousel";
 import "./page.module.css";
 import Image from "next/image";
+import {useEffect, useState} from "react";
+import Herocardgrid from "@/components/cardlist/herocardgrid";
 
 export default function Home() {
+  const [mascotas, setMascotas] = useState([]);
+
+  useEffect(() => {
+
+
+    const obteniendoMascotas = async () => {
+      try {
+        const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/novedades', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+        });
+        if (response.ok) {
+
+          const data = await response.json();
+          setMascotas(data);
+        }
+      } catch (error) {
+      }
+    };
+    obteniendoMascotas();
+  }, []);
 
   return (
     <main>
       <section className="seccion1 ">
         <div className="col-md-12">
-          <h2 className="centered-text seccion1">Compañeros para adoptar.</h2>
+          <h2 className="centered-text seccion1">Compañeros para adoptar </h2>
         </div>
+
         <div className="container tarjetas-containerseccion1">
-          <div className="row mt-5">
-            <div className="col-md-3">
-              <div className="card h-100 tarjeta-background">
-                <Image
-                  src="/perrodestacado1.jpeg"
-                  width={300}
-                  height={242}
-                  alt="Compañero disponible"
-                  className="card-img-top img-fluid"
-                />
-                <div className="card-body">
-                  <h5 className="card-title nombre-animal"><a href="descripcion_perro.html" style={{ 'textDecoration': 'none' }}>Laika</a></h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="card h-100 tarjeta-background">
-                <Image
-                  src="/perrodestacado1.jpeg"
-                  width={300}
-                  height={242}
-                  alt="Compañero disponible"
-                  className="card-img-top img-fluid"
-                />
-                <div className="card-body">
-                  <h5 className="card-title nombre-animal"><a href="descripcion_gato.html" style={{ 'textDecoration': 'none' }}>Mishifú</a></h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="card h-100 tarjeta-background">
-                <Image
-                  src="/perrodestacado1.jpeg"
-                  width={300}
-                  height={242}
-                  alt="Compañero disponible"
-                  className="card-img-top img-fluid"
-                />
-                <div className="card-body">
-                  <h5 className="card-title nombre-animal"><a href="descripcion_periquito.html" style={{ 'textDecoration': 'none' }} >Capitán</a></h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="card h-100 tarjeta-background">
-                <Image
-                  src="/perrodestacado1.jpeg"
-                  width={300}
-                  height={242}
-                  alt="Compañero disponible"
-                  className="card-img-top img-fluid"
-                />
-                <div className="card-body">
-                  <h5 className="card-title nombre-animal"><a href="descripcion_cobaya.html" style={{ 'textDecoration': 'none' }} >Pelona</a></h5>
-                </div>
-              </div>
-            </div>
-            <div className="row mt-5">
-              <div className="col-md-3">
-                <div className="card h-100 tarjeta-background">
-                  <Image
-                    src="/perrodestacado1.jpeg"
-                    width={300}
-                    height={242}
-                    alt="Compañero disponible"
-                    className="card-img-top img-fluid"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title nombre-animal"><a href="descripcion_cobaya.html" style={{ 'textDecoration': 'none' }} >Cheeto</a></h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="card h-100 tarjeta-background">
-                  <Image
-                    src="/perrodestacado1.jpeg"
-                    width={300}
-                    height={242}
-                    alt="Compañero disponible"
-                    className="card-img-top img-fluid"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title nombre-animal"><a href="descripcion_cobaya.html" style={{ 'textDecoration': 'none' }} >Beltrán</a></h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="card h-100 tarjeta-background">
-                  <Image
-                    src="/perrodestacado1.jpeg"
-                    width={300}
-                    height={242}
-                    alt="Compañero disponible"
-                    className="card-img-top img-fluid"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title nombre-animal"><a href="descripcion_cobaya.html" style={{ 'textDecoration': 'none' }} >Buddy</a></h5>
-                  </div>
-                </div>
-              </div><div className="col-md-3">
-                <div className="card h-100 tarjeta-background">
-                  <Image
-                    src="/perrodestacado1.jpeg"
-                    width={300}
-                    height={242}
-                    alt="Compañero disponible"
-                    className="card-img-top img-fluid"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title nombre-animal"><a href="descripcion_cobaya.html" style={{ 'textDecoration': 'none' }} >Zoe</a></h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row mt-5">
+          <Herocardgrid mascotas = {mascotas} ></Herocardgrid>
+
           <div className="col-md-12 text-center">
             <a href="/mascotas" className="btn btn-primary">Busca más compañeros</a>
           </div>
