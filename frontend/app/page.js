@@ -33,11 +33,10 @@ export default function Home() {
 
   return (
     <main>
-      <section className="seccion1 ">
+      <section className="seccion1 mt-5">
         <div className="col-md-12">
-          <h2 className="centered-text seccion1">Compañeros para adoptar </h2>
+          <h2 className="centered-text seccion1">Compañeros para adoptar</h2>
         </div>
-
         <div className="container tarjetas-containerseccion1">
           <Herocardgrid mascotas = {mascotas} ></Herocardgrid>
 

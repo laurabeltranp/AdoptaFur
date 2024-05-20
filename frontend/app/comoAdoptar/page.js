@@ -1,5 +1,7 @@
-import React from 'react';
-import "./comoAdoptar.css"
+"use client";
+import React from "react";
+import "./comoAdoptar.css";
+import Accordion from "react-bootstrap/Accordion";
 import Image from "next/image";
 
 export default function comoAdoptar() {
@@ -17,109 +19,200 @@ export default function comoAdoptar() {
               <div className="barra"></div>
             </div>
             <div className="col-md-10">
-              <p className="texto">Si te estás planteando adoptar un animal, debes primero pensar en el compromiso que vas a adquirir, en si tu ámbito familiar es el adecuado, en si dispones del tiempo necesario, en el periodo de vacaciones y si puedes dedicar el presupuesto necesario al mantenimiento de las necesidades del animal, imprevistos, etc.</p>
-              <p className="texto">Te invitamos a reflexionar sobre los puntos siguientes, antes de que tomes la decisión de adoptar un animal:</p>
+              <p className="texto text-justify" style={{ lineHeight: "1.6" }}>
+                Si estás considerando adoptar un animal, es importante
+                reflexionar sobre el compromiso que asumirás. Debes evaluar si
+                tu entorno familiar es adecuado, si dispones del tiempo
+                necesario, cómo gestionarás el cuidado del animal durante las
+                vacaciones y si puedes dedicar el presupuesto necesario para
+                cubrir sus necesidades y posibles imprevistos.
+              </p>
+              <p className="texto text-justify" style={{ lineHeight: "1.6" }}>
+                Te invitamos a reflexionar sobre los puntos siguientes, antes de
+                que tomes la decisión de adoptar un animal:
+              </p>
             </div>
           </div>
 
           <div className="row mt-4">
-            <div className="col-md-6">
-              <Image src="/IMG/comoAdoptar/perro6.jpg" alt="Perro" className="img-fluid img-circular" />
-              <p className="texto">Piensa en que un perro puede vivir entre 12 y 17 años aprox.</p>
+            <div className="col-md-6 mt-2 mb-4">
+              <Image
+                src="/animalesAdoptar.jpg"
+                alt="Vida"
+                className="img-fluid img-circular"
+                width={600}
+                height={400}
+              />
+              <p
+                className="texto text-justify mb-0"
+                style={{ lineHeight: "1.6" }}
+              >
+                Piensa en que un perro puede vivir entre 12 y 17 años
+                aproximadamente.
+              </p>
+              <p
+                className="texto text-justify mb-0"
+                style={{ lineHeight: "1.6" }}
+              >
+                Piensa en que un pájaro puede vivir entre 6 y 8 años
+                aproximadamente.
+              </p>
+              <p
+                className="texto text-justify mb-0"
+                style={{ lineHeight: "1.6" }}
+              >
+                Piensa en que un perro puede vivir entre 12 y 18 años
+                aproximadamente.
+              </p>
             </div>
-            <div className="col-md-6">
-            <Image src="/IMG/comoAdoptar/perroygato.jpg" alt="Animal" className="img-fluid img-circular" />
-              <p className="texto">Un animal es un ser vivo con unas necesidades fisiológicas y emocionales, no es un juguete para un niño, los niños no tienen la suficiente responsabilidad para hacerse cargo de los cuidados que requiere un animal, así que no te plantees adoptar un animal como regalo para un niño, porque estarás sentando las bases de un fracaso.</p>
+            <div className="col-md-6  mb-4">
+              <Image
+                src="/animalesAdoptarSalud.jpg"
+                alt="Animales"
+                className="img-fluid img-circular"
+                width={600}
+                height={400}
+              />
+              <p
+                className="texto text-justify mb-0"
+                style={{ lineHeight: "1.6" }}
+              >
+                Los animales tienen necesidades fisiológicas y emocionales, no
+                deben ser vistos como simples juguetes para niños. Los niños,
+                por su naturaleza, no tienen la madurez ni la responsabilidad
+                para cuidar adecuadamente a una mascota. Regalar un animal a un
+                niño puede ser una carga para ambos. El cuidado de un animal va
+                más allá de proporcionar alimento y agua; requiere atención
+                constante, ejercicio, visitas veterinarias y comprensión de sus
+                necesidades. Adoptar un animal para regalárselo a un niño puede
+                resultar en fracasos tanto en el cuidado del animal como en la
+                educación del niño. Esto puede llevar a situaciones donde el
+                animal no reciba el cuidado necesario o el niño no desarrolle un
+                respeto adecuado hacia los seres vivos.
+              </p>
             </div>
           </div>
           <div className="row mt-4">
-            <div className="col-md-6">
-            <Image src="/IMG/comoAdoptar/cachorros.jpg" alt="Cachorro" className="img-fluid img-circular" />
-              <p className="texto">Si lo que quieres adoptar es un cachorro o un animal joven, piensa que durante su proceso de crecimiento probablemente surgirán situaciones difíciles, romperá cosas, ensuciará, llorará si está sólo o por las noches etc., y que esto es un proceso natural que irá remitiendo en base a la maduración del animal y a la educación que seas capaz de proporcionarle, y que en ocasiones es posible que debas acudir a la ayuda y consejo de profesionales cualificados para resolver.</p>
+            <div className="col-md-6  mt-2 mb-4">
+              <Image
+                src="/animalesAdoptarCachorro.png"
+                alt="Vida"
+                className="img-fluid img-circular"
+                width={600}
+                height={400}
+              />
+              <p
+                className="texto text-justify mb-0"
+                style={{ lineHeight: "1.6" }}
+              >
+                Si estás considerando adoptar un cachorro o un animal joven, ten
+                en cuenta que durante su crecimiento es probable que enfrentes
+                desafíos como romper objetos, ensuciar el espacio, llorar cuando
+                está solo o por las noches, entre otros comportamientos típicos.
+                Estos son procesos naturales que disminuirán con el tiempo y la
+                educación que le brindes. En algunas ocasiones, puede ser
+                necesario buscar la ayuda y consejo de profesionales
+                cualificados para resolver ciertas situaciones.
+              </p>
             </div>
-            <div className="col-md-6">
-            <Image src="/IMG/comoAdoptar/perrocasa.jpg" alt="Vivienda" className="img-fluid img-circular" />
-              <p className="texto">¿Te has asegurado de que tu vivienda te permite alojar animales? Si vives en alquiler consulta previamente con el propietario y obtén una autorización por escrito si es necesario. Si vives en propiedad ten en cuenta que todo animal en ciertos casos puede causar molestias a los vecinos. El mantenimiento de un animal supone unos gastos que pueden ser muy variables en función de la especie.</p>
+            <div className="col-md-6 mb-4">
+              <Image
+                src="/animalesAdoptarCasa.jpg"
+                alt="Vivienda"
+                className="img-fluid img-circular"
+                width={600}
+                height={400}
+              />
+              <p
+                className="texto text-justify mb-0"
+                style={{ lineHeight: "1.6" }}
+              >
+                ¿Has verificado si tu residencia es adecuada para albergar
+                perros, gatos o aves? Si estás alquilando, es importante
+                consultar con el propietario y obtener una autorización por
+                escrito si es necesario. Si vives en tu propia propiedad, ten en
+                cuenta que cualquier mascota, en algunos casos, puede causar
+                incomodidades a los vecinos. Además, recuerda que el
+                mantenimiento de una mascota conlleva gastos que pueden variar
+                significativamente según la especie.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-
-      <section className="container-fluid preguntas-frecuentes" style={{'padding-top': '50px'}}>
-        <div className="row justify-content-center">
-          <div className="col-md-8">
-            <h2 className="text-center mb-4">Preguntas Frecuentes</h2>
-            <div className="accordion" id="accordionFAQ">
-
-              <div className="accordion-item">
-                <h3 className="accordion-header" id="headingOne">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    Registro en la web
-                  </button>
-                </h3>
-                <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
-                  <div className="accordion-body">
-                    Ante todo elige con responsabilidad y consciente de que vas a tener un fiel compañero para el resto de su vida. Perro, gato, conejo… y desde su ficha puedes cumplimentar nuestro cuestionario o desde el enlace directo de dicho cuestionario donde puedes poner varias opciones.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item">
-                <h3 className="accordion-header" id="headingTwo">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <section className="seccion5 mb-2">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h2 className="text-center">Preguntas Frecuentes</h2>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-md-8">
+              <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Registro en la web</Accordion.Header>
+                  <Accordion.Body>
+                    Primero, elige con responsabilidad y conscientemente
+                    sabiendo que estás a punto de recibir un leal compañero para
+                    toda la vida. Ya sea un perro, un gato o un pájaro, desde su
+                    perfil podrás completar nuestro cuestionario o acceder
+                    directamente a él a través del enlace provisto, donde
+                    tendrás la oportunidad de proporcionar varias opciones.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>
                     Rellenar formulario de solicitud
-                  </button>
-                </h3>
-                <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
-                  <div className="accordion-body">
-                    Una vez rellenado, nos lo envías, recibirás un correo informándote de la recepción del mismo y, lo antes posible te informaremos de nuestra decisión, serán un par de días dependiendo de nuestra disponibilidad.
-
-                    Puedes rellenar el formulario aquí.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item">
-                <h3 className="accordion-header" id="headingThree">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    En adopción
-                  </button>
-                </h3>
-                <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
-                  <div className="accordion-body">
-                    Los animales en adopción que aparecen en nuestra web se encuentran en esa situación en el mismo momento que lo visualizan pero, puede ocurrir que, durante la cumplimentación, recepción, gestión, etc. del cuestionario, algunos sean adoptados y dejen de estar disponibles. Dado que la actividad que desarrollamos es de voluntariado, no podemos conocer, en tiempo real, todas las adopciones del día. Rogamos comprensión al respecto si alguna de sus opciones se viera frustrada.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item">
-                <h3 className="accordion-header" id="headingFour">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Visitar
-                  </button>
-                </h3>
-                <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFAQ">
-                  <div className="accordion-body">
-                    Algunas de las protectoras o refugios de nuestra web ofrecen visitas, puedes contactar con ellos en cualquier momento para facilitaros una visita al centro.
-                  </div>
-                </div>
-              </div>
-
-              <div className="accordion-item">
-                <h3 className="accordion-header" id="headingFive">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    La solicitud
-                  </button>
-                </h3>
-                <div id="collapseFive" className="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionFAQ">
-                  <div className="accordion-body">
-                            La solicitud puede versa cancelada por parte de la protectora o refugio si considera que las condiciones del animal no serán optimas y adecuadas en su nuevo hogar. Así como que el usuario también puede cancelarlo con 5 días de antelación antes de realizar la entrega o recogida del animal a través de la web en el apartado de solicitud  Gestión de solicitud.
-
-                  </div>
-                </div>
-              </div>
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    Una vez rellenado el formualrio nos encargaremos de ponernos
+                    en contacto con usted para resolverle las dudas que pueda
+                    tener y facilitarle todo lo antes posible, también estamos
+                    abiertos a sugerencias a través del mismo formulario. Puedes
+                    rellenar el formulario <a href="/">aquí</a>.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>En adopción</Accordion.Header>
+                  <Accordion.Body>
+                    Los animales que se muestran en nuestro sitio web como
+                    disponibles para adopción se encuentran en esa condición al
+                    momento de la visualización. Sin embargo, es posible que
+                    algunos de ellos sean adoptados mientras se completa el
+                    proceso de solicitud, recepción y gestión. Debido a que
+                    nuestro trabajo se basa en el voluntariado, no tenemos la
+                    capacidad de conocer en tiempo real todas las adopciones que
+                    se realizan en el día. Agradecemos su comprensión si alguna
+                    de las opciones que considera se vuelve no disponible.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header>Visitar</Accordion.Header>
+                  <Accordion.Body>
+                    Algunas de las protectoras o refugios de nuestra web ofrecen
+                    visitas, puedes contactar con ellos en cualquier momento
+                    para facilitaros una visita al centro.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4">
+                  <Accordion.Header>La solicitud</Accordion.Header>
+                  <Accordion.Body>
+                    La solicitud puede verse cancelada por parte de la
+                    protectora o refugio si considera que las condiciones del
+                    animal no serán óptimas y adecuadas en su nuevo hogar. Así
+                    como que el usuario también puede cancelarlo con 15 días de
+                    antelación antes de realizar la entrega o recogida del
+                    animal a través de la web en el apartado de solicitud
+                    Gestión de solicitud.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </div>
           </div>
         </div>
       </section>
     </main>
-  )
+  );
 }
