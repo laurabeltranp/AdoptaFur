@@ -78,4 +78,17 @@ public class MascotaRestController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
+
+	@GetMapping("/novedades")
+	public ResponseEntity<?> mostrarUltimas() {
+		return ResponseEntity.ok(MascotaDto
+				.from(mascotaService.mostrarUltimasMascotas()));
+	}
+
+	@GetMapping("/adoptadas")
+	public ResponseEntity<?> mostrarAdoptadas() {
+		return ResponseEntity.ok(MascotaDto
+				.from(mascotaService.mostrarAdoptadas()));
+	}
+
 }

@@ -1,6 +1,7 @@
 package backend.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class Mascota {
 	@ManyToOne
 	@JoinColumn(name = "protectora")
 	private Usuario protectora;
+	private LocalDateTime fechaAlta;
 	@Formula(value = "(SELECT COUNT(*) FROM solicitud s WHERE s.idmascota=idmascota)")
 	Integer solicitudes;
 }
