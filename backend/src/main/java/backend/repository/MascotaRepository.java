@@ -33,4 +33,6 @@ public interface MascotaRepository extends JpaRepository<Mascota, Integer> {
 
 	public List<Mascota> findAllByProtectoraEmail(String email);
 
+	public List<Mascota> findTop8ByEstadoOrderByFechaAltaDesc(EstadoMascota estado);
+
 }

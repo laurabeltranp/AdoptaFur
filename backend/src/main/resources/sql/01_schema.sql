@@ -24,6 +24,8 @@ CREATE TABLE `mascotas`
     `provincia`   varchar(255) NOT NULL,
     `idraza`      int          NOT NULL,
     `protectora`  varchar(255) NOT NULL,
+    `fechaalta`  datetime         NOT NULL,
+
     PRIMARY KEY (`idmascota`),
     KEY           `idraza_fk_index` (`idraza`),
     KEY           `protectora_fk_index` (`protectora`),

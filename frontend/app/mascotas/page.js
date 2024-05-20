@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from "react-bootstrap/esm/Button";
 import TarjetaMascota from "@/components/tarjetasMascotas/tarjetasMascotas";
 
 export default function Mascotas() {

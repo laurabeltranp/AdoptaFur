@@ -1,7 +1,7 @@
 "use client"
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import {Container} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
 
@@ -33,27 +33,33 @@ function TarjetasMascota() {
     return (
 
         <Container>
-            {mascotas.map((mascota) => {
-                return (
-                    <Card className="m-2" key={mascota.nombre} style={{width: '18rem'}}>
-                        <Card.Img variant="top" style={{height: '224px'}}src={mascota.foto}/>
-                        <Card.Body>
-                            <Card.Title>{mascota.nombre}</Card.Title>
-                            <Card.Text>
-                                {mascota.description}
-                            </Card.Text>
-                        </Card.Body>
-                        <ListGroup className="list-group-flush">
-                            <ListGroup.Item>Soy un {mascota.razaDto.especie} de raza {mascota.razaDto.nombre}</ListGroup.Item>
-                            <ListGroup.Item>Vivo en {mascota.provincia} y peso {mascota.peso} Kg</ListGroup.Item>
-                        </ListGroup>
-                        <Card.Body>
-                            <Button  href="/altaSolicitud + idmascota + id usuario">Solicitar Adopción</Button >
-                        </Card.Body>
-                    </Card>
-                )
+            <Row>
+                {mascotas.map((mascota) => {
+                    return (
+                        <Col  key={mascota.nombre}xs={12} sm={6} md={4} lg={3} className="mb-4">
+                            <Card className="m-2" key={mascota.nombre} style={{width: '18rem'}}>
+                                <Card.Img variant="top" style={{height: '224px'}} src={mascota.foto}/>
+                                <Card.Body>
+                                    <Card.Title>{mascota.nombre}</Card.Title>
+                                    <Card.Text>
+                                        {mascota.description}
+                                    </Card.Text>
+                                </Card.Body>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroup.Item>Soy un {mascota.razaDto.especie} de
+                                        raza {mascota.razaDto.nombre}</ListGroup.Item>
+                                    <ListGroup.Item>Vivo en {mascota.provincia} y
+                                        peso {mascota.peso} Kg</ListGroup.Item>
+                                </ListGroup>
+                                <Card.Body>
+                                    <Button href="/altaSolicitud + idmascota + id usuario">Solicitar Adopción</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )
 
-            })}
+                })}
+            </Row>
         </Container>
     );
 }

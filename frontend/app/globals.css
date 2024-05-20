@@ -8,36 +8,6 @@
   text-align: center;
 }
 
-.nombre-animal {
-  color: #fff;
-  padding: 5px 10px;
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.nombre-animal:hover,
-.nombre-animal:focus {
-  text-decoration: none;
-}
-
-.tarjeta-background {
-  background-color: #A9D3AF !important;
-}
-
-.card {
-  margin-bottom: 20px;
-}
-
-.card-title a {
-  color: white;
-  text-decoration: none;
-}
-
-.card-body:hover {
-  background-color: #556357;
-}
-
 /* Seccion 2*/
 
 .btn-primary {
@@ -49,10 +19,8 @@
   font-size: 18px;
   text-decoration: none;
   transition: background-color 0.3s ease;
-
 }
 .btn-success {
-
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -64,7 +32,6 @@
 }
 
 .btn-secondary {
-
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -75,7 +42,11 @@
 
 }
 
-.btn-primary:hover, .btn-success:hover, .btn-secondary:hover  {
+.btn-primary:hover, .btn-secondary:hover  {
+  background-color: #214e22;
+}
+
+ .btn-success:hover {
   background-color: #A9D3AF;
   color: #214e22;
 }
@@ -94,9 +65,7 @@
 /* Seccion 4*/
 .card-box {
   background-color: #f0f0f0;
-  /* Color de fondo */
   border-radius: 15px;
-  /* Esquinas redondeadas */
   padding: 20px;
 }
 
@@ -107,8 +76,10 @@
 
 .form-box {
   background-color: #e9ecef;
-  /* Color de fondo */
   border-radius: 15px;
-  /* Esquinas redondeadas */
   padding: 20px;
+}
+
+.content {
+  flex: 1;
 }

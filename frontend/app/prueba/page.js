@@ -1,5 +1,5 @@
 'use client'
-import Cardlist from '@/components/cardlist/cardlist';
+import Herocardgrid from '@/components/cardlist/herocardgrid';
 import { useState, useEffect } from 'react';
 
 export function Prueba() {
@@ -30,7 +30,7 @@ export function Prueba() {
 
     return (
         <div>
-            <Cardlist mascotas={mascotas}></Cardlist>
+            <Herocardgrid mascotas={mascotas}></Herocardgrid>
         </div>
     )
 }
