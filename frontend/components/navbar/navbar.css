@@ -29,3 +29,12 @@
   font-weight: bold;
   transform: translateY(-3px);
 }
+.nav-link,
+.dropdown-item {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.dropdown-item:hover {
+  color: #ffb533 !important;
+}

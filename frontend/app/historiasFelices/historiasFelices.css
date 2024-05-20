@@ -1,0 +1,12 @@
+.seccion1 {
+    margin-top: 100px !important;
+  }
+  .historias-felices-card {
+    width: 18rem;
+    background-color: #A9D3AF;
+    transition: background-color 0.3s ease;
+  }
+  
+  .historias-felices-card:hover {
+    background-color: #ffb533;
+  }

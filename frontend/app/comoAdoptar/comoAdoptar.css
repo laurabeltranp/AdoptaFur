@@ -2,16 +2,18 @@
 .img-circular {
     border-radius: 50%;
     overflow: hidden;
-    max-width: 200px; /* Ancho máximo para las imágenes */
-    height: auto; /* Altura automática para mantener la proporción */
+    max-width: 200px; 
+    height: auto;
   }
   .seccion5 {
-    margin-top: 80px; 
+    margin-top: 100px !important;
   }
+
+
 /* Estilo para la barra lateral */
 .barra {
-  height: 100px; /* Altura de la barra */
-  width: 10px; /* Ancho de la barra */
+  height: 100px; 
+  width: 10px; 
 }
 
 .accordion-button:hover {
@@ -25,18 +27,26 @@
 .accordion-body {
   background-color: #fff;
   border-radius: 5px;
-  padding: 20px 20px; /* Aumenta el padding vertical para hacerlo más largo */
-  margin-bottom: 20px; /* Añade margen inferior para separar los acordeones */
+  padding: 20px 20px; 
+  margin-bottom: 20px; 
 }
 
 /* Estilos adicionales para el texto de información */
 .accordion-body p {
-  color: #a9d3af; /* Color del texto de la información */
+  color: #a9d3af; 
 }
 
 .accordion-body a:hover {
-  color: #ffb533; /* Color de hover del texto del enlace */
+  color: #ffb533; 
 }
 .accordion-button:not(.collapsed) {
-  background-color: #ffb533; /* Cambia el color de la barra cuando el acordeón está abierto */
+  background-color: #ffb533; 
+}
+.seccion5 svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Puedes ajustar esto según tus necesidades */
+  z-index: 0; /* Para enviar el SVG al fondo */
 }

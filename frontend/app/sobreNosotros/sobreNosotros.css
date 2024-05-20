@@ -1,5 +1,5 @@
 .seccion1 {
-    margin-top: 80px; 
+    margin-top: 100px; 
   }
 
   .elementor-icon-list-icon {
@@ -7,5 +7,5 @@
   }
   
   .elementor-icon-list-icon:hover {
-    color: green; /* Cambia el color al pasar el ratón por encima */
+    color: green; 
   }

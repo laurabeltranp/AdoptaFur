@@ -12,17 +12,16 @@ export default function SobreNosotros() {
           <div className="row">
             <div className="col-md-8">
               <h2 className="mb-4">Sobre Nosotros</h2>
-              <p>En la Comunidad de Madrid, AdoptaFur se ha convertido en una luz de esperanza para los animales necesitados. Nuestra andadura comenzó a principios de 2008, cuando un grupo de personas decidieron unir esfuerzos para rescatar animales de perreras.</p>
-              <p>Al principio, difundíamos sus historias con la esperanza de encontrar familias amorosas que los adoptaran. Con el tiempo, nos dimos cuenta de que necesitábamos hacer más, así que emprendimos un proyecto audaz: convertimos un chalet en un refugio temporal para perros que iban a ser sacrificados.</p>
-              <p>A lo largo de los años, hemos adaptado nuestra labor para maximizar nuestro impacto y ayudar a tantos animales como sea posible. Actualmente, nuestros principales objetivos son:</p>
+              <p>En la Comunidad de Madrid, AdoptaFur se ha convertido en una  esperanza para los animales necesitados para ofrecerles una mejor vida. Nuestro camino comenzó a mediados de 2024, cuando las fundadoras, amantes de los animales, decidieron unir esfuerzos para salvar animales de perreras y de las calles.</p>
+              <p>Comenzamos difundiendo historias de estos animales con la esperanza de encontrar familias amorosas que los adoptaran. Para ello pensamos que una de las mejores ideas,a además del uso de las redes sociales, era que tanto las protectoras como los usuarios de a pie pudiesen gestionar sus solicitudes.</p>
+              <p>Estamos adaptando nuestra labor para maximizar nuestro impacto y ayudar a tantos animales como podamos. Nuestros principales objetivos son:</p>
               <ul>
                 <li>Difundir a nuestros animales para encontrarles adoptantes y colaborar con otras protectoras para ayudar en la misma tarea.</li>
-                <li>Trasladar perros o gatos de perreras de otras ciudades hasta Madrid para ubicarlos en casas de acogida, proporcionándoles una vida digna hasta que sean adoptados.</li>
-                <li>Pagar residencias de forma excepcional cuando no podemos encontrar casas de acogida.</li>
+                <li>Servir de contacto entre protectora y adoptantes.</li>
+                <li>Proporcionar una mejor vida para los animales desamparados.</li>
               </ul>
-              <p>A lo largo de nuestra trayectoria, hemos entregado en adopción a más de 10.000 animales. Esto no habría sido posible sin la ayuda de nuestra comunidad.</p>
-              <p>En AdoptaFur, estamos comprometidos con la transparencia y la integridad. Estamos inscritos en el Registro con el CIF: G85366482 y somos una asociación apolítica, apartidista e independiente, sin ánimo de lucro. No recibimos ayuda estatal, autonómica o municipal, por lo que nuestros ingresos provienen de donativos, colaboraciones, socios y padrinos.</p>
-              <p>Nuestra causa es la misma que la de todas las protectoras: rescatar animales y ofrecerles un futuro mejor.</p>
+              <p>Actualmente llevamos entregados en adopción a más de 1.000 animales.</p>
+              <p>En AdoptaFur, estamos comprometidos con la transparencia y la integridad, por lo que siempre que hay alguna duda, sugerencia o queja, tanto protectoras como adoptantes pueden ponerse en contacto con nosotros.</p>
             </div>
             <div className="col-md-4">
               <Image src="/perrodestacado1.jpeg" width={300} height={242} alt="Equipo" className="img-fluid rounded" />
@@ -52,19 +51,21 @@ export default function SobreNosotros() {
               <span className="elementor-icon-list-icon">
                 <i aria-hidden="true" className="fas fa-circle"></i>
               </span>
-              <span className="elementor-icon-list-text">Difundir a nuestros animales para encontrarles adoptantes y al mismo tiempo colaboramos con otras protectoras, como la nuestra, para ayudarlos en la misma tarea.</span>
+              <span className="elementor-icon-list-text">Difundir a nuestros animales para encontrarles adoptantes es una tarea fundamental en nuestra labor. No solo nos limitamos a mostrar sus fotos y descripciones en nuestro sitio web, sino que también utilizamos nuestras redes sociales y eventos locales para promocionar a cada uno de nuestros compañeros peludos. Nos esforzamos por contar sus historias de vida, resaltar sus personalidades y destacar lo que los hace únicos y especiales.</span>
             </li>
+            <br></br>
             <li className="elementor-icon-list-item">
               <span className="elementor-icon-list-icon">
                 <i aria-hidden="true" className="fas fa-circle"></i>
               </span>
-              <span className="elementor-icon-list-text">Trasladamos perros o gatos de perreras de otras ciudades hasta Madrid para ubicarlos en casas de acogida, cuya imprescindible ayuda nos permite darles una vida digna y acogedora hasta que son finalmente adoptados. Con esto también se consigue dejar espacio en los refugios para otros animales más desfavorecidos que han sido abandonados y/o maltratados.</span>
+              <span className="elementor-icon-list-text">Servir de contacto entre protectora y adoptantes es una responsabilidad crucial que asumimos con dedicación y compromiso. Actuamos como un puente entre aquellos que buscan un compañero animal y las organizaciones que tienen animales necesitados de un hogar amoroso.</span>
             </li>
+            <br></br>
             <li className="elementor-icon-list-item">
               <span className="elementor-icon-list-icon">
                 <i aria-hidden="true" className="fas fa-circle"></i>
               </span>
-              <span className="elementor-icon-list-text">De forma excepcional pagamos residencias si no es posible encontrar casa de acogida, aunque lo hacemos como último recurso, debido a los limitados ingresos de la asociación.</span>
+              <span className="elementor-icon-list-text">Proporcionar una mejor vida para los animales desamparados es nuestra principal motivación y objetivo en AdoptaFur. Para lograr esto, nos comprometemos a ofrecerles atención integral y cuidado de alta calidad en todas las etapas de su proceso de rescate, rehabilitación y adopción.</span>
             </li>
           </ul>
         </div>
