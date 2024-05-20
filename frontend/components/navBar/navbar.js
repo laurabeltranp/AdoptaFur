@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Guard from "@/components/guard/guard";
-import LogOutButton from "@/components/logoutbtn/logoutbtn.js";
+import LogOutButton from "@/components/logoutBtn/logoutbtn.js";
 
 export const NavBar = () => {
   const [nombre, setNombre] = useState("");

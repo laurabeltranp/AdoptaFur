@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from 'react';
 import {Form, Button, Container, Row, Col, InputGroup, FormControl} from 'react-bootstrap';
-import RazaSelect from "@/components/form/razaSelect";
+import RazaSelect from "@/components/selectInput/razaSelect";
 
 
 const AltaMascota = () => {

@@ -1,5 +1,5 @@
 'use client'
-import Herocardgrid from '@/components/cardlist/herocardgrid';
+import Herocardgrid from '@/components/heroCardGrid/herocardgrid';
 import { useState, useEffect } from 'react';
 
 export function Prueba() {

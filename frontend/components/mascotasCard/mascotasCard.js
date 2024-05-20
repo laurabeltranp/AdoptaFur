@@ -52,7 +52,7 @@ function TarjetasMascota() {
                                         peso {mascota.peso} Kg</ListGroup.Item>
                                 </ListGroup>
                                 <Card.Body>
-                                    <Button href="/altaSolicitud + idmascota + id usuario">Solicitar Adopción</Button>
+                                    <Button href={"/mascotas/verDetalle/"+mascota.idMascota}>Solicitar Adopción</Button>
                                 </Card.Body>
                             </Card>
                         </Col>

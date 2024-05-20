@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
-import NavBar from '../components/navbar/navbar.js';
+import NavBar from '@/components/navBar/navbar.js';
 import { Footer } from "@/components/footer/footer";
 import {UsuarioProvider} from "@/contexts/UsuarioContext";
 

@@ -1,0 +1,23 @@
+.mascota-foto {
+    width: 100%;
+    height: auto;
+}
+
+.mascota-info {
+    padding: 1.5rem;
+    border: 1px solid green;
+    border-radius: 0.5rem;
+}
+
+.mascota-nombre {
+    color: green;
+}
+
+.mascota-subtitulo {
+    color: green;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}

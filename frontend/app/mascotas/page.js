@@ -1,5 +1,5 @@
 import React from 'react'
-import TarjetaMascota from "@/components/tarjetasMascotas/tarjetasMascotas";
+import TarjetaMascota from "@/components/mascotasCard/mascotasCard";
 
 export default function Mascotas() {
     return (
