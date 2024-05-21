@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import {Col, Container, Row} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
+import './mascotasCard.css';
 
 function TarjetasMascota() {
     const [mascotas, setMascotas] = useState([]);
@@ -34,31 +35,37 @@ function TarjetasMascota() {
 
         <Container>
             <Row>
-                {mascotas.map((mascota) => {
-                    return (
-                        <Col  key={mascota.nombre}xs={12} sm={6} md={4} lg={3} className="mb-4">
-                            <Card className="m-2" key={mascota.nombre} style={{width: '18rem'}}>
-                                <Card.Img variant="top" style={{height: '224px'}} src={mascota.foto}/>
-                                <Card.Body>
-                                    <Card.Title>{mascota.nombre}</Card.Title>
-                                    <Card.Text>
+                {mascotas.map((mascota) => (
+                    <Col key={mascota.nombre} xs={12} sm={6} md={4} lg={3} className="mb-4">
+                        <Card className="m-2 tarjeta-background">
+                            <Card.Img variant="top" className="card-img-top" src={mascota.foto} />
+                            <Card.Body className="d-flex flex-column">
+                                <Card.Title className="centered-text">{mascota.nombre}</Card.Title>
+                                <Card.Text className="italic-text centered-text">
+                                    {mascota.razaDto.nombre}
+                                </Card.Text>
+                                <ListGroup className="flex-grow-1">
+                                    <ListGroup.Item className="list-item">
+                                        <Row>
+                                            <Col>
+                                                Peso: {mascota.peso} Kg
+                                            </Col>
+                                            <Col className="right-text">
+                                                ({mascota.provincia})
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item className="list-item truncate-description">
                                         {mascota.description}
-                                    </Card.Text>
-                                </Card.Body>
-                                <ListGroup className="list-group-flush">
-                                    <ListGroup.Item>Soy un {mascota.razaDto.especie} de
-                                        raza {mascota.razaDto.nombre}</ListGroup.Item>
-                                    <ListGroup.Item>Vivo en {mascota.provincia} y
-                                        peso {mascota.peso} Kg</ListGroup.Item>
+                                    </ListGroup.Item>
                                 </ListGroup>
-                                <Card.Body>
-                                    <Button href={"/mascotas/verDetalle/"+mascota.idMascota}>Solicitar Adopción</Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )
-
-                })}
+                                <Button className="mt-auto" href={"/mascotas/verDetalle/" + mascota.idMascota}>
+                                    Solicitar Adopción
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
             </Row>
         </Container>
     );

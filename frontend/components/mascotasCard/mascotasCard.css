@@ -2,32 +2,72 @@
     text-align: center;
 }
 
-.nombre-animal {
-    color: #fff;
-    padding: 5px 10px;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.nombre-animal:hover,
-.nombre-animal:focus {
-    text-decoration: none;
+.right-text {
+    text-align: right;
 }
 
 .tarjeta-background {
-    background-color: #A9D3AF !important;
+    background-image: linear-gradient(to bottom, #58d55cd5, transparent);
 }
 
 .card {
     margin-bottom: 20px;
+    width: 18rem;
+    height: 100%;
+    color: #236324;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.card-title a {
-    color: white;
-    text-decoration: none;
+.card-title {
+    color: #236324;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-.card-body:hover {
-    background-color: #556357;
+.card-img-top {
+    height: 224px;
+    object-fit: cover;
+}
+
+.italic-text {
+    font-style: italic;
+    color: #236324;
+    font-size: 1rem;
+}
+
+.list-group-item {
+    padding: 10px 15px;
+    border-bottom: none;
+    color: #236324;
+    border-top: 2px solid #016c03;
+}
+
+.list-item {
+    background-color: #A9D3AF;
+}
+
+.card-footer {
+    outline: none;
+    border-top: none;
+    padding: 10px 15px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.truncate-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 4.5rem;
 }

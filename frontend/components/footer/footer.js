@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Footer = () => {
     return (
         <footer className="footer bg-dark text-light py-4 position-absolute-bottom">
-            <div className="container">
+            <div className="container ">
                 <div className="row align-items-center">
                     <div className="col-md-3">
                         <Image src="/logoAdoptaFondoBlanco.png" width={100} height={78} className="logo-small"
@@ -15,17 +15,11 @@ export const Footer = () => {
                     <div className="col-md-3">
                         <h5>Navegación</h5>
                         <ul className="list-unstyled">
-                            <li><a className="text-light text-decoration-none" href="index.html">Inicio</a></li>
-                            <li><a className="text-light text-decoration-none" href="comoAdoptar.html">¿Cómo
-                                adoptar?</a></li>
-                            <li><a className="text-light text-decoration-none" href="sobreNosotros.html">Sobre
-                                Nosotros</a></li>
-                            <li><a className="text-light text-decoration-none" href="accesoProtectora.html">Acceso</a>
+                            <li><a className="text-light text-decoration-none" href="/cookies">Cookies</a></li>
+                            <li><a className="text-light text-decoration-none" href="/privacidad">Politica de privacidad</a></li>
+                            <li><a className="text-light text-decoration-none" href="/avisoLegal">Aviso lejal</a></li>
+                            <li><a className="text-light text-decoration-none" href="/accesibilidad">Acceso</a>
                             </li>
-                            <li><a className="text-light text-decoration-none" href="an">Compañeros disponibles</a></li>
-                            <li><a className="text-light text-decoration-none" href="adoptados.html">Historias
-                                Felices</a></li>
-
                         </ul>
                     </div>
                     <div className="col-md-3">
@@ -44,7 +38,7 @@ export const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <hr className="text-light w-100"/>
+                <hr className="text-light w-auto"/>
                 <div className="row">
                     <div className="col text-center">
                         <p>&copy; 2024 AdoptaFur</p>
