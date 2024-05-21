@@ -3,10 +3,11 @@ import React, {useEffect, useState} from "react";
 import Form from "react-bootstrap/Form";
 import "./formularioSolicitud.css";
 import {FormGroup} from "react-bootstrap";
+import Guard from "@/components/guard/guard";
 
 export const FormularioSolicitud = ({id}) => {
     const [solicitud, setSolicitud] = useState({
-        idMascota:id,
+        idMascota: id,
         tipoHogar: '',
         alergias: '',
         familia: ''
@@ -86,13 +87,25 @@ export const FormularioSolicitud = ({id}) => {
                 />
             </Form.Group>
             <FormGroup className="text-center">
-            <Button
-                variant="success"
-                type="submit"
-                className="m-2 solicitud-boton"
-            >
-                Enviar Solicitud
-            </Button>
+                <Guard requiredRoles={["Usuario", "Protectora"]}>
+                <Button
+                    variant="success"
+                    type="submit"
+                    className="m-2 solicitud-boton"
+                >
+                    Enviar Solicitud
+                </Button>
+                </Guard>
+                <Guard requiredRoles={["Anonymous"]}>
+                    <Button href="/acceso" variant="success">
+                        Acceso
+                    </Button>
+                </Guard>
+                <Guard requiredRoles={["Anonymous"]}>
+                    <Button href="/registro" variant="primary">
+                        Regístrate
+                    </Button>
+                </Guard>
             </FormGroup>
         </Form>
     );

@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className="seccion1 mt-5">
+      <section className="seccion1 mt-2">
         <div className="col-md-12">
           <h2 className="centered-text seccion1">Compañeros para adoptar</h2>
         </div>

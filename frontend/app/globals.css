@@ -1,104 +1,107 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* General */
 body {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 136px;
 }
 
-/* Navbar */
+html, body, #__next {
+    height: 100%;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    flex: 1;
+}
+
 .navbar-custom {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
-/* h2 tags */
 h2 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-/* seccion1*/
-.seccion1 {
-  margin-top: 100px !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .centered-text {
-  text-align: center;
+    text-align: center;
 }
-
-/* Seccion 2*/
 
 .btn-primary {
-  background-color: #F99D20;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 18px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+    background-color: #F99D20;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
+
 .btn-success {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 18px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 
 }
 
 .btn-secondary {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 18px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 
 }
 
-.btn-primary:hover, .btn-secondary:hover  {
-  background-color: #214e22;
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: #214e22;
 }
 
- .btn-success:hover {
-  background-color: #A9D3AF;
-  color: #214e22;
+.btn-success:hover {
+    background-color: #A9D3AF;
+    color: #214e22;
 }
 
 .icono-paso svg {
-  width: 50px;
-  height: auto;
-  vertical-align: middle;
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
 }
-/* Seccion 3*/
+
 .seccion3 {
-  background-color: #58d55c54;
+    background-color: #58d55c54;
 }
 
-
-/* Seccion 4*/
 .card-box {
-  background-color: #f0f0f0;
-  border-radius: 15px;
-  padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .icon {
-  display: inline-block;
-  margin-right: 10px;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .form-box {
-  background-color: #e9ecef;
-  border-radius: 15px;
-  padding: 20px;
-}
-
-.content {
-  flex: 1;
+    background-color: #e9ecef;
+    border-radius: 15px;
+    padding: 20px;
 }

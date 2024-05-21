@@ -1,11 +1,7 @@
-.seccion1 {
-    margin-top: 100px; 
-  }
 
   .elementor-icon-list-icon {
     cursor: pointer;
   }
-  
   .elementor-icon-list-icon:hover {
     color: green; 
   }
