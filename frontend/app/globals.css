@@ -1,9 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
     margin: 0;
     box-sizing: border-box;
     padding-top: 136px;
@@ -23,13 +18,8 @@ html, body, #__next {
     flex: 1;
 }
 
-.navbar-custom {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
 
 h2 {
-    font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
@@ -71,7 +61,8 @@ h2 {
 }
 
 .btn-primary:hover, .btn-secondary:hover {
-    background-color: #214e22;
+   background: green;
+
 }
 
 .btn-success:hover {
