@@ -17,7 +17,7 @@ export const NavBar = () => {
     setNombre(localStorage.getItem("nombre"));
   }, []);
   return (
-<Navbar expand="lg" className="bg-body-tertiary navbar-custom fixed-top">
+<Navbar expand="lg" className="bg-body-tertiary navbar-custom fixed-top mb-2">
       <Container fluid>
         <Navbar.Brand href="#home">
           <Image
@@ -45,7 +45,7 @@ export const NavBar = () => {
                 Historias felices
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link className="nav-link" href="/companerosDisponibles">
+            <Nav.Link className="nav-link" href="/mascotas">
               Compañeros Disponibles
             </Nav.Link>
             <Guard requiredRoles={["Usuario"]}>
