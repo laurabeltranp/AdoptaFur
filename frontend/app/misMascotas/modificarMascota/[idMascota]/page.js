@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react'
 import Container from "react-bootstrap/Container";
 import {Button, Col, Form, Image, Row} from "react-bootstrap";
-import RazaSelect from "@/components/form/razaSelect";
+import RazaSelect from "@/components/selectInput/razaSelect";
 
 
 export default function ModificarMascota({params}) {

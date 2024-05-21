@@ -3,7 +3,7 @@ import CustomCarrusel from "@/components/carousel/carousel";
 import "./page.module.css";
 import Image from "next/image";
 import {useEffect, useState} from "react";
-import Herocardgrid from "@/components/cardlist/herocardgrid";
+import Herocardgrid from "@/components/heroCardGrid/herocardgrid";
 
 export default function Home() {
   const [mascotas, setMascotas] = useState([]);

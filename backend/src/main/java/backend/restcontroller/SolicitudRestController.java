@@ -3,7 +3,10 @@ package backend.restcontroller;
 import backend.dto.AltaSolicitudDto;
 import backend.dto.SolicitudDto;
 import backend.entity.Solicitud;
+import backend.entity.Usuario;
 import backend.service.SolicitudService;
+import backend.service.UsuarioDetailsImpl;
+import backend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -17,6 +20,8 @@ import java.util.Optional;
 public class SolicitudRestController {
     @Autowired
     SolicitudService solicitudService;
+    @Autowired
+    UsuarioService usuarioService;
 
     @GetMapping("/")
     public ResponseEntity<?> verTodas(Authentication authentication) {
@@ -60,10 +65,13 @@ public class SolicitudRestController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("/alta")
     public ResponseEntity<?> crear(Authentication authentication, @RequestBody AltaSolicitudDto altaSolicitudDto) {
-        String email = (String) authentication.getPrincipal();
-        Solicitud solicitud = solicitudService.crear(email, altaSolicitudDto);
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+        Optional<Usuario> usuario = usuarioService.buscarUno(userDetails.getUsername());
+
+        Solicitud solicitud = solicitudService.crear(usuario.get().getEmail(), altaSolicitudDto);
+
         if (solicitud != null) {
             return ResponseEntity.ok(SolicitudDto.from(solicitud));
         } else {
