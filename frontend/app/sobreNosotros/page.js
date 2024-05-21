@@ -24,7 +24,7 @@ export default function SobreNosotros() {
               <p>En AdoptaFur, estamos comprometidos con la transparencia y la integridad, por lo que siempre que hay alguna duda, sugerencia o queja, tanto protectoras como adoptantes pueden ponerse en contacto con nosotros.</p>
             </div>
             <div className="col-md-4">
-              <Image src="/perrodestacado1.jpeg" width={300} height={242} alt="Equipo" className="img-fluid rounded" />
+              <Image src="/sobreNosotros.jpg" width={300} height={242} alt="Equipo" className="img-fluid rounded" />
             </div>
           </div>
         </div>
