@@ -1,6 +1,7 @@
 package backend.dto;
 
 import backend.entity.Solicitud;
+import lombok.Value;
 
 import java.time.LocalDateTime;
 import java.util.List;

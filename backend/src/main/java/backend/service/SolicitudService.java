@@ -75,4 +75,12 @@ public class SolicitudService {
 
         return solicitudRepository.saveAndFlush(solicitud);
     }
+
+    public List<Solicitud> mostrarTodasPorMascota(Mascota mascota) {
+        return solicitudRepository.findAllByMascota(mascota);
+    }
+
+    public void modificarSolicitud(Solicitud solicitud) {
+        solicitudRepository.save(solicitud);
+    }
 }

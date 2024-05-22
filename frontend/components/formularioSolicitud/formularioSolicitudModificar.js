@@ -5,26 +5,29 @@ import "./formularioSolicitud.css";
 import {FormGroup} from "react-bootstrap";
 import Guard from "@/components/guard/guard";
 
-export const FormularioSolicitud = ({id}) => {
-    const [solicitud, setSolicitud] = useState({
-        idMascota: id,
-        tipoHogar: '',
-        alergias: '',
-        familia: ''
+export const FormularioSolicitudModificar = ({solicitud}) => {
+    const [solicitudModificada, setSolicitudModificada] = useState({
+        id: solicitud.id,
+        tipoHogar: solicitud.tipoHogar,
+        alergias: solicitud.alergias,
+        familia: solicitud.familia,
     });
-
     useEffect(() => {
-        if (id) {
-            setSolicitud(prevSolicitud => ({
-                ...prevSolicitud,
-                idMascota: id
+        if (solicitud) {
+            setSolicitudModificada(prevSolicitudModificada => ({
+                ...prevSolicitudModificada,
+                id: solicitud.id,
+                tipoHogar: solicitud.tipoHogar,
+                alergias: solicitud.alergias,
+                familia: solicitud.familia,
+
             }));
         }
-    }, [id]);
+    }, [solicitud]);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        setSolicitud(prevState => ({
+        setSolicitudModificada(prevState => ({
             ...prevState,
             [name]: value
         }));
@@ -33,20 +36,21 @@ export const FormularioSolicitud = ({id}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://' + window.location.hostname + ':8081/solicitud/alta', {
-                method: 'POST',
+            const response = await fetch('http://' + window.location.hostname + ':8081/solicitud/modificar', {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 },
                 body: JSON.stringify({
-                    ...solicitud,
+                    ...solicitudModificada,
                 })
             });
             if (response.ok) {
-                alert('Solicitud enviada exitosamente');
+                alert('Solicitud modificada exitosamente');
+                window.location.href = '/buscadorMascotas';
             } else {
-                alert('Error al enviar la solicitud');
+                alert('Error al modificar la solicitud');
             }
         } catch (error) {
             console.error(error);
@@ -55,13 +59,12 @@ export const FormularioSolicitud = ({id}) => {
 
     return (
         <Form onSubmit={handleSubmit} className="formulario-solicitud m-4">
-            <h2 className="mb-4 solicitud-titulo text-center">Solicitar Adopción</h2>
             <Form.Group controlId="tipoHogar">
                 <Form.Label>Tipo de Hogar:</Form.Label>
                 <Form.Control
                     type="text"
                     name="tipoHogar"
-                    value={solicitud.tipoHogar}
+                    value={solicitudModificada.tipoHogar}
                     onChange={handleChange}
                     className="solicitud-input"
                 />
@@ -71,7 +74,7 @@ export const FormularioSolicitud = ({id}) => {
                 <Form.Control
                     type="text"
                     name="alergias"
-                    value={solicitud.alergias}
+                    value={solicitudModificada.alergias}
                     onChange={handleChange}
                     className="solicitud-input"
                 />
@@ -81,29 +84,19 @@ export const FormularioSolicitud = ({id}) => {
                 <Form.Control
                     type="text"
                     name="familia"
-                    value={solicitud.familia}
+                    value={solicitudModificada.familia}
                     onChange={handleChange}
                     className="solicitud-input"
                 />
             </Form.Group>
             <FormGroup className="text-center">
                 <Guard requiredRoles={["Usuario", "Protectora"]}>
-                <Button
-                    variant="success"
-                    type="submit"
-                    className="m-2 solicitud-boton"
-                >
-                    Enviar Solicitud
-                </Button>
-                </Guard>
-                <Guard requiredRoles={["Anonymous"]}>
-                    <Button href="/acceso" variant="success">
-                        Acceso
-                    </Button>
-                </Guard>
-                <Guard requiredRoles={["Anonymous"]}>
-                    <Button href="/registro" variant="primary">
-                        Regístrate
+                    <Button
+                        variant="success"
+                        type="submit"
+                        className="m-2 solicitud-boton"
+                    >
+                        Modificar Solicitud
                     </Button>
                 </Guard>
             </FormGroup>
@@ -111,4 +104,4 @@ export const FormularioSolicitud = ({id}) => {
     );
 }
 
-export default FormularioSolicitud;
+export default FormularioSolicitudModificar;
