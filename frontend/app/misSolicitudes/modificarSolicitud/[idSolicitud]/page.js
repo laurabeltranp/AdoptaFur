@@ -1,48 +1,42 @@
 "use client"
 import React, {useEffect, useState} from 'react'
-import InformacionCard from "@/components/informaciónCard/informacionCard";
-import FormularioSolicitud from "@/components/formularioSolicitud/formularioSolicitud";
+import FormularioSolicitudModificar from "@/components/formularioSolicitud/formularioSolicitudModificar";
 
-export default function DetalleMascota({params}) {
-    const [mascota, setMascota] = useState({
-        idMascota: '',
-        nombre: '',
+export default function DetalleSolicitud({params}) {
+    const [solicitud, setSolicitud] = useState({
+        id: params.idSolicitud,
+        usuario: '',
+        mascota: '',
+        fecha: '',
         estado: '',
-        cumpleanio: '',
-        peso: '',
-        provincia: '',
-        description: '',
-        razaDto: {idRaza: '', nombre: '', especie: ''},
-        protectora: '',
-        foto: '',
-        solicitudes: ''
+        tipoHogar: '',
+        alergias: '',
+        familia: '',
     });
-
     useEffect(() => {
-        const obteniendoMisMascota = async (idMascota) => {
+        const obteniendoSolicitud = async (id) => {
             try {
-                const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/verUna/' + idMascota, {
+                const response = await fetch('http://' + window.location.hostname + ':8081/solicitud/' + id, {
                     method: 'GET', headers: {
                         'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')
                     },
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    setMascota(data);
-
+                    setSolicitud(data);
                 }
             } catch (error) {
                 console.error(error);
             }
         };
-        obteniendoMisMascota(params.idMascota);
-    }, [params.idMascota]);
+        obteniendoSolicitud(params.idSolicitud);
+    }, [params.idSolicitud]);
 
     return (
 
         <main className='container'>
-            <InformacionCard mascota={mascota}></InformacionCard>
-            <FormularioSolicitud id={mascota.idMascota}></FormularioSolicitud>
+            <h2>Modificando solicitud de adopción de {solicitud.mascota.nombre}</h2>
+                    <FormularioSolicitudModificar id={solicitud}></FormularioSolicitudModificar>
         </main>
     )
 }

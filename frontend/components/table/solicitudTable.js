@@ -1,6 +1,5 @@
 import React from 'react';
-import {Button, Table} from "react-bootstrap";
-import MascotaRow from "@/components/tableRow/mascotaRow";
+import {Table} from "react-bootstrap";
 import SolicitudRow from "@/components/tableRow/solicitudRow";
 
 export const SolicitudTable = ({solicitudes, mostrarAcciones}) => {

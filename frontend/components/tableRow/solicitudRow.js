@@ -40,7 +40,7 @@ export const SolicitudRow = ({solicitud, mostrarAcciones}) => {
             {mostrarAcciones ? (
                 <td>
                     <Button variant="success" onClick={cancelarSolicitud} className="mb-2">Cancelar</Button>
-                    <Button variant="secondary" href={"/misSolicitudes/modificar" + solicitud.idSolicitud}
+                    <Button variant="secondary" href={"/misSolicitudes/modificarSolicitud/" + solicitud.id}
                             className="mb-2">Modificar</Button>
                 </td>
             ) : null}

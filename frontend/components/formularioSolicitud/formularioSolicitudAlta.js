@@ -5,7 +5,7 @@ import "./formularioSolicitud.css";
 import {FormGroup} from "react-bootstrap";
 import Guard from "@/components/guard/guard";
 
-export const FormularioSolicitud = ({id}) => {
+export const FormularioSolicitudAlta = ({id}) => {
     const [solicitud, setSolicitud] = useState({
         idMascota: id,
         tipoHogar: '',
@@ -55,7 +55,6 @@ export const FormularioSolicitud = ({id}) => {
 
     return (
         <Form onSubmit={handleSubmit} className="formulario-solicitud m-4">
-            <h2 className="mb-4 solicitud-titulo text-center">Solicitar Adopción</h2>
             <Form.Group controlId="tipoHogar">
                 <Form.Label>Tipo de Hogar:</Form.Label>
                 <Form.Control
@@ -111,4 +110,4 @@ export const FormularioSolicitud = ({id}) => {
     );
 }
 
-export default FormularioSolicitud;
+export default FormularioSolicitudAlta;
