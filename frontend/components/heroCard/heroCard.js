@@ -15,7 +15,7 @@ export const HeroCard = ({mascota}) => {
                 />
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title nombre-animal"><a href="descripcion_perro.html" style={{ 'textDecoration': 'none' }}>{mascota.nombre}</a></h5>
+                    <h5 className="card-title nombre-animal"><a href={"/mascotas/verDetalle/" + mascota.idMascota} style={{ 'textDecoration': 'none' }}>{mascota.nombre}</a></h5>
                 </div>
             </div>
     )

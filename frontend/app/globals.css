@@ -75,9 +75,8 @@ h2 {
     height: auto;
     vertical-align: middle;
 }
-
-.seccion3 {
-    background-color: #58d55c54;
+.seccion3{
+    background-color: #A9D3AF;
 }
 
 .card-box {
@@ -96,3 +95,6 @@ h2 {
     border-radius: 15px;
     padding: 20px;
 }
+.svgArriba{
+    margin-top: 0px;
+  }

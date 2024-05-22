@@ -16,7 +16,7 @@ export const Footer = () => {
                         <h5>Navegación</h5>
                         <ul className="list-unstyled">
                             <li><a className="text-light text-decoration-none" href="/cookies">Cookies</a></li>
-                            <li><a className="text-light text-decoration-none" href="/privacidad">Politica de privacidad</a></li>
+                            <li><a className="text-light text-decoration-none" href="/politica">Politica de privacidad</a></li>
                             <li><a className="text-light text-decoration-none" href="/avisoLegal">Aviso lejal</a></li>
                             <li><a className="text-light text-decoration-none" href="/accesibilidad">Acceso</a>
                             </li>
