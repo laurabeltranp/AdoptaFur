@@ -17,7 +17,10 @@ export const NavBar = () => {
     setNombre(localStorage.getItem("nombre"));
   }, []);
   return (
-<Navbar expand="lg" className="bg-body-tertiary navbar-custom fixed-top mb-2">
+    <Navbar
+      expand="lg"
+      className="bg-body-tertiary navbar-custom fixed-top mb-2"
+    >
       <Container fluid>
         <Navbar.Brand href="#home">
           <Image
@@ -35,13 +38,22 @@ export const NavBar = () => {
               Inicio
             </Nav.Link>
             <NavDropdown title="Adoptar" id="basic-nav-dropdown">
-              <NavDropdown.Item className="nav-dropdown-item" href="/comoAdoptar">
+              <NavDropdown.Item
+                className="nav-dropdown-item"
+                href="/comoAdoptar"
+              >
                 ¿Cómo adoptar?
               </NavDropdown.Item>
-              <NavDropdown.Item className="nav-dropdown-item" href="/sobreNosotros">
+              <NavDropdown.Item
+                className="nav-dropdown-item"
+                href="/sobreNosotros"
+              >
                 Sobre Nosotros
               </NavDropdown.Item>
-              <NavDropdown.Item className="nav-dropdown-item" href="/historiasFelices">
+              <NavDropdown.Item
+                className="nav-dropdown-item"
+                href="/historiasFelices"
+              >
                 Historias felices
               </NavDropdown.Item>
             </NavDropdown>
@@ -63,6 +75,10 @@ export const NavBar = () => {
                 Perfil
               </Nav.Link>
             </Guard>
+            {/* Nuevo enlace de Contacto */}
+            <Nav.Link className="nav-link" href="/contacto">
+              Contacto
+            </Nav.Link>
           </Nav>
           <Nav className="mx-5">
             <Guard requiredRoles={["Protectora", "Usuario"]}>
