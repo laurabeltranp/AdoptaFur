@@ -57,7 +57,7 @@ export const NavBar = () => {
                 Historias felices
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link className="nav-link" href="/mascotas">
+            <Nav.Link className="nav-link" href="/buscadorMascotas">
               Compañeros Disponibles
             </Nav.Link>
             <Guard requiredRoles={["Usuario"]}>

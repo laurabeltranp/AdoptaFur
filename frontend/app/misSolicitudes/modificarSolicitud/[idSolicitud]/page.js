@@ -1,12 +1,13 @@
 "use client"
 import React, {useEffect, useState} from 'react'
 import FormularioSolicitudModificar from "@/components/formularioSolicitud/formularioSolicitudModificar";
+import InformacionCard from "@/components/informaciónCard/informacionCard";
 
 export default function DetalleSolicitud({params}) {
     const [solicitud, setSolicitud] = useState({
         id: params.idSolicitud,
         usuario: '',
-        mascota: '',
+        mascota: {},
         fecha: '',
         estado: '',
         tipoHogar: '',
@@ -36,7 +37,8 @@ export default function DetalleSolicitud({params}) {
 
         <main className='container'>
             <h2>Modificando solicitud de adopción de {solicitud.mascota.nombre}</h2>
-                    <FormularioSolicitudModificar id={solicitud}></FormularioSolicitudModificar>
+                    <InformacionCard mascota={solicitud.mascota}></InformacionCard>
+                    <FormularioSolicitudModificar solicitud={solicitud}></FormularioSolicitudModificar>
         </main>
     )
 }

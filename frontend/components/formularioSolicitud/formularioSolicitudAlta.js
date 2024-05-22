@@ -45,6 +45,9 @@ export const FormularioSolicitudAlta = ({id}) => {
             });
             if (response.ok) {
                 alert('Solicitud enviada exitosamente');
+                window.location.href = '/buscadorMascotas';
+
+
             } else {
                 alert('Error al enviar la solicitud');
             }

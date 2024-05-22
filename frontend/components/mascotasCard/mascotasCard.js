@@ -59,7 +59,7 @@ function TarjetasMascota() {
                                         {mascota.description}
                                     </ListGroup.Item>
                                 </ListGroup>
-                                <Button className="mt-auto" href={"/mascotas/verDetalle/" + mascota.idMascota}>
+                                <Button className="mt-auto" href={"/buscadorMascotas/verDetalle/" + mascota.idMascota}>
                                     Solicitar Adopción
                                 </Button>
                             </Card.Body>

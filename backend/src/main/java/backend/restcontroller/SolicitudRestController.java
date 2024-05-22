@@ -1,9 +1,12 @@
 package backend.restcontroller;
 
 import backend.dto.AltaSolicitudDto;
+import backend.dto.MensajeDto;
 import backend.dto.SolicitudDto;
+import backend.entity.Mascota;
 import backend.entity.Solicitud;
 import backend.entity.Usuario;
+import backend.service.MascotaService;
 import backend.service.SolicitudService;
 import backend.service.UsuarioDetailsImpl;
 import backend.service.UsuarioService;
@@ -12,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -22,6 +26,8 @@ public class SolicitudRestController {
     SolicitudService solicitudService;
     @Autowired
     UsuarioService usuarioService;
+    @Autowired
+    private MascotaService mascotaService;
 
     @GetMapping("/")
     public ResponseEntity<?> verTodas(Authentication authentication) {
@@ -79,5 +85,28 @@ public class SolicitudRestController {
             return ResponseEntity.badRequest().build();
         }
     }
-    // TODO: Modificar una solicitud
+
+    @GetMapping("/porMascota/{idMascota}")
+    public ResponseEntity<?> verTodasPorMascotas(Authentication authentication, @PathVariable Integer idMascota) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+        Mascota mascota = mascotaService.mostrarUna(idMascota).get();
+        if(mascota.getProtectora().getEmail().equals(userDetails.getUsername())) {
+            return ResponseEntity.ok(SolicitudDto.from(solicitudService.mostrarTodasPorMascota(mascota)));
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/modificar")
+    public ResponseEntity<?> modificarSolicitud(Authentication authentication, @RequestBody SolicitudDto solicitudDto) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+        Solicitud solicitud = solicitudService.mostrarUna(solicitudDto.id()).get();
+        if(solicitud.getUsuario().getEmail().equals(userDetails.getUsername())) {
+            solicitud.setTipoHogar(solicitudDto.tipoHogar());
+            solicitud.setAlergias(solicitudDto.alergias());
+            solicitud.setFamilia(solicitudDto.familia());
+            solicitudService.modificarSolicitud(solicitud);
+            return ResponseEntity.ok(new MensajeDto("Solicitud modificada!"));
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

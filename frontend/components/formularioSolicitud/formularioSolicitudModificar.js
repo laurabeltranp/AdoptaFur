@@ -5,22 +5,25 @@ import "./formularioSolicitud.css";
 import {FormGroup} from "react-bootstrap";
 import Guard from "@/components/guard/guard";
 
-export const FormularioSolicitudModificar = (solicitud) => {
+export const FormularioSolicitudModificar = ({solicitud}) => {
     const [solicitudModificada, setSolicitudModificada] = useState({
-        id: solicitud.idSolicitud,
+        id: solicitud.id,
         tipoHogar: solicitud.tipoHogar,
         alergias: solicitud.alergias,
         familia: solicitud.familia,
     });
-
     useEffect(() => {
         if (solicitud) {
             setSolicitudModificada(prevSolicitudModificada => ({
                 ...prevSolicitudModificada,
+                id: solicitud.id,
                 tipoHogar: solicitud.tipoHogar,
+                alergias: solicitud.alergias,
+                familia: solicitud.familia,
+
             }));
         }
-    }, []);
+    }, [solicitud]);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -40,11 +43,12 @@ export const FormularioSolicitudModificar = (solicitud) => {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 },
                 body: JSON.stringify({
-                    ...solicitud,
+                    ...solicitudModificada,
                 })
             });
             if (response.ok) {
                 alert('Solicitud modificada exitosamente');
+                window.location.href = '/buscadorMascotas';
             } else {
                 alert('Error al modificar la solicitud');
             }

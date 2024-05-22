@@ -1,5 +1,6 @@
 package backend.repository;
 
+import backend.entity.Mascota;
 import backend.entity.Solicitud;
 import backend.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,4 +12,6 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Integer> {
     List<Solicitud> findAllByUsuario(Usuario usuario);
 
     List<Solicitud> findAllByMascotaProtectora(Usuario usuario);
+
+    List<Solicitud> findAllByMascota(Mascota mascota);
 }
