@@ -25,7 +25,8 @@ public class SolicitudRestController {
 
     @GetMapping("/")
     public ResponseEntity<?> verTodas(Authentication authentication) {
-        return ResponseEntity.ok(SolicitudDto.from(solicitudService.mostrarTodas((String) authentication.getPrincipal())));
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+        return ResponseEntity.ok(SolicitudDto.from(solicitudService.mostrarTodas(userDetails.getUsername())));
     }
 
     @GetMapping("/{idSolicitud}")

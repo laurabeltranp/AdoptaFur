@@ -1,11 +1,12 @@
 import React from 'react'
 import TarjetaMascota from "@/components/mascotasCard/mascotasCard";
+import FiltrosMascotas from "@/components/filtrosMascotas/filtrosMascotas";
 
 export default function Mascotas() {
     return (
         <main className='container'>
             <div>
-               AQUI MUESTRO TAS LAS MASCOTAS Y VAN LOS FILTROS PARA BUSCAR  LAS MASCOTAS POR HACER
+                <FiltrosMascotas></FiltrosMascotas>
             </div>
             <div>
                 <TarjetaMascota></TarjetaMascota>
