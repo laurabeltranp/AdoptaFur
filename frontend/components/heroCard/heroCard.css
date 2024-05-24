@@ -31,9 +31,15 @@
 .card-body:hover {
     background-color: #F99D20;
 }
+
+.card-img-top {
+    height: 224px;
+    object-fit: cover;
+}
+
 .card-img-container {
     width: 100%;
-    height: 256px; /* Altura fija para todas las imágenes */
+    height: 224px; /* Altura fija para todas las imágenes */
     overflow: hidden;
     display: flex;
 }

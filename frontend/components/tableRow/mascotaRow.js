@@ -18,7 +18,7 @@ export const MascotaRow = ({mascota}) => {
                         <td>{mascota.solicitudes}</td>
                         <td>
                             <Button variant="success" href={"/misMascotas/modificarMascota/"+mascota.idMascota} className="mb-2">Modificar</Button>{' '}
-                            <Button variant="secondary" href="/misMascotas/gestionarSolicitudes" className="mb-2">Gestionar Solicitudes</Button>
+                            <Button variant="secondary" href={"/misMascotas/gestionarSolicitudes/"+mascota.idMascota} className="mb-2">Gestionar Solicitudes</Button>
                         </td>
                     </tr>
     );

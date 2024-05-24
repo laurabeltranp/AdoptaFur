@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public record SolicitudDto(Integer id,
-                           String usuario,
+                           PerfilDto usuario,
                            MascotaDto mascota,
                            LocalDateTime fecha,
                            Solicitud.Estado estado,
@@ -17,7 +17,7 @@ public record SolicitudDto(Integer id,
 
     public static SolicitudDto from(Solicitud solicitud) {
         return new SolicitudDto(solicitud.getId(),
-                solicitud.getUsuario().getNombre(),
+                PerfilDto.from(solicitud.getUsuario()),
                 MascotaDto.from(solicitud.getMascota()),
                 solicitud.getFecha(),
                 solicitud.getEstado(),

@@ -27,7 +27,23 @@ public class SolicitudService {
     }
 
     public boolean aceptar(Integer idSolicitud) {
-        return actualizarEstado(idSolicitud, Solicitud.Estado.ACEPTADA);
+        boolean solicitudAceptada = actualizarEstado(idSolicitud, Solicitud.Estado.ACEPTADA);
+
+        if (solicitudAceptada) {
+
+            Solicitud solicitudAceptadaObj = solicitudRepository.findById(idSolicitud)
+                    .orElseThrow(() -> new IllegalArgumentException("Solicitud no encontrada"));
+
+            List<Solicitud> solicitudes = mostrarTodasPorMascota(solicitudAceptadaObj.getMascota());
+
+            for (Solicitud solicitud : solicitudes) {
+                if (!solicitud.getId().equals(idSolicitud)) {
+                    actualizarEstado(solicitud.getId(), Solicitud.Estado.RECHAZADA);
+                }
+            }
+        }
+
+        return solicitudAceptada;
     }
 
     public boolean cancelar(Integer idSolicitud) {

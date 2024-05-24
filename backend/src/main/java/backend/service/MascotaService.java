@@ -109,4 +109,9 @@ public class MascotaService {
         return mascotaRepository.findAllByEstado(EstadoMascota.ADOPTADA);
     }
 
+    public void actualizarEstado(Integer id, EstadoMascota nuevoEstado) {
+        Mascota mascota =mascotaRepository.findById(id).get();
+        mascota.setEstado(nuevoEstado);
+        mascotaRepository.save(mascota);
+    }
 }
