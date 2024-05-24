@@ -25,8 +25,8 @@ export default function InformacionCard({mascota}) {
                         <Row>
                             <Col>
                                 <h5 className="mascota-subtitulo">Raza</h5>
-                                <Card.Text><strong>Nombre:</strong> {mascota.razaDto.nombre}</Card.Text>
-                                <Card.Text><strong>Especie:</strong> {mascota.razaDto.especie}</Card.Text>
+                                <Card.Text><strong>Nombre:</strong> {mascota.razaDto?.nombre}</Card.Text>
+                                <Card.Text><strong>Especie:</strong> {mascota.razaDto?.especie}</Card.Text>
                             </Col>
                             <Col>
                                 <h5 className="mascota-subtitulo">Descripción</h5>

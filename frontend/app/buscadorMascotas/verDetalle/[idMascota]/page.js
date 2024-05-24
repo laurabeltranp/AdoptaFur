@@ -1,7 +1,7 @@
 "use client"
 import React, {useEffect, useState} from 'react'
 import InformacionCard from "@/components/informaciónCard/informacionCard";
-import FormularioSolicitud from "@/components/formularioSolicitud/formularioSolicitud";
+import FormularioSolicitudAlta from "@/components/formularioSolicitud/formularioSolicitudAlta";
 
 export default function DetalleMascota({params}) {
     const [mascota, setMascota] = useState({
@@ -42,7 +42,8 @@ export default function DetalleMascota({params}) {
 
         <main className='container'>
             <InformacionCard mascota={mascota}></InformacionCard>
-            <FormularioSolicitud id={mascota.idMascota}></FormularioSolicitud>
+            <h2 className="mb-4 solicitud-titulo text-center">Solicitar adopción de {mascota.nombre}</h2>
+            <FormularioSolicitudAlta id={mascota.idMascota}></FormularioSolicitudAlta>
         </main>
     )
 }

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Button, Image, Table} from "react-bootstrap";
-import MascotaRow from "@/components/mascotaRow/mascotaRow";
+import React from 'react';
+import {Table} from "react-bootstrap";
+import MascotaRow from "@/components/tableRow/mascotaRow";
 
 export const MascotaTable = ({mascotas}) => {
     return (
