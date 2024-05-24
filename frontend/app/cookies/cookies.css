@@ -1,20 +1,21 @@
 
-  .container {
-    text-align: justify;
-  }
-  .cookie-main {
-    margin-top: 50px;
-  }
+.cookie-main {
+  margin-top: 0;
+}
 
-  
+.container {
+  text-align: justify;
+}
 
-  .card {
-    border: none;
-    border-radius: 15px;
-  }
-  
- 
-  .cookie-main {
-    margin-top: 50px;
-  }
-  
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+.cookie-title {
+  text-align: center;
+}
+
+.cookie-description {
+  line-height: 1.25;
+}

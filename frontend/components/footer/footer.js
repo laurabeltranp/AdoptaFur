@@ -18,7 +18,7 @@ export const Footer = () => {
             <p className="text-light">Adopta a tu compañero de vida</p>
           </div>
           <div className="col-md-3">
-            <h5>Navegación</h5>
+
             <ul className="list-unstyled">
               <li>
                 <a className="text-light text-decoration-none" href="/cookies">
@@ -38,18 +38,10 @@ export const Footer = () => {
                   Aviso legal
                 </a>
               </li>
-              <li>
-                <a
-                  className="text-light text-decoration-none"
-                  href="/accesibilidad"
-                >
-                  Acceso
-                </a>
-              </li>
             </ul>
           </div>
           <div className="col-md-3">
-            <h5>Contacto</h5>
+
             <p>
               <i className="fas fa-envelope me-2"></i>Correo: info@adoptafur.es
             </p>
@@ -58,11 +50,11 @@ export const Footer = () => {
             </p>
           </div>
           <div className="col-md-3">
-            <h5>Redes Sociales</h5>
+
             <ul className="list-unstyled d-flex justify-content-center">
               <li className="me-3">
                 <a
-                  href="https://www.instagram.com/belenjifit/"
+                  href="https://www.instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-decoration-none"
@@ -100,7 +92,7 @@ export const Footer = () => {
               </li>
               <li className="me-3">
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/login?lang=es&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fupload%3Flang%3Des"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-decoration-none"
@@ -140,7 +132,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/?locale=es_ES"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-decoration-none"
