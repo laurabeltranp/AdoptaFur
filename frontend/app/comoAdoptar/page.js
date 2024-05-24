@@ -142,47 +142,48 @@ export default function comoAdoptar() {
       </section>
 
       <section className="seccion5 mb-2">
-        <section className="py-5">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1000 100"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop
-                offset="0%"
-                style={{ stopColor: "rgb(88,213,92)", stopOpacity: 0 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: "rgb(88,213,92)", stopOpacity: 1 }}
-              />
-            </linearGradient>
-            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop
-                offset="0%"
-                style={{ stopColor: "rgb(255,255,255)", stopOpacity: 0 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: "rgb(177,215,182)", stopOpacity: 1 }}
-              />
-            </linearGradient>
-          </defs>
-          <path
-            className="elementor-shape-fill"
-            opacity="0.33"
-            d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"
-            fill="url(#grad1)"
-          ></path>
-          <path
-            className="elementor-shape-fill"
-            opacity="0.66"
-            d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"
-            fill="url(#grad2)"
-          ></path>
-        </svg>
+        <div className="svgArriba">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop
+                  offset="0%"
+                  style={{ stopColor: "rgb(88,213,92)", stopOpacity: 0 }}
+                />
+                <stop
+                  offset="100%"
+                  style={{ stopColor: "rgb(88,213,92)", stopOpacity: 1 }}
+                />
+              </linearGradient>
+              <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop
+                  offset="0%"
+                  style={{ stopColor: "rgb(255,255,255)", stopOpacity: 0 }}
+                />
+                <stop
+                  offset="100%"
+                  style={{ stopColor: "rgb(177,215,182)", stopOpacity: 1 }}
+                />
+              </linearGradient>
+            </defs>
+            <path
+              className="elementor-shape-fill"
+              opacity="0.33"
+              d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"
+              fill="url(#grad1)"
+            ></path>
+            <path
+              className="elementor-shape-fill"
+              opacity="0.66"
+              d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"
+              fill="url(#grad2)"
+            ></path>
+          </svg>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -195,12 +196,24 @@ export default function comoAdoptar() {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Registro en la web</Accordion.Header>
                   <Accordion.Body>
-                    Primero, elige con responsabilidad y conscientemente
-                    sabiendo que estás a punto de recibir un leal compañero para
-                    toda la vida. Ya sea un perro, un gato o un pájaro, desde su
-                    perfil podrás completar nuestro cuestionario o acceder
-                    directamente a él a través del enlace provisto, donde
-                    tendrás la oportunidad de proporcionar varias opciones.
+                    ¡Eh, antes de continuar, asegúrate de elegir con
+                    responsabilidad y tener presente lo que implica traer a casa
+                    un nuevo amiguito peludo, emplumado o de cualquier otro
+                    tipo! Aquí en nuestra comunidad, queremos asegurarnos de que
+                    estés listo para recibir a tu compañero leal para toda la
+                    vida. Ya sea que estés pensando en adoptar un perro, un gato
+                    o incluso un pájaro, desde su perfil podrás completar
+                    nuestro cuestionario o simplemente acceder directamente a
+                    través del <a href="/contacto">aquí</a>. Ahí tendrás la oportunidad de proporcionar
+                    varias opciones y detalles sobre lo que estás buscando. <br></br>¡Ah,
+                    y no te preocupes por tus datos! Nos tomamos muy en serio tu
+                    privacidad y protegemos tus datos con mucho cuidado. Puedes
+                    consultar nuestra <a href="/politica">política de privacidad</a> para obtener
+                    más detalles sobre cómo manejamos la información. Además, si
+                    te interesa conocer más sobre cómo utilizamos las cookies,
+                    puedes echarle un vistazo a nuestra <a href="/cookies">cookies</a>. Y, por supuesto, también puedes consultar
+                    nuestro <a href="/avisoLegal">aviso legal</a> para obtener más información sobre
+                    tus derechos y responsabilidades.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
@@ -208,11 +221,15 @@ export default function comoAdoptar() {
                     Rellenar formulario de solicitud
                   </Accordion.Header>
                   <Accordion.Body>
-                    Una vez rellenado el formualrio nos encargaremos de ponernos
-                    en contacto con usted para resolverle las dudas que pueda
-                    tener y facilitarle todo lo antes posible, también estamos
-                    abiertos a sugerencias a través del mismo formulario. Puedes
-                    rellenar el formulario <a href="/">aquí</a>.
+                    Para solicitar una mascota deberán registrarse en nuestra
+                    página web, para ello deberán poner los datos necesarios.
+                    Una vez se han registrado pueden solicitar la mascota que
+                    deseen. Una vez rellenado el formualrio nos encargaremos de
+                    ponernos en contacto con usted para resolverle las dudas que
+                    pueda tener y facilitarle todo lo antes posible, también
+                    estamos abiertos a sugerencias a través del mismo
+                    formulario. Puedes rellenar el formulario{" "}
+                    <a href="/contacto">aquí</a>.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
@@ -222,11 +239,10 @@ export default function comoAdoptar() {
                     disponibles para adopción se encuentran en esa condición al
                     momento de la visualización. Sin embargo, es posible que
                     algunos de ellos sean adoptados mientras se completa el
-                    proceso de solicitud, recepción y gestión. Debido a que
-                    nuestro trabajo se basa en el voluntariado, no tenemos la
-                    capacidad de conocer en tiempo real todas las adopciones que
-                    se realizan en el día. Agradecemos su comprensión si alguna
-                    de las opciones que considera se vuelve no disponible.
+                    proceso de solicitud, recepción y gestión. una vez se haya
+                    solicitado al aniaml, este pasará a estar "adoptado" que
+                    sería igual a no disponible, si se cancela volverá al estado
+                    de en adopción y podrá adquirirlo un nuevo adoptante.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
@@ -245,8 +261,8 @@ export default function comoAdoptar() {
                     animal no serán óptimas y adecuadas en su nuevo hogar. Así
                     como que el usuario también puede cancelarlo con 15 días de
                     antelación antes de realizar la entrega o recogida del
-                    animal a través de la web en el apartado de solicitud
-                    Gestión de solicitud.
+                    animal a través de la web en el apartado de solicitud Mis
+                    solicitudes - Cancelar.
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
@@ -254,7 +270,7 @@ export default function comoAdoptar() {
           </div>
         </div>
       </section>
-      </section>
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1000 100"

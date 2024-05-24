@@ -58,7 +58,7 @@ const Profile = ({authToken}) => {
     return (
 
         <main className='container'>
-            <div className='bg-light p-5 m-3 rounded'>
+            <div className='bg-light p-5 m-3 rounded mb-5' style={{ background: 'linear-gradient(to bottom right, #A9D3AF, #ffffff)' }}>
                 <h2 className='text-center'>Editar Perfil de {nombre}</h2>
                 <Form onSubmit={modificandoPerfil}>
                     <Form.Group className="mb-3">
@@ -106,7 +106,6 @@ const Profile = ({authToken}) => {
                 </Form>
             </div>
         </main>
-
     );
 };
 

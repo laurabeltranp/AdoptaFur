@@ -29,7 +29,7 @@ export const Registro = () => {
 
     return (
         <main className='container'>
-            <div className='bg-light p-5 rounded m-5'>
+            <div className='bg-light p-5 rounded m-5' style={{background: 'linear-gradient(to bottom right, #A9D3AF, #ffffff)'}}>
                 <h2>Crea una cuenta:</h2>
                 <Form onSubmit={enviandoFormulario}>
                     <Form.Group className="mb-3" >
@@ -87,6 +87,6 @@ export const Registro = () => {
                 </Form>
             </div>
         </main>
-    )
-}
+    );
+};
 export default Registro;
