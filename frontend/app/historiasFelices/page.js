@@ -7,8 +7,8 @@ import Card from "react-bootstrap/Card";
 export default function HistoriasFelices() {
   return (
     <main>
-      <section className="seccion1">
-        <div className="container my-5">
+      <section className="seccion1 start-spacing">
+        <div className="container ">
           <div className="row">
             <div className="col-md-8 offset-md-2 text-center">
               <h2 className="mb-4">Historias Felices</h2>

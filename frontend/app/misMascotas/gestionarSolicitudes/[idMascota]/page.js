@@ -1,10 +1,7 @@
 "use client"
 import React, {useEffect, useState} from 'react'
 import Container from "react-bootstrap/Container";
-import {Button, Col, Form, Image, Row} from "react-bootstrap";
-import RazaSelect from "@/components/selectInput/razaSelect";
 import InformacionCard from "@/components/informaciónCard/informacionCard";
-import SolicitudTable from "@/components/table/solicitudTable";
 import UsuarioSolicitudTable from "@/components/table/usuarioSolicitudTable";
 
 

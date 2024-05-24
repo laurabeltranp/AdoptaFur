@@ -7,8 +7,8 @@ import Image from "next/image";
 export default function SobreNosotros() {
   return (
     <main>
-      <section className="seccion1">
-        <div className="container my-5">
+      <section className="seccion1 start-spacing">
+        <div className="container ">
           <div className="row">
             <div className="col-md-8">
               <h2 className="mb-4">Sobre Nosotros</h2>
@@ -23,7 +23,7 @@ export default function SobreNosotros() {
               <p>Actualmente llevamos entregados en adopción a más de 1.000 animales.</p>
               <p>En AdoptaFur, estamos comprometidos con la transparencia y la integridad, por lo que siempre que hay alguna duda, sugerencia o queja, tanto protectoras como adoptantes pueden ponerse en contacto con nosotros.</p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 my-4">
               <Image src="/sobreNosotros.jpg" width={300} height={242} alt="Equipo" className="img-fluid rounded" />
             </div>
           </div>

@@ -4,7 +4,7 @@ import FiltrosMascotas from "@/components/filtrosMascotas/filtrosMascotas";
 
 export default function Mascotas() {
     return (
-        <main className='container'>
+        <main className='container start-spacing'>
             <div>
                 <FiltrosMascotas></FiltrosMascotas>
             </div>

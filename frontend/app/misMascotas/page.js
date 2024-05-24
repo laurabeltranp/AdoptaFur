@@ -51,14 +51,14 @@ export default function MisMascotas() {
         </svg>
       <div className="content">
           <Container>
-              <h1 className="my-4 text-center">Mascotas de la protectora {localStorage.getItem('nombre')}</h1>
+              <h1 className="text-center">Bienvenido {localStorage.getItem('nombre')}, estás son las mascotas que tienes dadas de alta en AdoptaFur.</h1>
               <div className="">
-                  <Row className="my-2">
-                      <Col md={3}>
+                  <Row className="my-5">
+                      <Col md={4}>
                           <Button href="/misMascotas/altaMascota" variant="primary">Alta Mascota</Button>
                       </Col>
-                      <Col>
-                          <h2>Mascotas buscando una familia</h2>
+                      <Col >
+                          <h2>Mascotas disponibles.</h2>
                       </Col>
                   </Row>
                   <MascotaTable mascotas={mascotasDisponibles}></MascotaTable>

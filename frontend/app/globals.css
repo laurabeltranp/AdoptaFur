@@ -1,7 +1,10 @@
 body {
     margin: 0;
     box-sizing: border-box;
-    padding-top: 136px;
+    padding-top: 80px;
+}
+.start-spacing{
+    padding-top: 100px;
 }
 
 html, body, #__next {
@@ -19,8 +22,9 @@ html, body, #__next {
 }
 
 
-h2 {
+h2,h1 {
     font-weight: 600;
+
 }
 
 .centered-text {
