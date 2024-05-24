@@ -24,12 +24,10 @@
 .carousel.indicator {
   margin-top: 10px;
 }
-.carousel-indicators li {
-  background-color: orange;
-}
 
-.carousel-indicators .active {
-  background-color: darkorange; /* O cualquier variación de naranja que prefieras para el indicador activo */
+.carousel-indicators .active, .carousel-control-next-icon:hover,
+.carousel-control-prev-icon:hover{
+  background-color: darkorange;
 }
 
 .centered-text {
@@ -38,7 +36,7 @@
 
 .card-img-container {
   width: 100%;
-  height: 256px; /* Altura fija para todas las imágenes */
+  height: 256px;
   overflow: hidden;
   display: flex;
 }

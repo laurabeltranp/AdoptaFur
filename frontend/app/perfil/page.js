@@ -57,7 +57,7 @@ const Profile = ({authToken}) => {
 
     return (
 
-        <main className='container'>
+        <main className='container start-spacing'>
             <div className='bg-light p-5 m-3 rounded mb-5' style={{ background: 'linear-gradient(to bottom right, #A9D3AF, #ffffff)' }}>
                 <h2 className='text-center'>Editar Perfil de {nombre}</h2>
                 <Form onSubmit={modificandoPerfil}>

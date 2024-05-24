@@ -7,8 +7,8 @@ import Image from "next/image";
 export default function SobreNosotros() {
   return (
     <main>
-      <section className="seccion1">
-        <div className="container my-5">
+      <section className="seccion1 start-spacing">
+        <div className="container ">
           <div className="row">
             <div className="col-md-8">
               <h2 className="mb-4">Sobre Nosotros</h2>
@@ -23,7 +23,7 @@ export default function SobreNosotros() {
               <p>Actualmente llevamos entregados en adopción a más de 1.000 animales.</p>
               <p>En AdoptaFur, estamos comprometidos con la transparencia y la integridad, por lo que siempre que hay alguna duda, sugerencia o queja, tanto protectoras como adoptantes pueden ponerse en contacto con nosotros.</p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 my-4">
               <Image src="/sobreNosotros.jpg" width={300} height={242} alt="Equipo" className="img-fluid rounded" />
             </div>
           </div>
@@ -71,17 +71,6 @@ export default function SobreNosotros() {
         </div>
       </section>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="grad1" x1="100%" y1="0%" x2="0%" y2="0%">
-            <stop offset="0%" style={{ 'stopColor': 'rgb(88,213,92)', 'stopOpacity': '0' }} />
-            <stop offset="100%" style={{ 'stopColor': 'rgb(88,213,92)', 'stopOpacity': '1' }} />
-          </linearGradient>
-          <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="0%">
-            <stop offset="0%" style={{ 'stopColor': 'rgb(255,255,255)', 'stopOpacity': '0' }} />
-            <stop offset="100%" style={{ 'stopColor': 'rgb(177,215,182)', 'stopOpacity': '1' }} />
-          </linearGradient>
-        </defs>
-        <path className="elementor-shape-fill" opacity="0.33" d="M527,67.3c203.9,88.3,263.1-34,320.3,0c78.8-49.3,144.8-108.7,144.8-108.7V1000H0V451.3 c0,0,62.1-26.1,94.9-29.3c32.8-3.3,62.8,12.3,75.8,22.1c19.5,9.5,80.2,50.4,130.6,54.4c51.5,4.1,244-49.2,263.4-57.5 C945.5,409.5,1000,336,1000,336H0c0,0,9.9,40.9,83.6,48.1C176.9,393.9,211.3,67.3,527,67.3z" fill="url(#grad1)"></path>
         <path className="elementor-shape-fill" opacity="0.66" d="M266,67.3c45.5,0,77.2-23.2,129.1-39.1c28.6-8.7,150.3-10.1,254,39.1 s91.7-34.4,149.2,0C884.3,118.3,1000,39.8,1000,39.8V1000H0V963.5c0,0,28.2-18.5,92.1-18.5C189.8,945.9,224.3,67.3,266,67.3z" fill="url(#grad2)"></path>
       </svg>
     </main >

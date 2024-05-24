@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
-import Image from "next/image";
+import Image from 'react-bootstrap/Image';
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -26,7 +26,7 @@ export const NavBar = () => {
           <Image
             src="/logoAdoptaFondoBlanco.png"
             width={100}
-            height={78}
+            height="auto"
             className="logo-small"
             alt="Logo"
           />

@@ -1,104 +1,127 @@
 "use client"
 import Form from "react-bootstrap/Form";
-import {Col, Row} from "react-bootstrap";
-import {useState} from "react";
+import {Col, FormGroup, Row} from "react-bootstrap";
+import React, {useEffect, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
-
-const provincias = [
-    'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Barcelona',
-    'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'Cuenca',
-    'Girona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 'Huesca', 'Illes Balears', 'Jaén',
-    'La Coruña', 'La Rioja', 'Las Palmas', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia',
-    'Navarra', 'Orense', 'Palencia', 'Pontevedra', 'Salamanca', 'Santa Cruz de Tenerife', 'Segovia',
-    'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza'
-];
+import './filtrosMascotas.css'
 
 const FiltrosMascotas = ({ onFilter }) => {
-    const [especie, setEspecie] = useState({
-        perro: false,
-        gato: false,
-        otro: false
-    });
+    const [especie, setEspecie] = useState('');
     const [provincia, setProvincia] = useState('');
-    const [tamaño, setTamaño] = useState('');
+    const [tamano, setTamano] = useState('');
+    const obteniendoMascotas = async () => {
+        try {
+            const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/' + "?especie=" + especie + "&provincia=" + provincia + "&peso=" + tamano, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                onFilter(data);
+            }
+        } catch (error) {
+        }
+    };
+    useEffect(() => {
+        obteniendoMascotas();
+    }, []);
 
     const handleEspecieChange = (e) => {
-        setEspecie({
-            ...especie,
-            [e.target.name]: e.target.checked
-        });
+        setEspecie(e.target.value);
     };
 
     const handleProvinciaChange = (e) => {
         setProvincia(e.target.value);
     };
 
-    const handleTamañoChange = (e) => {
-        setTamaño(e.target.value);
+    const handleTamanoChange = (e) => {
+        setTamano(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onFilter({ especie, provincia, tamaño });
+        obteniendoMascotas();
     };
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Row className="mb-3">
+            <Row className="mb-3 mb-3 text-center">
                 <Col>
-                    <Form.Label>Especie</Form.Label>
+                    <Form.Group>
+                    <Form.Label className="custom-label">Especie</Form.Label>
+                    <div>
                     <Form.Check
-                        type="checkbox"
+                        inline
+                        type="radio"
+                        label="Todos"
+                        name="especie"
+                        value={""}
+                        defaultChecked={true}
+                        onChange={handleEspecieChange}
+                    />
+                    <Form.Check
+                        inline
+                        type="radio"
                         label="Perro"
-                        name="perro"
-                        checked={especie.perro}
+                        name="especie"
+                        value={"PERRO"}
                         onChange={handleEspecieChange}
                     />
                     <Form.Check
-                        type="checkbox"
+                        inline
+                        type="radio"
                         label="Gato"
-                        name="gato"
-                        checked={especie.gato}
+                        name="especie"
+                        value={"GATO"}
                         onChange={handleEspecieChange}
                     />
                     <Form.Check
-                        type="checkbox"
-                        label="Otro"
-                        name="otro"
-                        checked={especie.otro}
+                        inline
+                        type="radio"
+                        label="Pajaro"
+                        name="especie"
+                        value={"PAJARO"}
                         onChange={handleEspecieChange}
                     />
+                    </div>
+                        </Form.Group>
                 </Col>
                 <Col>
-                    <Form.Label>Provincia</Form.Label>
+                    <FormGroup>
+                    <Form.Label className="custom-label">Provincia</Form.Label>
                     <Form.Control
-                        as="select"
+                        type="text"
+                        placeholder="Introduce una provincia"
                         value={provincia}
                         onChange={handleProvinciaChange}
-                    >
-                        <option value="">Selecciona una provincia</option>
-                        {provincias.map((prov, index) => (
-                            <option key={index} value={prov}>{prov}</option>
-                        ))}
-                    </Form.Control>
+                    />
+                    </FormGroup>
                 </Col>
                 <Col>
-                    <Form.Label>Tamaño</Form.Label>
+                    <FormGroup>
+                    <Form.Label className="custom-label">Tamaño</Form.Label>
                     <Form.Control
                         as="select"
-                        value={tamaño}
-                        onChange={handleTamañoChange}
+                        value={tamano}
+                        onChange={handleTamanoChange}
                     >
                         <option value="">Selecciona un tamaño</option>
-                        <option value="pequeño">Pequeño</option>
-                        <option value="mediano">Mediano</option>
-                        <option value="grande">Grande</option>
+                        <option value="PEQUENA">Pequeño</option>
+                        <option value="MEDIANA">Mediano</option>
+                        <option value="GRANDE">Grande</option>
                     </Form.Control>
+                    </FormGroup>
+                </Col>
+                <Col className="mt-4">
+                    <Button className="d-flex align-items-end" variant="primary" type="submit">
+                        Aplicar filtros
+                    </Button>
                 </Col>
             </Row>
-            <Button variant="primary" type="submit">
-                Aplicar filtros
-            </Button>
+
         </Form>
     );
 };

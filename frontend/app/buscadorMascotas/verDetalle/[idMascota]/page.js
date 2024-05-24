@@ -40,9 +40,9 @@ export default function DetalleMascota({params}) {
 
     return (
 
-        <main className='container'>
-            <InformacionCard mascota={mascota}></InformacionCard>
+        <main className='container start-spacing'>
             <h2 className="mb-4 solicitud-titulo text-center">Solicitar adopción de {mascota.nombre}</h2>
+            <InformacionCard mascota={mascota}></InformacionCard>
             <FormularioSolicitudAlta id={mascota.idMascota}></FormularioSolicitudAlta>
         </main>
     )

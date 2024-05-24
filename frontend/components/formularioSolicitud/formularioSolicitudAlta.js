@@ -66,6 +66,7 @@ export const FormularioSolicitudAlta = ({id}) => {
                     value={solicitud.tipoHogar}
                     onChange={handleChange}
                     className="solicitud-input"
+                    required
                 />
             </Form.Group>
             <Form.Group controlId="alergias">
@@ -76,6 +77,7 @@ export const FormularioSolicitudAlta = ({id}) => {
                     value={solicitud.alergias}
                     onChange={handleChange}
                     className="solicitud-input"
+                    required
                 />
             </Form.Group>
             <Form.Group controlId="familia">
@@ -86,6 +88,7 @@ export const FormularioSolicitudAlta = ({id}) => {
                     value={solicitud.familia}
                     onChange={handleChange}
                     className="solicitud-input"
+                    required
                 />
             </Form.Group>
             <FormGroup className="text-center">

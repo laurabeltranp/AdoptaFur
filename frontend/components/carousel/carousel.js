@@ -27,7 +27,7 @@ export const CustomCarrusel = () => {
         obteniendoMascotas();
     }, []);
     return (
-        <Carousel className="card2">
+        <Carousel className="card2 p-4">
             {mascotas.map((mascota) => {
                 return (
                     <Carousel.Item key={mascota.idMascota}>
@@ -43,7 +43,7 @@ export const CustomCarrusel = () => {
                                             className="card-img-top img-fluid"
                                         />
                                     </div>
-                                    <div className="card-body">
+                                    <div className="card2 m-2">
                                         <h5>{mascota.nombre}</h5>
                                         <p className="card-text"> {mascota.description}</p>
                                     </div>
