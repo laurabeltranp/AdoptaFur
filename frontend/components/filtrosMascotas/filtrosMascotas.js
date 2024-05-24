@@ -1,17 +1,9 @@
 "use client"
 import Form from "react-bootstrap/Form";
-import {Col, Row} from "react-bootstrap";
-import {useState} from "react";
+import {Col, FormGroup, Row} from "react-bootstrap";
+import React, {useState} from "react";
 import Button from "react-bootstrap/esm/Button";
-
-const provincias = [
-    'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Barcelona',
-    'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'Cuenca',
-    'Girona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 'Huesca', 'Illes Balears', 'Jaén',
-    'La Coruña', 'La Rioja', 'Las Palmas', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia',
-    'Navarra', 'Orense', 'Palencia', 'Pontevedra', 'Salamanca', 'Santa Cruz de Tenerife', 'Segovia',
-    'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza'
-];
+import './filtrosMascotas.css'
 
 const FiltrosMascotas = ({ onFilter }) => {
     const [especie, setEspecie] = useState({
@@ -44,10 +36,13 @@ const FiltrosMascotas = ({ onFilter }) => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Row className="mb-3">
+            <Row className="mb-3 mb-3 text-center">
                 <Col>
-                    <Form.Label>Especie</Form.Label>
+                    <Form.Group>
+                    <Form.Label className="custom-label">Especie</Form.Label>
+                    <div>
                     <Form.Check
+                        inline
                         type="checkbox"
                         label="Perro"
                         name="perro"
@@ -55,6 +50,7 @@ const FiltrosMascotas = ({ onFilter }) => {
                         onChange={handleEspecieChange}
                     />
                     <Form.Check
+                        inline
                         type="checkbox"
                         label="Gato"
                         name="gato"
@@ -62,28 +58,30 @@ const FiltrosMascotas = ({ onFilter }) => {
                         onChange={handleEspecieChange}
                     />
                     <Form.Check
+                        inline
                         type="checkbox"
                         label="Otro"
                         name="otro"
                         checked={especie.otro}
                         onChange={handleEspecieChange}
                     />
+                    </div>
+                        </Form.Group>
                 </Col>
                 <Col>
-                    <Form.Label>Provincia</Form.Label>
+                    <FormGroup>
+                    <Form.Label className="custom-label">Provincia</Form.Label>
                     <Form.Control
-                        as="select"
+                        type="text"
+                        placeholder="Introduce una provincia"
                         value={provincia}
                         onChange={handleProvinciaChange}
-                    >
-                        <option value="">Selecciona una provincia</option>
-                        {provincias.map((prov, index) => (
-                            <option key={index} value={prov}>{prov}</option>
-                        ))}
-                    </Form.Control>
+                    />
+                    </FormGroup>
                 </Col>
                 <Col>
-                    <Form.Label>Tamaño</Form.Label>
+                    <FormGroup>
+                    <Form.Label className="custom-label">Tamaño</Form.Label>
                     <Form.Control
                         as="select"
                         value={tamaño}
@@ -94,11 +92,15 @@ const FiltrosMascotas = ({ onFilter }) => {
                         <option value="mediano">Mediano</option>
                         <option value="grande">Grande</option>
                     </Form.Control>
+                    </FormGroup>
+                </Col>
+                <Col className="mt-4">
+                    <Button className="d-flex align-items-end" variant="primary" type="submit">
+                        Aplicar filtros
+                    </Button>
                 </Col>
             </Row>
-            <Button variant="primary" type="submit">
-                Aplicar filtros
-            </Button>
+
         </Form>
     );
 };

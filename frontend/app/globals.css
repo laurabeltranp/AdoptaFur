@@ -31,6 +31,11 @@ h2,h1 {
     text-align: center;
 }
 
+.seccion3{
+    background-color: #d1e8d4;
+}
+
+/*CSS GENERAL DE LOS BOTONES*/
 .btn-primary {
     background-color: #F99D20;
     color: #fff;
@@ -74,31 +79,31 @@ h2,h1 {
     color: #214e22;
 }
 
-.icono-paso svg {
-    width: 50px;
-    height: auto;
-    vertical-align: middle;
+/* CSS GENERAL PARA TODOS LOS FORMS*/
+.form-control {
+    border-color: green;
+    margin-bottom: 8px;
 }
-.seccion3{
-    background-color: #d1e8d4;
+input:hover, select:hover, input:focus, select:focus, input[type="checkbox"]:checked,textarea:hover, textarea:focus {
+    border-color: orange !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 165, 0, 0.5) !important; /* Establecer una sombra de contorno naranja */
 }
-
-.card-box {
-    background-color: #f0f0f0;
-    border-radius: 15px;
-    padding: 20px;
+input[type="checkbox"]:checked, input[type="radio"]:checked{
+    background-color: orange ;
 }
-
-.icon {
-    display: inline-block;
-    margin-right: 10px;
-}
-
 .form-box {
     background-color: #e9ecef;
     border-radius: 15px;
     padding: 20px;
 }
+
+/* CSS GENERAL PARA TODOS LOS SVG*/
 .svgArriba{
     margin-top: 0px;
   }
+
+.icono-paso svg {
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+}
