@@ -28,6 +28,10 @@
   background-color: orange;
 }
 
+.carousel-indicators .active {
+  background-color: darkorange; /* O cualquier variación de naranja que prefieras para el indicador activo */
+}
+
 .centered-text {
   text-align: center;
 }
