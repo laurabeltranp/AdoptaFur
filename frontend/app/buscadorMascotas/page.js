@@ -1,15 +1,18 @@
-import React from 'react'
+"use client"
+
+import React, {useState} from 'react'
 import TarjetaMascota from "@/components/mascotasCard/mascotasCard";
 import FiltrosMascotas from "@/components/filtrosMascotas/filtrosMascotas";
 
 export default function Mascotas() {
+    const [mascotas, setMascotas] = useState([]);
     return (
         <main className='container start-spacing'>
             <div>
-                <FiltrosMascotas></FiltrosMascotas>
+                <FiltrosMascotas onFilter={(mascotas) => setMascotas(mascotas)}></FiltrosMascotas>
             </div>
             <div>
-                <TarjetaMascota></TarjetaMascota>
+                <TarjetaMascota mascotas={mascotas}></TarjetaMascota>
             </div>
         </main>
     )

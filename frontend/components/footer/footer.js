@@ -4,6 +4,7 @@ import Image from "next/image";
 import instagramIcon from '@/public/icons/instagram.svg';
 import tiktokIcon from '@/public/icons/tiktok.svg';
 import facebookIcon from '@/public/icons/facebook.svg';
+import logoAdoptaFondoBlanco from '@/public/logoAdoptaFondoBlanco.png'
 
 export const Footer = () => {
   return (
@@ -12,9 +13,8 @@ export const Footer = () => {
         <div className="row align-items-center">
           <div className="col-md-3">
             <Image
-              src="/logoAdoptaFondoBlanco.png"
-              width={100}
-              height={78}
+              src={logoAdoptaFondoBlanco}
+              priority={true}
               className="logo-small"
               alt="Logo"
             />

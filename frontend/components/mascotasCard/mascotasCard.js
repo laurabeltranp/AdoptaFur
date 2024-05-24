@@ -2,35 +2,11 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import {Col, Container, Row} from "react-bootstrap";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Button from "react-bootstrap/esm/Button";
 import './mascotasCard.css';
 
-function TarjetasMascota() {
-    const [mascotas, setMascotas] = useState([]);
-
-    useEffect(() => {
-
-
-        const obteniendoMascotas = async () => {
-            try {
-                const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + localStorage.getItem('token')
-                    },
-                });
-                if (response.ok) {
-
-                    const data = await response.json();
-                    setMascotas(data);
-                }
-            } catch (error) {
-            }
-        };
-        obteniendoMascotas();
-    }, []);
+function TarjetasMascota({mascotas}) {
     return (
 
         <Container>

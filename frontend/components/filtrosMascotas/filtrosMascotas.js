@@ -1,37 +1,49 @@
 "use client"
 import Form from "react-bootstrap/Form";
 import {Col, FormGroup, Row} from "react-bootstrap";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
 import './filtrosMascotas.css'
 
 const FiltrosMascotas = ({ onFilter }) => {
-    const [especie, setEspecie] = useState({
-        perro: false,
-        gato: false,
-        otro: false
-    });
+    const [especie, setEspecie] = useState('');
     const [provincia, setProvincia] = useState('');
-    const [tamaño, setTamaño] = useState('');
+    const [tamano, setTamano] = useState('');
+    const obteniendoMascotas = async () => {
+        try {
+            const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/' + "?especie=" + especie + "&provincia=" + provincia + "&peso=" + tamano, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                onFilter(data);
+            }
+        } catch (error) {
+        }
+    };
+    useEffect(() => {
+        obteniendoMascotas();
+    }, []);
 
     const handleEspecieChange = (e) => {
-        setEspecie({
-            ...especie,
-            [e.target.name]: e.target.checked
-        });
+        setEspecie(e.target.value);
     };
 
     const handleProvinciaChange = (e) => {
         setProvincia(e.target.value);
     };
 
-    const handleTamañoChange = (e) => {
-        setTamaño(e.target.value);
+    const handleTamanoChange = (e) => {
+        setTamano(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onFilter({ especie, provincia, tamaño });
+        obteniendoMascotas();
     };
 
     return (
@@ -43,26 +55,35 @@ const FiltrosMascotas = ({ onFilter }) => {
                     <div>
                     <Form.Check
                         inline
-                        type="checkbox"
+                        type="radio"
+                        label="Todos"
+                        name="especie"
+                        value={""}
+                        defaultChecked={true}
+                        onChange={handleEspecieChange}
+                    />
+                    <Form.Check
+                        inline
+                        type="radio"
                         label="Perro"
-                        name="perro"
-                        checked={especie.perro}
+                        name="especie"
+                        value={"PERRO"}
                         onChange={handleEspecieChange}
                     />
                     <Form.Check
                         inline
-                        type="checkbox"
+                        type="radio"
                         label="Gato"
-                        name="gato"
-                        checked={especie.gato}
+                        name="especie"
+                        value={"GATO"}
                         onChange={handleEspecieChange}
                     />
                     <Form.Check
                         inline
-                        type="checkbox"
-                        label="Otro"
-                        name="otro"
-                        checked={especie.otro}
+                        type="radio"
+                        label="Pajaro"
+                        name="especie"
+                        value={"PAJARO"}
                         onChange={handleEspecieChange}
                     />
                     </div>
@@ -84,13 +105,13 @@ const FiltrosMascotas = ({ onFilter }) => {
                     <Form.Label className="custom-label">Tamaño</Form.Label>
                     <Form.Control
                         as="select"
-                        value={tamaño}
-                        onChange={handleTamañoChange}
+                        value={tamano}
+                        onChange={handleTamanoChange}
                     >
                         <option value="">Selecciona un tamaño</option>
-                        <option value="pequeño">Pequeño</option>
-                        <option value="mediano">Mediano</option>
-                        <option value="grande">Grande</option>
+                        <option value="PEQUENA">Pequeño</option>
+                        <option value="MEDIANA">Mediano</option>
+                        <option value="GRANDE">Grande</option>
                     </Form.Control>
                     </FormGroup>
                 </Col>
