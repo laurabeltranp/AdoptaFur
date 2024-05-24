@@ -1,11 +1,13 @@
 "use client"
 import React, {useEffect, useState} from 'react'
-import {Table, Button, Container, Image} from 'react-bootstrap';
+import {Table, Button, Container, Image, Row, Col} from 'react-bootstrap';
 import MascotaTable from "@/components/table/mascotaTable";
 
 export default function MisMascotas() {
 
-    const [mascotas, setMascotas] = useState([]);
+    const [mascotasDisponibles, setMascotasDisponibles] = useState([]);
+    const [mascotasBloqueadas, setMascotasBloqueadas] = useState([]);
+    const [mascotasAdoptadas, setMascotasAdoptadas] = useState([]);
 
     useEffect(() => {
 
@@ -21,7 +23,9 @@ export default function MisMascotas() {
                 if (response.ok) {
 
                     const data = await response.json();
-                    setMascotas(data);
+                    setMascotasDisponibles(data.filter((mascota) => mascota.estado === 'DISPONIBLE'));
+                    setMascotasBloqueadas(data.filter((mascota) => mascota.estado === 'BLOQUEADA'));
+                    setMascotasAdoptadas(data.filter((mascota) => mascota.estado === 'ADOPTADA'));
                 }
             } catch (error) {
             }
@@ -32,11 +36,22 @@ export default function MisMascotas() {
     return (
         <div className="content">
             <Container>
-                <h1 className="my-4 text-center">Mis Mascotas.</h1>
-                <div className="my-4 ">
-                    <Button href="/misMascotas/altaMascota" variant="primary">Alta Mascota</Button>
+                <h1 className="my-4 text-center">Mascotas de la protectora {localStorage.getItem('nombre')}</h1>
+                <div className="">
+                    <Row className="my-2">
+                        <Col md={3}>
+                            <Button href="/misMascotas/altaMascota" variant="primary">Alta Mascota</Button>
+                        </Col>
+                        <Col>
+                            <h2>Mascotas buscando una familia</h2>
+                        </Col>
+                    </Row>
+                    <MascotaTable mascotas={mascotasDisponibles}></MascotaTable>
+                    <h2 className="text-center">Mascotas preparandose para buscar una familia</h2>
+                    <MascotaTable mascotas={mascotasBloqueadas}></MascotaTable>
+                    <h2 className="text-center">Mascotas que han encontrado una familia</h2>
+                    <MascotaTable mascotas={mascotasAdoptadas}></MascotaTable>
                 </div>
-                <MascotaTable mascotas={mascotas}></MascotaTable>
             </Container>
         </div>
     )

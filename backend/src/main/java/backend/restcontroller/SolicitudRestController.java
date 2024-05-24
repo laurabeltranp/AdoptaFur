@@ -3,6 +3,7 @@ package backend.restcontroller;
 import backend.dto.AltaSolicitudDto;
 import backend.dto.MensajeDto;
 import backend.dto.SolicitudDto;
+import backend.entity.EstadoMascota;
 import backend.entity.Mascota;
 import backend.entity.Solicitud;
 import backend.entity.Usuario;
@@ -45,13 +46,19 @@ public class SolicitudRestController {
         }
     }
 
-    @PostMapping("/{idSolicitud}/aceptar")
+    @PutMapping("/{idSolicitud}/aceptar")
     public ResponseEntity<?> aceptar(@PathVariable Integer idSolicitud) {
-        if (solicitudService.aceptar(idSolicitud)) {
-            return ResponseEntity.ok().build();
-        } else {
+        Optional<Solicitud> optionalSolicitud = solicitudService.mostrarUna(idSolicitud);
+        if (optionalSolicitud.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
+        if (!solicitudService.aceptar(idSolicitud)) {
+            return ResponseEntity.notFound().build();
+        }
+        Solicitud solicitud = optionalSolicitud.get();
+        Mascota mascota = solicitud.getMascota();
+        mascotaService.actualizarEstado(mascota.getId(), EstadoMascota.ADOPTADA);
+        return ResponseEntity.ok("Solicitud actualizada con exito");
     }
 
     @PostMapping("/{idSolicitud}/cancelar")
@@ -63,7 +70,7 @@ public class SolicitudRestController {
         }
     }
 
-    @PostMapping("/{idSolicitud}/denegar")
+    @PutMapping("/{idSolicitud}/denegar")
     public ResponseEntity<?> denegar(@PathVariable Integer idSolicitud) {
         if (solicitudService.denegar(idSolicitud)) {
             return ResponseEntity.ok().build();

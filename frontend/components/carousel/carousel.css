@@ -19,13 +19,13 @@
 .carousel-control-prev-icon {
   background-color: rgba(0, 0, 0, 0.445);
   margin-top: 50%;
+  border-radius: 10%;
 }
-
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  border-radius: 40%;
-  padding: 2px;
-
+.carousel.indicator {
+  margin-top: 10px;
+}
+.carousel-indicators li {
+  background-color: orange;
 }
 
 .centered-text {
