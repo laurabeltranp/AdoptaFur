@@ -73,10 +73,10 @@ public class SolicitudService {
     }
 
     public Solicitud crear(String email, AltaSolicitudDto altaSolicitudDto) {
-        Usuario usuario =  usuarioService.buscarUno(email).orElse(null);
+        Usuario usuario = usuarioService.buscarUno(email).orElse(null);
         Mascota mascota = mascotaService.mostrarUna(altaSolicitudDto.idMascota()).orElse(null);
 
-        if(usuario == null || mascota == null) {
+        if (usuario == null || mascota == null) {
             return null;
         }
 

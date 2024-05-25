@@ -2,14 +2,11 @@ package backend.service;
 
 import backend.entity.Rol;
 import backend.entity.Usuario;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class UsuarioDetailsImpl implements UserDetails {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private String email;
     private String password;
     @Getter
@@ -43,7 +40,7 @@ public class UsuarioDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-    return List.of(new SimpleGrantedAuthority(rol.getNombre()));
+        return List.of(new SimpleGrantedAuthority(rol.getNombre()));
     }
 
     @Override

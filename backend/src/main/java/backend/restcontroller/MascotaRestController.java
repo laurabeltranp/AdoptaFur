@@ -1,9 +1,12 @@
 package backend.restcontroller;
 
-import java.util.List;
-import java.util.Optional;
-
+import backend.dto.AltaMascotaDto;
+import backend.dto.MascotaDto;
+import backend.dto.PesoFilter;
+import backend.entity.Especie;
+import backend.entity.Mascota;
 import backend.entity.Usuario;
+import backend.service.MascotaService;
 import backend.service.UsuarioDetailsImpl;
 import backend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import backend.dto.AltaMascotaDto;
-import backend.dto.MascotaDto;
-import backend.dto.PesoFilter;
-import backend.entity.Especie;
-import backend.entity.Mascota;
-import backend.service.MascotaService;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -72,7 +71,7 @@ public class MascotaRestController {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Optional<Mascota> mascotaOptional = mascotaService.mostrarUna(mascotaDto.getIdMascota());
 
-        if ( mascotaOptional.isEmpty() || !mascotaOptional.get().getProtectora().getEmail().equals(userDetails.getUsername())) {
+        if (mascotaOptional.isEmpty() || !mascotaOptional.get().getProtectora().getEmail().equals(userDetails.getUsername())) {
             return ResponseEntity.badRequest().build();
         }
 

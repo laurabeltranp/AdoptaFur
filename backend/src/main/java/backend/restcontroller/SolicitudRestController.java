@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -42,7 +41,7 @@ public class SolicitudRestController {
 
         Optional<Solicitud> solicitud = solicitudService.mostrarUna(idSolicitud);
         if (solicitud.isPresent()) {
-            if(!solicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
+            if (!solicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
                 return ResponseEntity.badRequest().build();
             }
             return ResponseEntity.ok(SolicitudDto.from(solicitud.get()));
@@ -59,7 +58,7 @@ public class SolicitudRestController {
         if (optionalSolicitud.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        if(!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
+        if (!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
             return ResponseEntity.badRequest().build();
         }
         if (!solicitudService.aceptar(idSolicitud)) {
@@ -79,7 +78,7 @@ public class SolicitudRestController {
         if (optionalSolicitud.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        if(!optionalSolicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
+        if (!optionalSolicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
             return ResponseEntity.badRequest().build();
         }
 
@@ -98,7 +97,7 @@ public class SolicitudRestController {
         if (optionalSolicitud.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        if(!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
+        if (!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
             return ResponseEntity.badRequest().build();
         }
         if (solicitudService.denegar(idSolicitud)) {
@@ -126,7 +125,7 @@ public class SolicitudRestController {
     public ResponseEntity<?> verTodasPorMascotas(Authentication authentication, @PathVariable Integer idMascota) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Mascota mascota = mascotaService.mostrarUna(idMascota).get();
-        if(mascota.getProtectora().getEmail().equals(userDetails.getUsername())) {
+        if (mascota.getProtectora().getEmail().equals(userDetails.getUsername())) {
             return ResponseEntity.ok(SolicitudDto.from(solicitudService.mostrarTodasPorMascota(mascota)));
         }
         return ResponseEntity.badRequest().build();
@@ -136,7 +135,7 @@ public class SolicitudRestController {
     public ResponseEntity<?> modificarSolicitud(Authentication authentication, @RequestBody SolicitudDto solicitudDto) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Solicitud solicitud = solicitudService.mostrarUna(solicitudDto.id()).get();
-        if(solicitud.getUsuario().getEmail().equals(userDetails.getUsername())) {
+        if (solicitud.getUsuario().getEmail().equals(userDetails.getUsername())) {
             solicitud.setTipoHogar(solicitudDto.tipoHogar());
             solicitud.setAlergias(solicitudDto.alergias());
             solicitud.setFamilia(solicitudDto.familia());

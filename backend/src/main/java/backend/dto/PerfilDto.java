@@ -4,6 +4,7 @@ import backend.entity.Usuario;
 import lombok.Value;
 
 import java.time.LocalDate;
+
 @Value
 public class PerfilDto {
     private String email;
@@ -17,6 +18,6 @@ public class PerfilDto {
     public static PerfilDto from(Usuario usuario) {
         return new PerfilDto(usuario.getEmail(), usuario.getNombre(), usuario.getApellidos(),
                 usuario.getTelefono(), usuario.getCumpleanio(), usuario.getProvincia(), usuario.getDescription()
-                );
+        );
     }
 }

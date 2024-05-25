@@ -4,8 +4,8 @@ import backend.configuration.JwtUtils;
 import backend.dto.*;
 import backend.entity.Rol;
 import backend.entity.Usuario;
-import backend.service.UsuarioDetailsImpl;
 import backend.service.RolService;
+import backend.service.UsuarioDetailsImpl;
 import backend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,15 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Optional;
 
 @RestController
@@ -43,7 +39,7 @@ public class UsuarioRestController {
     @PostMapping("/alta")
     public ResponseEntity<?> registerUser(@RequestBody UsuarioDto usuarioDto) {
 
-        if(usuarioService.existeUsuarioConCorreo(usuarioDto.getEmail())){
+        if (usuarioService.existeUsuarioConCorreo(usuarioDto.getEmail())) {
             return ResponseEntity
                     .badRequest()
                     .body(new MensajeDto("Error: Email is already in use!"));
@@ -67,10 +63,10 @@ public class UsuarioRestController {
     }
 
     @GetMapping("/perfil")
-    public ResponseEntity<?> mostrarUn(Authentication authentication){
+    public ResponseEntity<?> mostrarUn(Authentication authentication) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Optional<Usuario> usuario = usuarioService.buscarUno(userDetails.getUsername());
-        if(usuario.isPresent()){
+        if (usuario.isPresent()) {
             return ResponseEntity.ok(PerfilDto.from(usuario.get()));
         } else {
             return ResponseEntity.notFound().build();
@@ -81,7 +77,7 @@ public class UsuarioRestController {
     public ResponseEntity<?> modificar(Authentication authentication, @RequestBody PerfilDto perfilDto) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Optional<Usuario> usuarioOptional = usuarioService.buscarUno(userDetails.getUsername());
-        if (usuarioOptional.isPresent()){
+        if (usuarioOptional.isPresent()) {
             Usuario usuario = usuarioOptional.get();
             usuario.setNombre(perfilDto.getNombre());
             usuario.setApellidos(perfilDto.getApellidos());

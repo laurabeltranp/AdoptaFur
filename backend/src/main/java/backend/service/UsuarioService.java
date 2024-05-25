@@ -13,7 +13,7 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    public boolean existeUsuarioConCorreo (String email){
+    public boolean existeUsuarioConCorreo(String email) {
         return usuarioRepository.existsById(email);
     }
 
@@ -27,6 +27,6 @@ public class UsuarioService {
     }
 
     public void modificar(Usuario usuario) {
-         usuarioRepository.save(usuario);
+        usuarioRepository.save(usuario);
     }
 }

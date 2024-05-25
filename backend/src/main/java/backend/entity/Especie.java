@@ -1,5 +1,5 @@
 package backend.entity;
 
 public enum Especie {
-	PERRO, GATO, PAJARO
+    PERRO, GATO, PAJARO
 }

@@ -19,7 +19,7 @@ public class RazaRestController {
     RazaService razaService;
 
     @GetMapping("/{especie}")
-    public ResponseEntity<?> mostrarRazasPorEspecie(@PathVariable Especie especie){
+    public ResponseEntity<?> mostrarRazasPorEspecie(@PathVariable Especie especie) {
 
         return ResponseEntity.ok(RazaDto.from(razaService.mostrarRazasPorEspecie(especie)));
     }
@@ -27,9 +27,9 @@ public class RazaRestController {
     @GetMapping("/verUna/{idRaza}")
     public ResponseEntity<?> mostrarUna(@PathVariable Integer idRaza) {
         Optional<Raza> raza = razaService.mostrarUna(idRaza);
-        if(raza.isPresent()){
+        if (raza.isPresent()) {
             return ResponseEntity.ok(RazaDto.from(raza.get()));
-        }else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
