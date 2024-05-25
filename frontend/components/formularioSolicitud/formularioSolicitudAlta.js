@@ -52,6 +52,7 @@ export const FormularioSolicitudAlta = ({id}) => {
                 alert('Error al enviar la solicitud');
             }
         } catch (error) {
+            alert('Error al enviar la solicitud');
             console.error(error);
         }
     };
