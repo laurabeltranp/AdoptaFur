@@ -1,5 +1,4 @@
-USE
-`adoptafur`;
+USE `adoptafur`;
 
 INSERT INTO `usuarios`
 VALUES ('ana@ana', 'ana', '1991-01-15', '2', _binary '1', 'ada',
