@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react'
 import InformacionCard from "@/components/informaciónCard/informacionCard";
 import FormularioSolicitudAlta from "@/components/formularioSolicitud/formularioSolicitudAlta";
+import Guard from "@/components/guard/guard";
 
 export default function DetalleMascota({params}) {
     const [mascota, setMascota] = useState({
@@ -41,9 +42,16 @@ export default function DetalleMascota({params}) {
     return (
 
         <main className='container start-spacing'>
-            <h2 className="mb-4 solicitud-titulo text-center">Solicitar adopción de {mascota.nombre}</h2>
+            <Guard requiredRoles={["Usuario","Anonymous"]}>
+                <h2 className="mb-4 solicitud-titulo text-center">Solicitar adopción de {mascota.nombre}</h2>
+            </Guard>
+            <Guard requiredRoles={["Protectora"]}>
+                <h2 className="mb-4 solicitud-titulo text-center">Información de {mascota.nombre}</h2>
+            </Guard>
             <InformacionCard mascota={mascota}></InformacionCard>
-            <FormularioSolicitudAlta id={mascota.idMascota}></FormularioSolicitudAlta>
+            <Guard requiredRoles={["Usuario","Anonymous"]}>
+                <FormularioSolicitudAlta id={mascota.idMascota}></FormularioSolicitudAlta>
+            </Guard>
         </main>
     )
 }

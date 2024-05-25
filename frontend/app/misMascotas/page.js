@@ -61,11 +61,11 @@ export default function MisMascotas() {
                           <h2>Mascotas disponibles.</h2>
                       </Col>
                   </Row>
-                  <MascotaTable mascotas={mascotasDisponibles}></MascotaTable>
+                  <MascotaTable mascotas={mascotasDisponibles} mostrarAcciones={true}></MascotaTable>
                   <h2 className="text-center">Mascotas preparandose para buscar una familia</h2>
-                  <MascotaTable mascotas={mascotasBloqueadas}></MascotaTable>
+                  <MascotaTable mascotas={mascotasBloqueadas} mostrarAcciones={true}></MascotaTable>
                   <h2 className="text-center">Mascotas que han encontrado una familia</h2>
-                  <MascotaTable mascotas={mascotasAdoptadas}></MascotaTable>
+                  <MascotaTable mascotas={mascotasAdoptadas} mostrarAcciones={false}></MascotaTable>
               </div>
           </Container>
       </div>

@@ -73,7 +73,7 @@ export default function GestionarSolicitudes({params}) {
     }, [mascota.idMascota]);
 
     return (
-        <Container>
+        <Container className="start-spacing">
             <InformacionCard mascota={mascota}></InformacionCard>
             <h2 className="my-4 text-center">Solicitudes por gestionar de {mascota.nombre}.</h2>
             <UsuarioSolicitudTable solicitudes={solicitudesPendientes} mostrarAcciones={true}></UsuarioSolicitudTable>

@@ -38,6 +38,8 @@ const Acceso = () => {
             localStorage.setItem('perfil', rolDto.nombre);
             localStorage.setItem('tokenExpiration', tokenExpiration);
             window.location.href = '/';
+        } else {
+            alert("Usuario o contraseña incorrectos")
         }
     };
 
@@ -90,11 +92,11 @@ const Acceso = () => {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" >
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control type="text" placeholder="correo@correo.es" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <Form.Control required type="text" placeholder="correo@correo.es" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                <Form.Control required type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </Form.Group>
                             <div className="text-center">
                                 <Button type="submit">Entrar</Button>

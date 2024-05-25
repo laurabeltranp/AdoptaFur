@@ -91,7 +91,7 @@ export default function ModificarMascota({params}) {
                                 <Form.Select aria-label="estado" required value={mascota.estado} className="mb-3"
                                              onChange={(e) => setMascota((prevState) => ({
                                                  ...prevState,
-                                                 especie: e.target.value
+                                                 estado: e.target.value
                                              }))}>
                                     <option
                                         value='DISPONIBLE'>DISPONIBLE
@@ -181,6 +181,7 @@ export default function ModificarMascota({params}) {
                                 <Row>
                                     <Col>
                                         <Image
+                                            alt={mascota.nombre}
                                             className="mb-3"
                                             src={mascota.foto}
                                             style={{width: '72px', height: '72px'}}

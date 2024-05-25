@@ -40,7 +40,7 @@ export default function Home() {
           <Herocardgrid mascotas={mascotas}></Herocardgrid>
 
           <div className="col-md-12 text-center">
-            <a href="/mascotas" className="btn btn-primary">
+            <a href="/buscadorMascotas" className="btn btn-primary">
               Busca más compañeros
             </a>
           </div>

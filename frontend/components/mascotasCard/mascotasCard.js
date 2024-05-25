@@ -5,6 +5,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import React from "react";
 import Button from "react-bootstrap/esm/Button";
 import './mascotasCard.css';
+import Guard from "@/components/guard/guard";
 
 function TarjetasMascota({mascotas}) {
     return (
@@ -35,9 +36,11 @@ function TarjetasMascota({mascotas}) {
                                         {mascota.description}
                                     </ListGroup.Item>
                                 </ListGroup>
-                                <Button className="mt-auto" href={"/buscadorMascotas/verDetalle/" + mascota.idMascota}>
-                                    Solicitar Adopción
-                                </Button>
+                                <Guard requiredRoles={["Usuario","Anonymous"]}>
+                                    <Button className="mt-auto" href={"/buscadorMascotas/verDetalle/" + mascota.idMascota}>
+                                        Solicitar Adopción
+                                    </Button>
+                                </Guard>
                             </Card.Body>
                         </Card>
                     </Col>

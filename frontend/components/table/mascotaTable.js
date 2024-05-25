@@ -2,7 +2,7 @@ import React from 'react';
 import {Table} from "react-bootstrap";
 import MascotaRow from "@/components/tableRow/mascotaRow";
 
-export const MascotaTable = ({mascotas}) => {
+export const MascotaTable = ({mascotas, mostrarAcciones}) => {
     return (
         <Table striped bordered hover responsive>
             <thead>
@@ -14,14 +14,19 @@ export const MascotaTable = ({mascotas}) => {
                 <th>Peso</th>
                 <th>Provincia</th>
                 <th>Solicitudes Recibidas</th>
-                <th>Acciones</th>
+                {mostrarAcciones ? (
+                    <>
+                        <th>Acciones</th>
+                    </>
+                ) : null}
             </tr>
             </thead>
             <tbody>
             {mascotas.map((mascota) => {
                 return (
-                        <MascotaRow key={mascota.id+mascota.nombre} mascota = {mascota}></MascotaRow>
-                    )
+                    <MascotaRow key={mascota.id + mascota.nombre} mascota={mascota}
+                                mostrarAcciones={mostrarAcciones}></MascotaRow>
+                )
 
             })}
             </tbody>

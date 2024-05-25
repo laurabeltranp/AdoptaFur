@@ -10,7 +10,7 @@ const poppins = Poppins({weight:"400", subsets: ["latin"]});
 export default function RootLayout({children}) {
 
     return (
-        <html lang="en">
+        <html lang="es">
         <body className={poppins.className}>
         <UsuarioProvider>
             <div className="main-container">
