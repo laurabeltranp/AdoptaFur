@@ -55,8 +55,8 @@ public class WebSecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/mascotas/", "/mascotas/novedades", "/mascotas/adoptadas", "/mascotas/verUna/**").permitAll()
+                        .requestMatchers( "/raza/**").permitAll()
                         .requestMatchers("/mascotas/alta", "/mascotas/misMascotas", "/mascotas/modificar").hasAnyAuthority("Protectora")
-                        .requestMatchers("/raza/**").hasAnyAuthority("Protectora")
                         .requestMatchers("/solicitud/alta", "/solicitud/**" ).hasAnyAuthority("Protectora", "Usuario")
                         .requestMatchers("/usuario/perfil", "/usuario/modificar" ).hasAnyAuthority("Protectora", "Usuario")
                         .requestMatchers("/usuario/login", "/usuario/alta").permitAll()

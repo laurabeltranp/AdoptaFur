@@ -108,7 +108,6 @@ public class UsuarioRestController {
         UsuarioDetailsImpl usuarioDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Rol rol = usuarioDetails.getRol();
 
-        // Obtener la fecha de vencimiento del token
         Date expirationDate = jwtUtils.getExpirationDateFromJwtToken(jwt);
         long expirationSeconds = expirationDate.getTime() / 1000;
 

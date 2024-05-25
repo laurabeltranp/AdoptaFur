@@ -37,9 +37,14 @@ public class SolicitudRestController {
     }
 
     @GetMapping("/{idSolicitud}")
-    public ResponseEntity<?> verUna(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> verUna(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
         Optional<Solicitud> solicitud = solicitudService.mostrarUna(idSolicitud);
         if (solicitud.isPresent()) {
+            if(!solicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
+                return ResponseEntity.badRequest().build();
+            }
             return ResponseEntity.ok(SolicitudDto.from(solicitud.get()));
         } else {
             return ResponseEntity.notFound().build();
@@ -47,10 +52,15 @@ public class SolicitudRestController {
     }
 
     @PutMapping("/{idSolicitud}/aceptar")
-    public ResponseEntity<?> aceptar(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> aceptar(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
         Optional<Solicitud> optionalSolicitud = solicitudService.mostrarUna(idSolicitud);
         if (optionalSolicitud.isEmpty()) {
             return ResponseEntity.notFound().build();
+        }
+        if(!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
+            return ResponseEntity.badRequest().build();
         }
         if (!solicitudService.aceptar(idSolicitud)) {
             return ResponseEntity.notFound().build();
@@ -58,11 +68,21 @@ public class SolicitudRestController {
         Solicitud solicitud = optionalSolicitud.get();
         Mascota mascota = solicitud.getMascota();
         mascotaService.actualizarEstado(mascota.getId(), EstadoMascota.ADOPTADA);
-        return ResponseEntity.ok("Solicitud actualizada con exito");
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/{idSolicitud}/cancelar")
-    public ResponseEntity<?> cancelar(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> cancelar(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
+        Optional<Solicitud> optionalSolicitud = solicitudService.mostrarUna(idSolicitud);
+        if (optionalSolicitud.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        if(!optionalSolicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
+            return ResponseEntity.badRequest().build();
+        }
+
         if (solicitudService.cancelar(idSolicitud)) {
             return ResponseEntity.ok().build();
         } else {
@@ -71,7 +91,16 @@ public class SolicitudRestController {
     }
 
     @PutMapping("/{idSolicitud}/denegar")
-    public ResponseEntity<?> denegar(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> denegar(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
+        Optional<Solicitud> optionalSolicitud = solicitudService.mostrarUna(idSolicitud);
+        if (optionalSolicitud.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        if(!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
+            return ResponseEntity.badRequest().build();
+        }
         if (solicitudService.denegar(idSolicitud)) {
             return ResponseEntity.ok().build();
         } else {
@@ -100,7 +129,7 @@ public class SolicitudRestController {
         if(mascota.getProtectora().getEmail().equals(userDetails.getUsername())) {
             return ResponseEntity.ok(SolicitudDto.from(solicitudService.mostrarTodasPorMascota(mascota)));
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.badRequest().build();
     }
 
     @PutMapping("/modificar")
@@ -114,6 +143,6 @@ public class SolicitudRestController {
             solicitudService.modificarSolicitud(solicitud);
             return ResponseEntity.ok(new MensajeDto("Solicitud modificada!"));
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.badRequest().build();
     }
 }
