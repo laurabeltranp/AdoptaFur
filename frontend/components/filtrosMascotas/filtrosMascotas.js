@@ -1,7 +1,7 @@
 "use client"
 import Form from "react-bootstrap/Form";
 import {Col, FormGroup, Row} from "react-bootstrap";
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
 import './filtrosMascotas.css'
 
@@ -9,7 +9,7 @@ const FiltrosMascotas = ({ onFilter }) => {
     const [especie, setEspecie] = useState('');
     const [provincia, setProvincia] = useState('');
     const [tamano, setTamano] = useState('');
-    const obteniendoMascotas = async () => {
+    const obteniendoMascotas = useCallback(async () => {
         try {
             const response = await fetch('http://' + window.location.hostname + ':8081/mascotas/' + "?especie=" + especie + "&provincia=" + provincia + "&peso=" + tamano, {
                 method: 'GET',
@@ -23,10 +23,13 @@ const FiltrosMascotas = ({ onFilter }) => {
                 onFilter(data);
             }
         } catch (error) {
+            console.error(error);
         }
-    };
+    }, [especie, provincia, tamano, onFilter]);
+
     useEffect(() => {
         obteniendoMascotas();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleEspecieChange = (e) => {
@@ -115,7 +118,7 @@ const FiltrosMascotas = ({ onFilter }) => {
                     </Form.Control>
                     </FormGroup>
                 </Col>
-                <Col className="mt-4">
+                <Col className="mt-4 " md={2}>
                     <Button className="d-flex align-items-end" variant="primary" type="submit">
                         Aplicar filtros
                     </Button>

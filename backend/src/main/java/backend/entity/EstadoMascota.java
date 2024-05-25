@@ -1,5 +1,5 @@
 package backend.entity;
 
 public enum EstadoMascota {
-	DISPONIBLE, BLOQUEADA, ADOPTADA
+    DISPONIBLE, BLOQUEADA, ADOPTADA
 }

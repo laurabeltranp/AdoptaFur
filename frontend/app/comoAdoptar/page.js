@@ -240,7 +240,7 @@ export default function comoAdoptar() {
                     momento de la visualización. Sin embargo, es posible que
                     algunos de ellos sean adoptados mientras se completa el
                     proceso de solicitud, recepción y gestión. una vez se haya
-                    solicitado al aniaml, este pasará a estar "adoptado" que
+                    solicitado al aniaml, este pasará a estar &quot;adoptado&quot; que
                     sería igual a no disponible, si se cancela volverá al estado
                     de en adopción y podrá adquirirlo un nuevo adoptante.
                   </Accordion.Body>

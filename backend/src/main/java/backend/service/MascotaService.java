@@ -1,20 +1,21 @@
 package backend.service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
+import backend.dto.AltaMascotaDto;
 import backend.dto.MascotaDto;
-import backend.entity.*;
+import backend.entity.Especie;
+import backend.entity.EstadoMascota;
+import backend.entity.Mascota;
+import backend.entity.Usuario;
+import backend.repository.MascotaRepository;
+import backend.repository.RazaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import backend.dto.AltaMascotaDto;
-import backend.repository.MascotaRepository;
-import backend.repository.RazaRepository;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MascotaService {
@@ -110,7 +111,7 @@ public class MascotaService {
     }
 
     public void actualizarEstado(Integer id, EstadoMascota nuevoEstado) {
-        Mascota mascota =mascotaRepository.findById(id).get();
+        Mascota mascota = mascotaRepository.findById(id).get();
         mascota.setEstado(nuevoEstado);
         mascotaRepository.save(mascota);
     }

@@ -1,0 +1,44 @@
+services:
+  mysql:
+    image: mysql:8.4.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: adoptafur
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+    networks:
+      - backend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+    env_file:
+      - ./frontend/.env.local
+
+  backend:
+    build: ./backend
+    ports:
+      - "8081:8081"
+    environment:
+        - DATABASE_HOST=mysql
+        - DATABASE_USER=root
+        - DATABASE_PASSWORD=root
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+    networks:
+      - backend
+
+networks:
+  backend:

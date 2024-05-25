@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -37,9 +36,14 @@ public class SolicitudRestController {
     }
 
     @GetMapping("/{idSolicitud}")
-    public ResponseEntity<?> verUna(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> verUna(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
         Optional<Solicitud> solicitud = solicitudService.mostrarUna(idSolicitud);
         if (solicitud.isPresent()) {
+            if (!solicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
+                return ResponseEntity.badRequest().build();
+            }
             return ResponseEntity.ok(SolicitudDto.from(solicitud.get()));
         } else {
             return ResponseEntity.notFound().build();
@@ -47,10 +51,15 @@ public class SolicitudRestController {
     }
 
     @PutMapping("/{idSolicitud}/aceptar")
-    public ResponseEntity<?> aceptar(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> aceptar(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
         Optional<Solicitud> optionalSolicitud = solicitudService.mostrarUna(idSolicitud);
         if (optionalSolicitud.isEmpty()) {
             return ResponseEntity.notFound().build();
+        }
+        if (!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
+            return ResponseEntity.badRequest().build();
         }
         if (!solicitudService.aceptar(idSolicitud)) {
             return ResponseEntity.notFound().build();
@@ -58,11 +67,21 @@ public class SolicitudRestController {
         Solicitud solicitud = optionalSolicitud.get();
         Mascota mascota = solicitud.getMascota();
         mascotaService.actualizarEstado(mascota.getId(), EstadoMascota.ADOPTADA);
-        return ResponseEntity.ok("Solicitud actualizada con exito");
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/{idSolicitud}/cancelar")
-    public ResponseEntity<?> cancelar(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> cancelar(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
+        Optional<Solicitud> optionalSolicitud = solicitudService.mostrarUna(idSolicitud);
+        if (optionalSolicitud.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        if (!optionalSolicitud.get().getUsuario().getEmail().equals(userDetails.getUsername())) {
+            return ResponseEntity.badRequest().build();
+        }
+
         if (solicitudService.cancelar(idSolicitud)) {
             return ResponseEntity.ok().build();
         } else {
@@ -71,7 +90,16 @@ public class SolicitudRestController {
     }
 
     @PutMapping("/{idSolicitud}/denegar")
-    public ResponseEntity<?> denegar(@PathVariable Integer idSolicitud) {
+    public ResponseEntity<?> denegar(Authentication authentication, @PathVariable Integer idSolicitud) {
+        UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
+
+        Optional<Solicitud> optionalSolicitud = solicitudService.mostrarUna(idSolicitud);
+        if (optionalSolicitud.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        if (!optionalSolicitud.get().getMascota().getProtectora().getEmail().equals(userDetails.getUsername())) {
+            return ResponseEntity.badRequest().build();
+        }
         if (solicitudService.denegar(idSolicitud)) {
             return ResponseEntity.ok().build();
         } else {
@@ -97,23 +125,23 @@ public class SolicitudRestController {
     public ResponseEntity<?> verTodasPorMascotas(Authentication authentication, @PathVariable Integer idMascota) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Mascota mascota = mascotaService.mostrarUna(idMascota).get();
-        if(mascota.getProtectora().getEmail().equals(userDetails.getUsername())) {
+        if (mascota.getProtectora().getEmail().equals(userDetails.getUsername())) {
             return ResponseEntity.ok(SolicitudDto.from(solicitudService.mostrarTodasPorMascota(mascota)));
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.badRequest().build();
     }
 
     @PutMapping("/modificar")
     public ResponseEntity<?> modificarSolicitud(Authentication authentication, @RequestBody SolicitudDto solicitudDto) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
         Solicitud solicitud = solicitudService.mostrarUna(solicitudDto.id()).get();
-        if(solicitud.getUsuario().getEmail().equals(userDetails.getUsername())) {
+        if (solicitud.getUsuario().getEmail().equals(userDetails.getUsername())) {
             solicitud.setTipoHogar(solicitudDto.tipoHogar());
             solicitud.setAlergias(solicitudDto.alergias());
             solicitud.setFamilia(solicitudDto.familia());
             solicitudService.modificarSolicitud(solicitud);
             return ResponseEntity.ok(new MensajeDto("Solicitud modificada!"));
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.badRequest().build();
     }
 }
