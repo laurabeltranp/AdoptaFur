@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.Optional;
 
+/**
+ * Controlador REST para gestionar usuarios.
+ */
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/usuario")
@@ -35,7 +38,12 @@ public class UsuarioRestController {
     @Autowired
     JwtUtils jwtUtils;
 
-
+    /**
+     * Registra un nuevo usuario.
+     *
+     * @param usuarioDto el objeto DTO que contiene los detalles del usuario
+     * @return una entidad de respuesta con un mensaje de éxito o error
+     */
     @PostMapping("/alta")
     public ResponseEntity<?> registerUser(@RequestBody UsuarioDto usuarioDto) {
 
@@ -62,6 +70,12 @@ public class UsuarioRestController {
         return ResponseEntity.ok(new MensajeDto("User registered successfully!"));
     }
 
+    /**
+     * Muestra el perfil de un usuario.
+     *
+     * @param authentication el objeto de autenticación del usuario
+     * @return una entidad de respuesta con el perfil del usuario o un estado 404 si no se encuentra
+     */
     @GetMapping("/perfil")
     public ResponseEntity<?> mostrarUn(Authentication authentication) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
@@ -73,6 +87,13 @@ public class UsuarioRestController {
         }
     }
 
+    /**
+     * Modifica los detalles de un usuario.
+     *
+     * @param authentication el objeto de autenticación del usuario
+     * @param perfilDto el objeto DTO que contiene los nuevos detalles del perfil
+     * @return una entidad de respuesta con un mensaje de éxito o un estado 404 si no se encuentra
+     */
     @PutMapping("/modificar")
     public ResponseEntity<?> modificar(Authentication authentication, @RequestBody PerfilDto perfilDto) {
         UsuarioDetailsImpl userDetails = (UsuarioDetailsImpl) authentication.getPrincipal();
@@ -92,6 +113,12 @@ public class UsuarioRestController {
         }
     }
 
+    /**
+     * Autentica el login de un usuario.
+     *
+     * @param peticionDeLoginDto el objeto DTO que contiene los detalles de login del usuario
+     * @return una entidad de respuesta con el token JWT y los detalles del usuario autenticado
+     */
     @PostMapping("/login")
     public ResponseEntity<?> autenticandoLogin(@RequestBody PeticionDeLoginDto peticionDeLoginDto) {
 

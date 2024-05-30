@@ -17,6 +17,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Servicio para gestionar las operaciones relacionadas con las mascotas.
+ */
 @Service
 public class MascotaService {
 
@@ -29,6 +32,14 @@ public class MascotaService {
     @Autowired
     private RazaService razaService;
 
+    /**
+     * Muestra las mascotas disponibles para adopción, filtradas opcionalmente por especie, provincia y peso.
+     *
+     * @param especie la especie de la mascota (opcional)
+     * @param provincia la provincia donde se encuentra la mascota (opcional)
+     * @param peso el filtro de peso (opcional)
+     * @return una lista de mascotas disponibles
+     */
     public List<Mascota> mostrarDisponibles(Especie especie, String provincia, Pair<Integer, Integer> peso) {
         if (especie != null) {
             if (peso != null) {
@@ -66,6 +77,13 @@ public class MascotaService {
         }
     }
 
+    /**
+     * Da de alta una nueva mascota.
+     *
+     * @param altaMascotaDto los datos de la mascota a dar de alta
+     * @param usuario el usuario que da de alta la mascota
+     * @return true si la mascota se dio de alta correctamente, false en caso contrario
+     */
     public boolean alta(AltaMascotaDto altaMascotaDto, Usuario usuario) {
         Mascota mascota = new Mascota();
         mascota.setNombre(altaMascotaDto.getNombre());
@@ -82,14 +100,32 @@ public class MascotaService {
         return mascotaRepository.save(mascota) != null;
     }
 
+    /**
+     * Muestra una mascota específica por su ID.
+     *
+     * @param idMascota el ID de la mascota
+     * @return un Optional que contiene la mascota si se encuentra
+     */
     public Optional<Mascota> mostrarUna(Integer idMascota) {
         return mascotaRepository.findById(idMascota);
     }
 
+    /**
+     * Muestra las mascotas del usuario dado su email.
+     *
+     * @param emailProtectora el email del usuario
+     * @return una lista de mascotas del usuario
+     */
     public List<Mascota> mostrarMisMascotas(String emailProtectora) {
         return mascotaRepository.findAllByProtectoraEmail(emailProtectora);
     }
 
+    /**
+     * Modifica los datos de una mascota.
+     *
+     * @param mascotaDto los datos de la mascota a modificar
+     * @return true si la mascota se modificó correctamente, false en caso contrario
+     */
     public boolean modificar(MascotaDto mascotaDto) {
         Mascota mascota = mascotaRepository.findById(mascotaDto.getIdMascota()).get();
         mascota.setNombre(mascotaDto.getNombre());
@@ -102,14 +138,30 @@ public class MascotaService {
         return mascotaRepository.save(mascota) != null;
     }
 
+    /**
+     * Muestra las últimas mascotas añadidas.
+     *
+     * @return una lista de las últimas mascotas
+     */
     public List<Mascota> mostrarUltimasMascotas() {
         return mascotaRepository.findTop8ByEstadoOrderByFechaAltaDesc(EstadoMascota.DISPONIBLE);
     }
 
+    /**
+     * Muestra las mascotas adoptadas.
+     *
+     * @return una lista de las mascotas adoptadas
+     */
     public List<Mascota> mostrarAdoptadas() {
         return mascotaRepository.findAllByEstado(EstadoMascota.ADOPTADA);
     }
 
+    /**
+     * Actualiza el estado de una mascota.
+     *
+     * @param id el ID de la mascota
+     * @param nuevoEstado el nuevo estado de la mascota
+     */
     public void actualizarEstado(Integer id, EstadoMascota nuevoEstado) {
         Mascota mascota = mascotaRepository.findById(id).get();
         mascota.setEstado(nuevoEstado);

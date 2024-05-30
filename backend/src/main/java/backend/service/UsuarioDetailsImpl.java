@@ -11,6 +11,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Implementación de UserDetails para representar los detalles del usuario.
+ */
 @EqualsAndHashCode
 public class UsuarioDetailsImpl implements UserDetails {
 
@@ -22,6 +25,14 @@ public class UsuarioDetailsImpl implements UserDetails {
     @Getter
     private Rol rol;
 
+    /**
+     * Constructor de UsuarioDetailsImpl.
+     *
+     * @param email    el email del usuario
+     * @param password la contraseña del usuario
+     * @param nombre   el nombre del usuario
+     * @param rol      el rol del usuario
+     */
     public UsuarioDetailsImpl(String email, String password, String nombre,
                               Rol rol) {
         this.nombre = nombre;
@@ -30,6 +41,12 @@ public class UsuarioDetailsImpl implements UserDetails {
         this.rol = rol;
     }
 
+    /**
+     * Método estático para construir un objeto UsuarioDetailsImpl a partir de un objeto Usuario.
+     *
+     * @param usuario el usuario del cual se obtendrán los detalles
+     * @return un objeto UsuarioDetailsImpl
+     */
     public static UsuarioDetailsImpl build(Usuario usuario) {
         return new UsuarioDetailsImpl(
                 usuario.getEmail(),
